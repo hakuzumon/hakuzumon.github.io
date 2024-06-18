@@ -10,3 +10,10 @@ p + p {
 p a {
     text-decoration: underline;
 }
+
+blockquote {
+    margin: 16px;
+    font-style: italic;
+    border-left: 2px solid #585812;
+    padding-left: 16px;
+}
