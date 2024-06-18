@@ -243,7 +243,7 @@ export default function Customers() {
         <div>
             <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
                 <For each={customers}>{(customer) =>
-                    <div class="m-4 flex gap-8">
+                    <div class="p-4 rounded-2xl m-4 flex gap-8 bg-gradient-to-br from-15% from-white to-orange-50">
                         <div class="shrink-0 w-[200px] flex justify-center">
                             {customer.logo}
                         </div>
