@@ -13,14 +13,33 @@ const customers: FeaturedCustomer[] = [
     {
         name: "Varo",
         logo: <a href="http://tukes.fi" target="_blank"><img width="112" height="40" src="img/logo_tukes.png"/></a>,
-        brief: <p>Tukesin VARO-rekisteriin kerätään tietoa vaarallisiin kemikaaleihin, painelaitteisiin, kaivoksiin, sähkölaitteistoihin ja -laitteisiin sekä hisseihin liittyvistä onnettomuuksista ja vaaratilanteista. Tukesin edeltäjä Teknillinen tarkastuskeskus kehitti VARO-rekisterin viranomaiskäyttöön. VAROsta löytyy mm. tietoja kaivosonnettomuuksista vuodesta 1972 lähtien ja kuolemaan johtaneista sähkötapaturmista vuodesta 1980 alkaen.</p>,
+        brief: <p>Tukesin VARO-rekisteriin kerätään tietoa vaarallisiin kemikaaleihin, painelaitteisiin, kaivoksiin,
+            sähkölaitteistoihin ja -laitteisiin sekä hisseihin liittyvistä onnettomuuksista ja vaaratilanteista. Tukesin
+            edeltäjä Teknillinen tarkastuskeskus kehitti VARO-rekisterin viranomaiskäyttöön. VAROsta löytyy mm. tietoja
+            kaivosonnettomuuksista vuodesta 1972 lähtien ja kuolemaan johtaneista sähkötapaturmista vuodesta 1980
+            alkaen.</p>,
         extended: <>
-            Saimme projektin aluksi käyttöömme alustavan määrittelyn, johon oli koottu tapauksiin liittyviä tietoja sekä korkealla tasolla hahmoteltuna muutamia näyttöjä. Asiakkaan saatesanat - "älkää nyt ainakaan tällaista siitä tehkö" - mielessämme lähdimme aktiivisesti selvittämään, minkälainen tietomalli VARO-tapausten taustalle kannattaisi rakentaa ja kuinka niiden kirjaamisesta sekä selaamisesta tehtäisiin nopeaa ja käyttäjälle selkeää. Lyhyet sprintit yhdessä säännöllisten määrittelytyöpajojen tuottivat pian käyttöliittymästä minimaalisen, toiminnallisen version. Sen avulla yksityiskohtia, tietosisällön sisällä piileviä oletuksia ja käyttäjien luontaisia työtapoja oli helppo selvittää. Kehittyvän järjestelmän kautta pystyimme myös haastamaan asiakasta sellaisten toimintojen osalta, joihin uskoimme olevan totuttuihin työskentelymalleihin verrattuna tehokkaampia vaihtoehtoja. Loppuvaiheessa viimeiset yksityiskohdat selvitettiin järjestelmätestauksen yhteydessä on site customer -periaatteella. Tämä osoittautui tehokkaaksi tavaksi, jota suosittelemme käytettäväksi toistekin.
+            <p>Saimme projektin aluksi käyttöömme alustavan määrittelyn, johon oli koottu tapauksiin liittyviä tietoja
+                sekä korkealla tasolla hahmoteltuna muutamia näyttöjä. Asiakkaan saatesanat - "älkää nyt ainakaan
+                tällaista siitä tehkö" - mielessämme lähdimme aktiivisesti selvittämään, minkälainen tietomalli
+                VARO-tapausten taustalle kannattaisi rakentaa ja kuinka niiden kirjaamisesta sekä selaamisesta
+                tehtäisiin nopeaa ja käyttäjälle selkeää. Lyhyet sprintit yhdessä säännöllisten määrittelytyöpajojen
+                tuottivat pian käyttöliittymästä minimaalisen, toiminnallisen version. Sen avulla yksityiskohtia,
+                tietosisällön sisällä piileviä oletuksia ja käyttäjien luontaisia työtapoja oli helppo selvittää.
+                Kehittyvän järjestelmän kautta pystyimme myös haastamaan asiakasta sellaisten toimintojen osalta, joihin
+                uskoimme olevan totuttuihin työskentelymalleihin verrattuna tehokkaampia vaihtoehtoja. Loppuvaiheessa
+                viimeiset yksityiskohdat selvitettiin järjestelmätestauksen yhteydessä on site customer -periaatteella.
+                Tämä osoittautui tehokkaaksi tavaksi, jota suosittelemme käytettäväksi toistekin.</p>
             <p>
-                Vanhan aineiston muuntaminen uuden tietomallin mukaiseen muotoon oli merkittävä osa työstä. Rekisterin pitkä historia ja lukuisat aiemmin tehdyt muutokset lisäsivät tähän oman mausteensa. Tapauksia yksityiskohtineen oli niin paljon, ettei muunnoksen osittainenkaan tekeminen käsityönä ollut mielekäs vaihtoehto. Siksi loimme erillisen työkalun, joka luki vanhan tietokannan sisällön ja sovittujen sääntöjen mukaisesti kirjoitti sen uuteen kantaan.
+                Vanhan aineiston muuntaminen uuden tietomallin mukaiseen muotoon oli merkittävä osa työstä. Rekisterin
+                pitkä historia ja lukuisat aiemmin tehdyt muutokset lisäsivät tähän oman mausteensa. Tapauksia
+                yksityiskohtineen oli niin paljon, ettei muunnoksen osittainenkaan tekeminen käsityönä ollut mielekäs
+                vaihtoehto. Siksi loimme erillisen työkalun, joka luki vanhan tietokannan sisällön ja sovittujen
+                sääntöjen mukaisesti kirjoitti sen uuteen kantaan.
             </p>
             <p>
-                Projekti sisälsi myös yksinkertaisia perusraportteja tapauksista sekä rajattua tietosisältöä näyttävän julkisen palvelun.
+                Projekti sisälsi myös yksinkertaisia perusraportteja tapauksista sekä rajattua tietosisältöä näyttävän
+                julkisen palvelun.
             </p>
         </>,
         platforms: ["Web"],
@@ -28,7 +47,8 @@ const customers: FeaturedCustomer[] = [
     },
     {
         name: "Innolink",
-        logo: <a href="http://innolinkresearch.fi" target="_blank"><img width="180" height="44" src="img/innolink_logo.jpg"/></a>,
+        logo: <a href="http://innolinkresearch.fi" target="_blank"><img width="180" height="44"
+                                                                        src="img/innolink_logo.jpg"/></a>,
         brief: <p>Evident toteutti Innolinkille tuotannon automatisoinnin, jonka tarkoituksena on nopeuttaa
             läpimenoaikoja, vähentää prosessin virhemahdollisuuksia ja alentaa tuotannon kustannuksia. Automatisointi
             sisältää sekä vaativia asiantuntijatyön tukitoimintoja että alihankkijoiden ja myyntikanavien saumatonta
@@ -54,7 +74,8 @@ const customers: FeaturedCustomer[] = [
     },
     {
         name: "Kansalliskirjasto",
-        logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100" src="img/kansalliskirjastologo_fi.gif"/></a>,
+        logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
+                                                                              src="img/kansalliskirjastologo_fi.gif"/></a>,
         brief: <p>
             Päivitimme Kansalliskirjaston digitoitujen aineistojen palvelun yhteistyössä Gofore Oy:n kanssa.
             Digitoitujen aineistojen kirjastossa (digi.kansalliskirjasto.fi) on julkisesti saatavilla sanomalehtiä,
@@ -86,7 +107,7 @@ const customers: FeaturedCustomer[] = [
             Medistreamer-työpöytäsovellus. Medistreamerin avulla lääkäri voi ottaa ja tallentaa potilaasta
             lääketieteellisiä kuvia ja videoita sekä lähettää ne Dicom-standardin mukaisesti ulkoiseen järjestelmään.
         </p>
-            <span>Virmed Oy:n toimitusjohtaja Ville Wuotila:</span>
+            <p>Virmed Oy:n toimitusjohtaja Ville Wuotila:</p>
             <blockquote>
                 Yhteistyö Evidentin kanssa on toiminut paremmin kuin osasimme edes toivoa. Olemme tehneet yhteistyötä
                 aiemminkin softatalojen kanssa ja missään ei ole ollut niin nopeita vasteaikoja muutospyynnöille ja
@@ -187,13 +208,13 @@ function TechsPanel(props: TechsProps) {
     return (
         <div class="text-sm">
             <div class="space-x-2 text-end">
-                
+
                 <For each={props.platforms}>{tech =>
                     <span class="text-sm rounded-2xl bg-red-700 px-2 py-1 text-white">{tech}</span>
                 }</For></div>
 
             <div class="space-x-2 mt-3 text-end">
-                
+
                 <For each={props.techs}>{tech =>
                     <span class="text-sm rounded-2xl bg-lime-200 px-2 py-1 text-black">{tech}</span>
                 }</For></div>
@@ -230,14 +251,14 @@ export default function Customers() {
                             <div class="text-lg">{customer.name}</div>
                             <div>
                                 <div>{customer.brief}</div>
-                                <DetailsPanel markup={customer.extended}></DetailsPanel>
+                                <div class="mt-4">{customer.extended}</div>
                             </div>
                             <TechsPanel platforms={customer.platforms} techs={customer.techs}></TechsPanel>
                         </div>
                     </div>
                 }</For>
             </div>
-            
+
             <OtherCustomers></OtherCustomers>
         </div>
     )
@@ -267,7 +288,7 @@ function OtherCustomers() {
         <div class="text-white pt-8 pb-8 bg-gradient-to-tr from-stone-900 to-slate-800">
             <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
                 <h2 class="text-2xl">Asiakkaat ja yhteistyökumppanit</h2>
-                
+
                 <div class="grid grid-cols-2 gap-8">
                     <For each={otherCustomers}>{(other) =>
                         <div class="w-full">
