@@ -1,5 +1,6 @@
 import {useLocation} from "@solidjs/router";
 import {For} from "solid-js";
+import {A} from "@solidjs/router";
 
 interface Link {
     url: string,
@@ -23,7 +24,7 @@ export default function Nav() {
         <nav class="bg-[#585812]">
             <div class="container flex items-center text-white px-10">
                 <For each={links}>{(link) =>
-                    <a class={`${item} ${active(link.url)}`} href={link.url}>{link.label}</a>
+                    <A class={`${item} ${active(link.url)}`} href={link.url}>{link.label}</A>
                 }</For>
             </div>
         </nav>
