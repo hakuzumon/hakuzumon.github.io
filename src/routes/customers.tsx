@@ -258,45 +258,6 @@ export default function Customers() {
                     </div>
                 }</For>
             </div>
-
-            <OtherCustomers></OtherCustomers>
-        </div>
-    )
-}
-
-interface OtherCustomer {
-    name: string;
-    url: string;
-}
-
-const otherCustomers = [
-    {name: "Emtele", url: "https://www.emtele.com/"},
-    {name: "Oikeusministeriö", url: "https://oikeusministerio.fi/fi/"},
-    {name: "Solutive Oy", url: "https://www.solutive.fi"},
-    {name: "Atostek", url: "https://www.atostek.fi"},
-    {name: "Citrus", url: "https://www.citrus.fi"},
-    {name: "Mattersoft", url: "http://www.mattersoft.fi"},
-    {name: "Finitec", url: "http://www.finitec.fi"},
-    {name: "Gofore", url: "https://www.gofore.fi"},
-    {name: "Cinia", url: "https://www.cinia.fi"},
-    {name: "SilverBucket", url: "https://www.silverbucket.fi"},
-    {name: "Thth Ry", url: "http://www.ththry.org"},
-];
-
-function OtherCustomers() {
-    return (
-        <div class="text-white pt-8 pb-8 bg-gradient-to-tr from-stone-900 to-slate-800">
-            <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
-                <h2 class="text-2xl">Asiakkaat ja yhteistyökumppanit</h2>
-
-                <div class="grid grid-cols-2 gap-8">
-                    <For each={otherCustomers}>{(other) =>
-                        <div class="w-full">
-                            <a href={other.url}>{other.name}</a>
-                        </div>
-                    }</For>
-                </div>
-            </div>
         </div>
     )
 }
