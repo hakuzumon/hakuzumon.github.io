@@ -1,8 +1,10 @@
 import {For, JSXElement} from "solid-js";
+import HoverableImage from "~/components/HoverableImage";
 
 interface Dude {
     name: string;
     picture: string;
+    hoverPicture?: string;
     title: string;
     description: JSXElement;
     imgCss?: string;
@@ -24,7 +26,8 @@ const personnel: Dude[] = [
     {
         name: "Juha Komulainen",
         title: "Arkkitehti",
-        picture: "img/faces/komu_small.jpg",
+        picture: "img/faces/komu2_small.jpg",
+        hoverPicture: "img/faces/komu_small.jpg",
         description: <>
             <p>Olen kokenut ohjelmistoarkkitehti Tampereelta. Koodaaminen on ollut osa elämääni jo lapsuudesta asti.
                 Vuodesta 2001 asti olen toiminut ammattilaisena, suunnitellen ja toteuttaen monipuolisia
@@ -80,10 +83,16 @@ export default function Personnel() {
     return (
         <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
             <For each={personnel}>{(person) =>
-                <div class="m-4 flex space-x-8">
+                <div class="m-4 flex gap-8">
                     <div class="shrink-0">
                         <div class="space-y-1 pt-1.5">
-                            <img src={person.picture} alt={person.name} width="200" class={"rounded saturate-50 " + person.imgCss}/>
+                            <HoverableImage
+                                main={person.picture}
+                                hover={person.hoverPicture}
+                                alt={person.name}
+                                width={200}
+                                cssClass={"rounded saturate-50 " + person.imgCss}
+                            ></HoverableImage>
                             <div class="text-end text-xl pt-4">{person.name}</div>
                             <div class="text-end">{person.title}</div>
                         </div>
