@@ -75,7 +75,7 @@ export default function Personnel() {
                 <div class="m-4 flex space-x-8">
                     <div class="shrink-0">
                         <div class="space-y-1 pt-1.5">
-                            <img src={person.picture} alt={person.name}/>
+                            <img src={person.picture} alt={person.name} class="rounded saturate-50"/>
                             <div class="text-end text-xl pt-4">{person.name}</div>
                             <div class="text-end">{person.title}</div>
                         </div>

@@ -6,11 +6,12 @@ interface Project {
     description: JSXElement;
     github?: string;
 }
+const imgClass = "rounded-full saturate-50";
 
 const projects: Project[] = [
     {
         name: "Dalesbred",
-        logo: <div><img width="128" height="128" src="img/dalesbred-logo.jpg" alt="Dalesbred"/></div>,
+        logo: <div><img width="128" height="128" src="img/dalesbred-logo.jpg" alt="Dalesbred" class={imgClass}/></div>,
         description: <>
             <p>Dalesbred yksinkertaistaa tietokantojen käyttöä Java-ohjelmissa. Dalesbredin takana on ajatus siitä,
                 että SQL itsessään on hyvä tapa käyttää tietokantoja, mutta JDBC-rajapinta tuottaa tarpeetonta tuskaa.
@@ -21,7 +22,7 @@ const projects: Project[] = [
     },
     {
         name: "Lokki",
-        logo: <div><img width="128" height="128" src="img/lokki-logo.jpg" alt="Lokki"/></div>,
+        logo: <div><img width="128" height="128" src="img/lokki-logo.jpg" alt="Lokki" class={imgClass}/></div>,
         description: <>
             <p>Lokki tekee lokalisoinnista yksinkertaista ja staattisesti tyypitettyä. Lokin inspiraationa
                 on GWT:n lokalisaatiomekanismi, mutta Lokilla ei ole ulkoisia riippuvuuksia joten sitä voi
@@ -32,7 +33,7 @@ const projects: Project[] = [
     },
     {
         name: "Voikko Analysis for Elasticsearch",
-        logo: <div><img width="128" height="128" src="img/elasticsearch-analysis-voikko-logo.jpg"
+        logo: <div><img width="128" height="128" src="img/elasticsearch-analysis-voikko-logo.jpg" class={imgClass}
                         alt="Voikko Analysis for Elasticsearch"/></div>,
         description: <>
             <p><a href="http://voikko.puimula.org/">Voikkoon</a> perustuva suomen kielen analyysi <a href="https://www.elastic.co/">Elasticsearch</a>-hakupalvelimelle.</p>
