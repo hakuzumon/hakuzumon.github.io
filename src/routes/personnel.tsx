@@ -42,7 +42,7 @@ const personnel: Dude[] = [
     {
         name: "Aki Loponen",
         title: "Ohjelmistokaiffari",
-        picture: "img/faces/aki-loponen-1.jpg",
+        picture: "img/faces/aloponen_small.jpg",
         imgCss: "brightness-200",
         description: "Minulle mieluisin ohjelmistokehityksen pelipaikka ja rooli on keskikentällä kolmen neljänneksen taiteilijana ja toki noin kahdenkymmenen vuoden rypistys alalla on totuttanut pelaamaan paikkaa kuin paikkaa. Peliälyä ja -silmää riittää. Vähän tikitakaa, luovaa hulluutta ja sen jälkeen veräjän säppi kiinni ja nostaan maljaa."
     },
