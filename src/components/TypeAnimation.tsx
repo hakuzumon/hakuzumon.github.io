@@ -3,6 +3,8 @@ import {createSignal} from "solid-js";
 interface TypeSimulationProps {
     text: string;
     initialDelayMs?: number;
+    typingDelayMs?: number;
+    showPromptInitially?: boolean;
 }
 
 export default function TypeAnimation(props: TypeSimulationProps) {
@@ -10,7 +12,7 @@ export default function TypeAnimation(props: TypeSimulationProps) {
     const [prompt, setPrompt] = createSignal(false);
     
     const promptDelay = 250;
-    const typeDelay = 75;
+    const typeDelay = props.typingDelayMs ?? 75;
     const target = props.text;
     let index = -1;
 
@@ -28,12 +30,13 @@ export default function TypeAnimation(props: TypeSimulationProps) {
     }
 
     setTimeout(() => {
+        setPrompt(true);
         setTimeout(() => {
             updateText();
         }, promptDelay);
-    }, props.initialDelayMs || promptDelay);
+    }, props.initialDelayMs ?? promptDelay);
     
-    setPrompt(true);
+    setPrompt(props.showPromptInitially ?? true);
     
     return (
         <span>{text()}<span class="text-amber-500">{prompt() ? '_' : ''}</span></span>
