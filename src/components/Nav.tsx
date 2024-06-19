@@ -16,7 +16,7 @@ export default function Nav() {
         {url: "/", label: "Evident"},
         {url: "/customers", label: "Töitämme"},
         {url: "/personnel", label: "Henkilöstö"},
-        {url: "/opensource", label: "Open source"},
+        {url: "/opensource", label: "Open Source"},
         {url: "/contact", label: "Yhteystiedot"},
     ];
 
