@@ -27,7 +27,6 @@ const projects: Project[] = [
             <p>Lokki tekee lokalisoinnista yksinkertaista ja staattisesti tyypitettyä. Lokin inspiraationa
                 on GWT:n lokalisaatiomekanismi, mutta Lokilla ei ole ulkoisia riippuvuuksia joten sitä voi
                 hyödyntää missä tahansa Java-ohjelmassa.</p>
-            <p><a href="https://github.com/evidentsolutions/lokki">Lokki</a> GitHubissa.</p>
         </>,
         github: "https://github.com/EvidentSolutions/lokki",
     },
@@ -37,8 +36,6 @@ const projects: Project[] = [
                         alt="Voikko Analysis for Elasticsearch"/></div>,
         description: <>
             <p><a href="http://voikko.puimula.org/">Voikkoon</a> perustuva suomen kielen analyysi <a href="https://www.elastic.co/">Elasticsearch</a>-hakupalvelimelle.</p>
-            <p><a href="https://github.com/EvidentSolutions/elasticsearch-analysis-voikko">Voikko Analysis for
-                Elasticsearch</a> GitHubissa.</p>
         </>,
         github: "https://github.com/EvidentSolutions/elasticsearch-analysis-voikko",
     }
@@ -48,14 +45,18 @@ export default function OpenSource() {
     return (
         <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
             <For each={projects}>{(project) =>
-                <div class="m-4 flex space-x-8">
+                <div class="m-4 flex gap-8">
                     <div class="shrink-0 w-[160px] flex justify-center pt-1.5">
                         {project.logo}
                     </div>
                     <div class="w-full">
-                        <div class="text-xl">{project.name}</div>
+                        <div class="text-xl mb-4">{project.name}</div>
                         <div>{project.description}</div>
-                        <p class="text-end"><a href={project.github}>Github</a></p>
+                        <div class="mt-2">
+                            <a href={project.github} target="_blank">
+                                <img src="/img/github-mark.svg" alt="github" width="24" class="inline"/>
+                            </a>    
+                        </div>
                     </div>
                 </div>
             }</For>
