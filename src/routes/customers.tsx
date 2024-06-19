@@ -206,15 +206,15 @@ interface TechsProps {
 
 function TechsPanel(props: TechsProps) {
     return (
-        <div class="text-sm">
+        <div class="text-xs">
             <div class="flex gap-2 flex-wrap justify-end">
                 <For each={props.platforms}>{tech =>
-                    <span class="text-sm rounded-2xl bg-amber-500 px-2 py-1 text-white">{tech}</span>
+                    <span class="rounded-2xl bg-amber-500 px-2 py-1 text-white">{tech}</span>
                 }</For></div>
 
-            <div class="mt-4 flex gap-2 flex-wrap justify-end">
+            <div class="mt-2 flex gap-2 flex-wrap justify-end">
                 <For each={props.techs}>{tech =>
-                    <div class="text-sm rounded-2xl bg-slate-200 px-2 py-1 text-black">{tech}</div>
+                    <div class="rounded-2xl bg-slate-200 px-2 py-1 text-black">{tech}</div>
                 }</For></div>
         </div>
     )
