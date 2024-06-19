@@ -207,16 +207,14 @@ interface TechsProps {
 function TechsPanel(props: TechsProps) {
     return (
         <div class="text-sm">
-            <div class="space-x-2 text-end">
-
+            <div class="flex gap-2 flex-wrap justify-end">
                 <For each={props.platforms}>{tech =>
-                    <span class="text-sm rounded-2xl bg-red-700 px-2 py-1 text-white">{tech}</span>
+                    <span class="text-sm rounded-2xl bg-amber-500 px-2 py-1 text-white">{tech}</span>
                 }</For></div>
 
-            <div class="space-x-2 mt-3 text-end">
-
+            <div class="mt-4 flex gap-2 flex-wrap justify-end">
                 <For each={props.techs}>{tech =>
-                    <span class="text-sm rounded-2xl bg-lime-200 px-2 py-1 text-black">{tech}</span>
+                    <div class="text-sm rounded-2xl bg-slate-200 px-2 py-1 text-black">{tech}</div>
                 }</For></div>
         </div>
     )
@@ -243,9 +241,9 @@ export default function Customers() {
         <div>
             <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
                 <For each={customers}>{(customer) =>
-                    <div class="p-4 rounded-2xl m-4 flex gap-8 bg-gradient-to-br from-15% from-white to-orange-50">
-                        <div class="shrink-0 w-[200px] flex justify-center">
-                            {customer.logo}
+                    <div class="p-4 rounded-2xl m-4 flex gap-8">
+                        <div class="shrink-0 w-[200px] flex flex-col">
+                            <div class="self-center pb-8">{customer.logo}</div>
                         </div>
                         <div class="flex flex-col gap-4">
                             <div class="text-lg">{customer.name}</div>
@@ -253,6 +251,7 @@ export default function Customers() {
                                 <div>{customer.brief}</div>
                                 <div class="mt-4">{customer.extended}</div>
                             </div>
+
                             <TechsPanel platforms={customer.platforms} techs={customer.techs}></TechsPanel>
                         </div>
                     </div>
