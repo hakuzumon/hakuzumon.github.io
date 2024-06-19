@@ -10,8 +10,8 @@ interface Link {
 export default function Nav() {
     const location = useLocation();
     const active = (path: string) =>
-        path == location.pathname ? "bg-[#898a1f]" : "";
-    const item: string = "p-2 pt-8 pb-2";
+        path == location.pathname ? "bg-amber-800" : "";
+    const item: string = "p-4 pt-8 pb-2";
     const links: Link[] = [
         {url: "/", label: "Evident"},
         {url: "/customers", label: "Töitämme"},
@@ -21,8 +21,8 @@ export default function Nav() {
     ];
 
     return (
-        <nav class="bg-[#585812]">
-            <div class="container flex items-center text-white px-10">
+        <nav class="bg-gradient-to-tr from-stone-900 to-stone-800">
+            <div class="container flex items-center text-white px-10 font-light">
                 <For each={links}>{(link) =>
                     <A class={`${item} ${active(link.url)}`} href={link.url}>{link.label}</A>
                 }</For>
