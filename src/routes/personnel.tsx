@@ -5,6 +5,7 @@ interface Dude {
     picture: string;
     title: string;
     description: JSXElement;
+    imgCss?: string;
 }
 
 const personnel: Dude[] = [
@@ -34,6 +35,13 @@ const personnel: Dude[] = [
             <p>Julkisia projektejani löydät sivuiltani <a href="https://komu.dev">komu.dev</a> ja <a
                 href="https://github.com/komu">GitHubista</a>.</p>
         </>
+    },
+    {
+        name: "Aki Loponen",
+        title: "Ohjelmistokaiffari",
+        picture: "img/faces/aki-loponen-1.jpg",
+        imgCss: "brightness-200",
+        description: "Minulle mieluisin ohjelmistokehityksen pelipaikka ja rooli on keskikentällä kolmen neljänneksen taiteilijana ja toki noin kahdenkymmenen vuoden rypistys alalla on totuttanut pelaamaan paikkaa kuin paikkaa. Peliälyä ja -silmää riittää. Vähän tikitakaa, luovaa hulluutta ja sen jälkeen veräjän säppi kiinni ja nostaan maljaa."
     },
     {
         name: "Janne Mäki",
@@ -75,7 +83,7 @@ export default function Personnel() {
                 <div class="m-4 flex space-x-8">
                     <div class="shrink-0">
                         <div class="space-y-1 pt-1.5">
-                            <img src={person.picture} alt={person.name} class="rounded saturate-50"/>
+                            <img src={person.picture} alt={person.name} width="200" class={"rounded saturate-50 " + person.imgCss}/>
                             <div class="text-end text-xl pt-4">{person.name}</div>
                             <div class="text-end">{person.title}</div>
                         </div>
