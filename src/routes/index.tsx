@@ -5,7 +5,7 @@ import {For} from "solid-js";
 export default function Home() {
     return (
         <div>
-            <div class="m-16 font-light max-w-screen-md mx-auto min-h-screen">
+            <div class="m-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
                 <div class="text-7xl h-100">
                     <TypeAnimation text={"evident."} initialDelayMs={400}></TypeAnimation>
                 </div>
@@ -20,8 +20,10 @@ export default function Home() {
                                    typingDelayMs={25}></TypeAnimation>
                 </div>
             </div>
-
+            
             <OtherCustomers></OtherCustomers>
+            
+            <Footer></Footer>
         </div>
     );
 }
@@ -48,17 +50,29 @@ const otherCustomers: OtherCustomer[] = [
 
 function OtherCustomers() {
     return (
-        <div class="text-white pt-8 pb-8 bg-gradient-to-tr from-stone-900 to-slate-800">
-            <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
-                <h2 class="text-2xl">Asiakkaat ja yhteistyökumppanit</h2>
+        <div class="text-black/70 font-light">
+            <div class="pt-64 pb-64 flex flex-col gap-16 max-w-screen-md mx-auto border-t border-amber-500">
+                <h2 class="text-2xl text-center">Asiakkaita ja yhteistyökumppaneita</h2>
 
                 <div class="grid grid-cols-2 gap-8">
                     <For each={otherCustomers}>{(other) =>
-                        <div class="w-full text-lg">
+                        <div class="w-full text-lg text-center">
                             <a href={other.url}>{other.name}</a>
                         </div>
                     }</For>
                 </div>
+            </div>
+        </div>
+    )
+}
+
+function Footer() {
+    const year = new Date().getFullYear();
+    
+    return (
+        <div class="text-white/70 pt-8 pb-8 bg-gradient-to-tr from-stone-900 to-slate-800">
+            <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto text-center">
+                &copy; Evident Solutions Oy {year}
             </div>
         </div>
     )
