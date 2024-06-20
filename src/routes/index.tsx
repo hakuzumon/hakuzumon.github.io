@@ -73,7 +73,7 @@ function Affiliates() {
                             <a href={other.url} target="_blank">
                                 <Show when={!!other.image}>
                                     <img src={other.image} alt={other.name} 
-                                         class="grayscale opacity-55 min-w-48 max-w-64 max-h-24"/>    
+                                         class="grayscale opacity-55 min-w-32 w-52 max-w-full max-h-24"/>    
                                 </Show>
                                 <Show when={!other.image}>
                                     {other.name}
