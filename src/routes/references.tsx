@@ -164,7 +164,7 @@ const references: FeaturedCustomer[] = [
 
             <p>Lue lisää tuotteesta: <a href="http://runteq.com/">Runteq.com</a></p>
         </>,
-        platforms: ["Web", "Mobile"],
+        platforms: ["Web + Mobile"],
         techs: ["Android", "Java", "Octave", "GWT", "PostgreSQL", "HTML5"]
     },
     {
@@ -210,9 +210,7 @@ function TechsPanel(props: TechsProps) {
             <div class="flex gap-2 flex-wrap justify-end">
                 <For each={props.platforms}>{tech =>
                     <span class="rounded-2xl bg-amber-500 px-2 py-1 text-white">{tech}</span>
-                }</For></div>
-
-            <div class="mt-2 flex gap-2 flex-wrap justify-end">
+                }</For>
                 <For each={props.techs}>{tech =>
                     <div class="rounded-2xl bg-slate-200 px-2 py-1 text-black">{tech}</div>
                 }</For></div>
@@ -236,7 +234,7 @@ function DetailsPanel(props: DetailsProps) {
     )
 }
 
-export default function Customers() {
+export default function References() {
     return (
         <div>
             <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
