@@ -1,0 +1,21 @@
+
+.box {
+    animation: exposeFrame 1s linear;
+    background: transparent;
+    height: 400px;
+    width: 100%;
+    border: 3px solid orange;
+}
+
+@keyframes exposeFrame {
+    0% { clip-path: polygon(1% 1%, 1% 99%, 99% 99%, 99% 1%); }
+    5% { clip-path: polygon(0% 1%, 1% 99%, 99% 99%, 99% 1%); }
+    20% { clip-path: polygon(0% 1%, 0% 99%, 99% 99%, 99% 1%); }
+    25% { clip-path: polygon(0% 1%, 0% 100%, 99% 99%, 99% 1%); }
+    40% { clip-path: polygon(0% 1%, 0% 100%, 99% 100%, 99% 1%); }
+    45% { clip-path: polygon(0% 1%, 0% 100%, 100% 100%, 99% 1%); }
+    60% { clip-path: polygon(0% 1%, 0% 100%, 100% 100%, 100% 1%); }
+    65% { clip-path: polygon(0% 1%, 0% 100%, 100% 100%, 100% 0%); }
+    80% { clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%); }
+    100% { clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%); }
+}

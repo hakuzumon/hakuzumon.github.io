@@ -1,5 +1,7 @@
 import TypeAnimation from "~/components/TypeAnimation";
 import {For} from "solid-js";
+import AnimatedBox from "~/components/AnimatedBox";
+import {DelayedVisibility} from "~/components/DelayedVisibility";
 
 // TODO chained rendering instead of fixed delays
 export default function Home() {
@@ -18,6 +20,12 @@ export default function Home() {
                                    initialDelayMs={2600}
                                    showPromptInitially={false}
                                    typingDelayMs={25}></TypeAnimation>
+                </div>
+                
+                <div class="mt-64 mx-auto">
+                    <DelayedVisibility delayMs={4500}>
+                        <AnimatedBox></AnimatedBox>
+                    </DelayedVisibility>
                 </div>
             </div>
             
