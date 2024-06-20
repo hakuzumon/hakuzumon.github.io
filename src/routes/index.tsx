@@ -91,7 +91,7 @@ function Footer() {
     const year = new Date().getFullYear();
     
     return (
-        <div class="text-white/70 pt-8 pb-8 bg-gradient-to-tr from-stone-900 to-slate-800">
+        <div class="text-white/70 pt-8 pb-8 bg-gradient-to-tr from-stone-900 to-stone-800">
             <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto text-center">
                 &copy; Evident Solutions Oy {year}
             </div>
