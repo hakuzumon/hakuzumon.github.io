@@ -1,5 +1,5 @@
 import TypeAnimation from "~/components/TypeAnimation";
-import {For} from "solid-js";
+import {For, Show} from "solid-js";
 import AnimatedBox from "~/components/AnimatedBox";
 import {DelayedVisibility} from "~/components/DelayedVisibility";
 
@@ -29,7 +29,7 @@ export default function Home() {
                 </div>
             </div>
             
-            <OtherCustomers></OtherCustomers>
+            <Affiliates></Affiliates>
             
             <Footer></Footer>
         </div>
@@ -40,32 +40,40 @@ export default function Home() {
 interface OtherCustomer {
     name: string;
     url: string;
+    image?: string;
 }
 
 const otherCustomers: OtherCustomer[] = [
-    {name: "Emtele", url: "https://www.emtele.com/"},
-    {name: "Oikeusministeriö", url: "https://oikeusministerio.fi/fi/"},
-    {name: "Solutive Oy", url: "https://www.solutive.fi"},
-    {name: "Atostek", url: "https://www.atostek.fi"},
-    {name: "Citrus", url: "https://www.citrus.fi"},
-    {name: "Mattersoft", url: "http://www.mattersoft.fi"},
-    {name: "Finitec", url: "http://www.finitec.fi"},
-    {name: "Gofore", url: "https://www.gofore.fi"},
-    {name: "Cinia", url: "https://www.cinia.fi"},
-    {name: "SilverBucket", url: "https://www.silverbucket.fi"},
-    {name: "Thth Ry", url: "http://www.ththry.org"},
+    {name: "Emtele", url: "https://www.emtele.com/", image: "/img/affiliates/emtele-automation.png"},
+    {name: "Oikeusministeriö", url: "https://oikeusministerio.fi/fi/", image: "/img/affiliates/oikeusministerio.svg"},
+    {name: "Atostek", url: "https://www.atostek.fi", image: "/img/affiliates/atostek.png"},
+    {name: "Citrus", url: "https://www.citrus.fi", image: "/img/affiliates/citrus.svg"},
+    {name: "Mattersoft", url: "http://www.mattersoft.fi", image: "/img/affiliates/mattersoft.png"},
+    {name: "Finitec", url: "http://www.finitec.fi", image: "/img/affiliates/finitec.svg"},
+    {name: "Gofore", url: "https://www.gofore.fi", image: "/img/affiliates/gofore.svg"},
+    {name: "Cinia", url: "https://www.cinia.fi", image: "/img/affiliates/cinia.svg"},
+    {name: "SilverBucket", url: "https://www.silverbucket.com", image: "/img/affiliates/Silverbucket.svg"},
+    {name: "Thth Ry", url: "http://www.ththry.org", image: "/img/affiliates/thth_ry.svg"},
 ];
 
-function OtherCustomers() {
+function Affiliates() {
     return (
         <div class="text-black/70 font-light">
             <div class="pt-64 pb-64 flex flex-col gap-16 max-w-screen-md mx-auto border-t border-amber-500">
                 <h2 class="text-2xl text-center">Asiakkaita ja yhteistyökumppaneita</h2>
 
-                <div class="grid grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 items-center">
                     <For each={otherCustomers}>{(other) =>
-                        <div class="w-full text-lg text-center">
-                            <a href={other.url}>{other.name}</a>
+                        <div class="text-lg mx-auto">
+                            <a href={other.url} target="_blank">
+                                <Show when={!!other.image}>
+                                    <img src={other.image} alt={other.name} 
+                                         class="grayscale opacity-50 min-w-48 max-h-10"/>    
+                                </Show>
+                                <Show when={!other.image}>
+                                    {other.name}
+                                </Show>
+                            </a>
                         </div>
                     }</For>
                 </div>
