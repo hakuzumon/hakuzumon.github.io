@@ -14,7 +14,7 @@ export default function Nav() {
     const item: string = "p-4 pt-8 pb-2";
     const links: Link[] = [
         {url: "/", label: "Evident"},
-        {url: "/customers", label: "Töitämme"},
+        {url: "/references", label: "Töitämme"},
         {url: "/personnel", label: "Henkilöstö"},
         {url: "/opensource", label: "Open Source"},
         {url: "/contact", label: "Yhteystiedot"},

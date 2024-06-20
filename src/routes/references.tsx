@@ -9,7 +9,7 @@ interface FeaturedCustomer {
     techs: string[];
 }
 
-const customers: FeaturedCustomer[] = [
+const references: FeaturedCustomer[] = [
     {
         name: "Varo",
         logo: <a href="http://tukes.fi" target="_blank"><img width="112" height="40" src="img/logo_tukes.png"/></a>,
@@ -240,7 +240,7 @@ export default function Customers() {
     return (
         <div>
             <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
-                <For each={customers}>{(customer) =>
+                <For each={references}>{(customer) =>
                     <div class="p-4 rounded-2xl m-4 flex gap-8">
                         <div class="shrink-0 w-[200px] flex flex-col">
                             <div class="self-center pb-8">{customer.logo}</div>
