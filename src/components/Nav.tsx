@@ -1,6 +1,5 @@
 import {useLocation} from "@solidjs/router";
 import {For} from "solid-js";
-import {A} from "@solidjs/router";
 
 interface Link {
     url: string,
@@ -9,9 +8,7 @@ interface Link {
 
 export default function Nav() {
     const location = useLocation();
-    
     const active = (path: string) => {
-        console.log(path, location.pathname);
         return path == location.pathname ? "bg-amber-800" : "";
     }
     const item: string = "p-4 pt-8 pb-2";
@@ -27,7 +24,7 @@ export default function Nav() {
         <nav class="bg-gradient-to-tr from-stone-900 to-stone-800 sticky top-[-1.5rem] z-10">
             <div class="container flex items-center text-white px-4 md:px-10 font-light overflow-x-scroll">
                 <For each={links}>{(link) =>
-                    <A class={`${item} ${active(link.url)} whitespace-nowrap`} href={link.url}>{link.label}</A>
+                    <a class={`${item} ${active(link.url)} whitespace-nowrap`} href={link.url}>{link.label}</a>
                 }</For>
             </div>
         </nav>
