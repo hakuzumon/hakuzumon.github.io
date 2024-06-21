@@ -43,10 +43,10 @@ const projects: Project[] = [
 
 export default function OpenSource() {
     return (
-        <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
+        <div class="flex flex-col pb-16 md:p-16 font-light max-w-screen-md mx-auto">
             <For each={projects}>{(project) =>
-                <div class="m-4 flex gap-8">
-                    <div class="shrink-0 w-[160px] flex justify-center pt-1.5">
+                <div class="m-4 flex max-sm:flex-col gap-8">
+                    <div class="shrink-0 flex md:w-[160px] md:justify-center pt-1.5">
                         {project.logo}
                     </div>
                     <div class="w-full">

@@ -7,11 +7,11 @@ import {DelayedVisibility} from "~/components/DelayedVisibility";
 export default function Home() {
     return (
         <div>
-            <div class="m-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
+            <div class="p-4 md:p-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
                 <div class="text-7xl h-100">
                     <TypeAnimation text={"evident."} initialDelayMs={400}></TypeAnimation>
                 </div>
-                <div class="text-2xl mt-16">
+                <div class="text-2xl mt-4 md:mt-16">
                     <TypeAnimation text={"Olemme softatalo."}
                                    initialDelayMs={1500}
                                    showPromptInitially={false}
@@ -22,7 +22,7 @@ export default function Home() {
                                    typingDelayMs={25}></TypeAnimation>
                 </div>
                 
-                <div class="mt-64 mx-auto">
+                <div class="mt-8 md:mt-32 mx-auto">
                     <DelayedVisibility delayMs={4500}>
                         <AnimatedBox></AnimatedBox>
                     </DelayedVisibility>

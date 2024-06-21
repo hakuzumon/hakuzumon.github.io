@@ -1,7 +1,7 @@
 export default function Contact() {
     return (
-        <div>
-            <div class="grid grid-cols-2 m-16 font-light max-w-screen-md mx-auto">
+        <div class="p-4 pb-16 md:p-16">
+            <div class="grid md:grid-cols-2 gap-16 pb-16 font-light max-w-screen-md mx-auto">
                 <div>
                     <h2 class="text-xl">Yhteyshenkilöt</h2>
                     <div class="mt-8">

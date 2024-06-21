@@ -81,9 +81,9 @@ const personnel: Dude[] = [
 export default function Personnel() {
 
     return (
-        <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
+        <div class="flex flex-col gap-16 pb-16 md:p-16 font-light max-w-screen-md mx-auto">
             <For each={personnel}>{(person) =>
-                <div class="m-4 flex gap-8">
+                <div class="flex max-sm:flex-col m-4 gap-4 md:gap-8">
                     <div class="shrink-0">
                         <div class="space-y-1 pt-1.5">
                             <HoverableImage
@@ -93,8 +93,8 @@ export default function Personnel() {
                                 width={200}
                                 cssClass={"rounded saturate-50 " + person.imgCss}
                             ></HoverableImage>
-                            <div class="text-end text-xl pt-4">{person.name}</div>
-                            <div class="text-end">{person.title}</div>
+                            <div class="md:text-end text-xl pt-4">{person.name}</div>
+                            <div class="md:text-end">{person.title}</div>
                         </div>
                     </div>
                     <div>{person.description}</div>
