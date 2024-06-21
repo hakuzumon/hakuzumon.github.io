@@ -11,6 +11,64 @@ interface FeaturedCustomer {
 
 const references: FeaturedCustomer[] = [
     {
+        name: "Kansalliskirjasto",
+        logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
+                                                                              src="img/affiliates/kansalliskirjasto.svg"/></a>,
+        brief: <p>
+            Päivitimme Kansalliskirjaston digitoitujen aineistojen palvelun yhteistyössä Gofore Oy:n kanssa.
+            Digitoitujen aineistojen kirjastossa on julkisesti saatavilla sanomalehtiä,
+            aikakausilehtiä ja pienpainatteita vuosien takaa. Hankkeessa haluttiin parantaa palvelun jo hieman vanhaa
+            teknistä alustaa ja luoda mekanismi yksittäisten artikkeleiden merkkaamiseen aineistoon.
+        </p>,
+        extended: <>
+            <p>
+                Hankkeen edetessä olemme toetuttaneet artikkeleiden merkkauksen (kirjoitushetkellä vielä
+                alpha-testauksessa), linkkaukset yleisimpiin sosiaalisen median palveluihin, päivittäneet järjestelmän
+                komponentteja niin, että suorituskyky on merkittävästi parantunut ja lisäksi olemme päässeet eroon
+                joistakin hankaliksi osoittautuneista riippuvuuksista. Järjestelmän rankan refaktoroinnin tuloksena
+                koodin ylläpidettävyys on parantunut ja uusien ominaisuuksien lisääminen järjestelmään onnistuu nyt
+                uusimpia työkaluja ja tekniikoita käyttäen.
+            </p>
+            <p>
+                Evident on hankkeen aikana ollut vastuussa kaikesta kooodaustyöstä, ja Gofore on osallistunut
+                käytettävyystutkimuksiin ja projektin hallintaan.
+            </p>
+            <p>Tutustu palveluun: <a href="https://digi.kansalliskirjasto.fi" target="_blank">digi.kansalliskirjasto.fi</a></p>
+        </>,
+        platforms: ["Web"],
+        techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch"]
+    },
+    {
+        name: "Runteq",
+        logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/runteq_logo.png"/></a>,
+        brief: <p>
+            Runteq halusi rakentaa palvelun juoksuharrastajien tekniikan kehittämiseksi: Juoksijan kehoon
+            kiinnitettävien anturien avulla kerätään
+            tarkkaa tietoa juoksusta, jotka välitetään älypuhelimen kautta RunLab-nettipalveluun automaattista
+            analysointia varten.
+            RunLabissa juoksija ja hänen valmentajansa voivat tarkastella juoksun onnistumista monipuolisesti,
+            muunmuassa vammojen
+            vähentämiseksi ja juoksun taloudellisuuden parantamiseksi.
+        </p>,
+        extended: <>
+            <p>
+                Ryhdyimme kehittämään palvelua yhdessä Runteqin kanssa.
+                Idean jalostaminen houkuttelevaksi tuotteeksi vaati monimuotoista yhteistyötä. Kokeilimme mitkä
+                komponentit ja alustat soveltuisivat
+                juoksuaskelten havainnointiin ja analysointiin; teimme muunmuassa sulautettua koodia anturiin.
+                Komponenttien välinen yhteistoiminta,
+                etenkin langaton viestintä, oli saatava sujuvaksi. Ohjaamisen ja päätöksenteon lisäksi Runteq osallistui
+                osin
+                toteutukseen &mdash; erityisesti analyysialgoritmit ovat heidän kädenjälkeään. Yhteistyössämme
+                hyödynsimme kummankin yrityksen vahvuuksia
+                ja lopputuloksena saimme aikaiseksi toimivan, helppokäyttöisen palvelun.</p>
+
+            <p>Lue lisää tuotteesta: <a href="http://runteq.com/" target="_blank">Runteq.com</a></p>
+        </>,
+        platforms: ["Web + Mobile"],
+        techs: ["Android", "Java", "Octave", "GWT", "PostgreSQL", "HTML5"]
+    },
+    {
         name: "Varo",
         logo: <a href="http://tukes.fi" target="_blank"><img width="112" height="40" src="img/logo_tukes.png"/></a>,
         brief: <p>Tukesin VARO-rekisteriin kerätään tietoa vaarallisiin kemikaaleihin, painelaitteisiin, kaivoksiin,
@@ -73,34 +131,6 @@ const references: FeaturedCustomer[] = [
         techs: ["Java", "Seam 3", "JBoss 7", "MySQL"]
     },
     {
-        name: "Kansalliskirjasto",
-        logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
-                                                                              src="img/affiliates/kansalliskirjasto.svg"/></a>,
-        brief: <p>
-            Päivitimme Kansalliskirjaston digitoitujen aineistojen palvelun yhteistyössä Gofore Oy:n kanssa.
-            Digitoitujen aineistojen kirjastossa on julkisesti saatavilla sanomalehtiä,
-            aikakausilehtiä ja pienpainatteita vuosien takaa. Hankkeessa haluttiin parantaa palvelun jo hieman vanhaa
-            teknistä alustaa ja luoda mekanismi yksittäisten artikkeleiden merkkaamiseen aineistoon.
-        </p>,
-        extended: <>
-            <p>
-                Hankkeen edetessä olemme toetuttaneet artikkeleiden merkkauksen (kirjoitushetkellä vielä
-                alpha-testauksessa), linkkaukset yleisimpiin sosiaalisen median palveluihin, päivittäneet järjestelmän
-                komponentteja niin, että suorituskyky on merkittävästi parantunut ja lisäksi olemme päässeet eroon
-                joistakin hankaliksi osoittautuneista riippuvuuksista. Järjestelmän rankan refaktoroinnin tuloksena
-                koodin ylläpidettävyys on parantunut ja uusien ominaisuuksien lisääminen järjestelmään onnistuu nyt
-                uusimpia työkaluja ja tekniikoita käyttäen.
-            </p>
-            <p>
-                Evident on hankkeen aikana ollut vastuussa kaikesta kooodaustyöstä, ja Gofore on osallistunut
-                käytettävyystutkimuksiin ja projektin hallintaan.
-            </p>
-            <p>Tutustu palveluun: <a href="https://digi.kansalliskirjasto.fi" target="_blank">digi.kansalliskirjasto.fi</a></p>
-        </>,
-        platforms: ["Web"],
-        techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch"]
-    },
-    {
         name: "Virmed",
         logo: <a href="http://www.virmed.fi/" target="_blank"><img style="width: 200px" src="img/virmed.jpg"/></a>,
         brief: <><p>
@@ -137,36 +167,6 @@ const references: FeaturedCustomer[] = [
         </>,
         platforms: ["Desktop"],
         techs: ["C#", "WPF", "SQLite", "XML"]
-    },
-    {
-        name: "Runteq",
-        logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/runteq_logo.png"/></a>,
-        brief: <p>
-            Runteq halusi rakentaa palvelun juoksuharrastajien tekniikan kehittämiseksi: Juoksijan kehoon
-            kiinnitettävien anturien avulla kerätään
-            tarkkaa tietoa juoksusta, jotka välitetään älypuhelimen kautta RunLab-nettipalveluun automaattista
-            analysointia varten.
-            RunLabissa juoksija ja hänen valmentajansa voivat tarkastella juoksun onnistumista monipuolisesti,
-            muunmuassa vammojen
-            vähentämiseksi ja juoksun taloudellisuuden parantamiseksi.
-        </p>,
-        extended: <>
-            <p>
-                Ryhdyimme kehittämään palvelua yhdessä Runteqin kanssa.
-                Idean jalostaminen houkuttelevaksi tuotteeksi vaati monimuotoista yhteistyötä. Kokeilimme mitkä
-                komponentit ja alustat soveltuisivat
-                juoksuaskelten havainnointiin ja analysointiin; teimme muunmuassa sulautettua koodia anturiin.
-                Komponenttien välinen yhteistoiminta,
-                etenkin langaton viestintä, oli saatava sujuvaksi. Ohjaamisen ja päätöksenteon lisäksi Runteq osallistui
-                osin
-                toteutukseen &mdash; erityisesti analyysialgoritmit ovat heidän kädenjälkeään. Yhteistyössämme
-                hyödynsimme kummankin yrityksen vahvuuksia
-                ja lopputuloksena saimme aikaiseksi toimivan, helppokäyttöisen palvelun.</p>
-
-            <p>Lue lisää tuotteesta: <a href="http://runteq.com/" target="_blank">Runteq.com</a></p>
-        </>,
-        platforms: ["Web + Mobile"],
-        techs: ["Android", "Java", "Octave", "GWT", "PostgreSQL", "HTML5"]
     },
     {
         name: "Keeploop 3D",
@@ -241,7 +241,7 @@ export default function References() {
             <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto">
                 <For each={references}>{(customer) =>
                     <div class="p-4 rounded-2xl m-4 flex gap-8">
-                        <div class="shrink-0 w-[200px] flex flex-col">
+                        <div class="shrink-0 w-[200px] flex flex-col pt-2">
                             <div class="self-center pb-8">{customer.logo}</div>
                         </div>
                         <div class="flex flex-col gap-4">
