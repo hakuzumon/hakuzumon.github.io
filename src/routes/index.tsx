@@ -7,7 +7,7 @@ import {DelayedVisibility} from "~/components/DelayedVisibility";
 export default function Home() {
     return (
         <div>
-            <div class="p-4 md:p-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
+            <div class="p-4 md:p-8 md:pt-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
                 <div class="text-7xl h-100">
                     <TypeAnimation text={"evident."} initialDelayMs={400}></TypeAnimation>
                 </div>
