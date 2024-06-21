@@ -15,7 +15,7 @@ const references: FeaturedCustomer[] = [
         logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
                                                                               src="img/affiliates/kansalliskirjasto.svg"/></a>,
         brief: <p>
-            Päivitimme Kansalliskirjaston digitoitujen aineistojen palvelun yhteistyössä Gofore Oy:n kanssa.
+            Päivitimme Kansalliskirjaston digitoitujen aineistojen palvelun yhteistyössä Goforen kanssa.
             Digitoitujen aineistojen kirjastossa on julkisesti saatavilla sanomalehtiä,
             aikakausilehtiä ja pienpainatteita vuosien takaa. Hankkeessa haluttiin parantaa palvelun jo hieman vanhaa
             teknistä alustaa ja luoda mekanismi yksittäisten artikkeleiden merkkaamiseen aineistoon.
