@@ -75,10 +75,10 @@ const references: FeaturedCustomer[] = [
     {
         name: "Kansalliskirjasto",
         logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
-                                                                              src="img/kansalliskirjastologo_fi.gif"/></a>,
+                                                                              src="img/affiliates/kansalliskirjasto.svg"/></a>,
         brief: <p>
             Päivitimme Kansalliskirjaston digitoitujen aineistojen palvelun yhteistyössä Gofore Oy:n kanssa.
-            Digitoitujen aineistojen kirjastossa (digi.kansalliskirjasto.fi) on julkisesti saatavilla sanomalehtiä,
+            Digitoitujen aineistojen kirjastossa on julkisesti saatavilla sanomalehtiä,
             aikakausilehtiä ja pienpainatteita vuosien takaa. Hankkeessa haluttiin parantaa palvelun jo hieman vanhaa
             teknistä alustaa ja luoda mekanismi yksittäisten artikkeleiden merkkaamiseen aineistoon.
         </p>,
@@ -95,9 +95,10 @@ const references: FeaturedCustomer[] = [
                 Evident on hankkeen aikana ollut vastuussa kaikesta kooodaustyöstä, ja Gofore on osallistunut
                 käytettävyystutkimuksiin ja projektin hallintaan.
             </p>
+            <p>Tutustu palveluun: <a href="https://digi.kansalliskirjasto.fi" target="_blank">digi.kansalliskirjasto.fi</a></p>
         </>,
         platforms: ["Web"],
-        techs: ["Java", "Spring", "Hibernate"]
+        techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch"]
     },
     {
         name: "Virmed",
@@ -162,7 +163,7 @@ const references: FeaturedCustomer[] = [
                 hyödynsimme kummankin yrityksen vahvuuksia
                 ja lopputuloksena saimme aikaiseksi toimivan, helppokäyttöisen palvelun.</p>
 
-            <p>Lue lisää tuotteesta: <a href="http://runteq.com/">Runteq.com</a></p>
+            <p>Lue lisää tuotteesta: <a href="http://runteq.com/" target="_blank">Runteq.com</a></p>
         </>,
         platforms: ["Web + Mobile"],
         techs: ["Android", "Java", "Octave", "GWT", "PostgreSQL", "HTML5"]
