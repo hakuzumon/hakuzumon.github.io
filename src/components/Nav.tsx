@@ -21,7 +21,7 @@ export default function Nav() {
     ];
 
     return (
-        <nav class="bg-gradient-to-tr from-stone-900 to-stone-800">
+        <nav class="bg-gradient-to-tr from-stone-900 to-stone-800 sticky top-[-1.5rem] z-10">
             <div class="container flex items-center text-white px-10 font-light">
                 <For each={links}>{(link) =>
                     <A class={`${item} ${active(link.url)}`} href={link.url}>{link.label}</A>
