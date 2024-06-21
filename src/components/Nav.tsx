@@ -9,8 +9,11 @@ interface Link {
 
 export default function Nav() {
     const location = useLocation();
-    const active = (path: string) =>
-        path == location.pathname ? "bg-amber-800" : "";
+    
+    const active = (path: string) => {
+        console.log(path, location.pathname);
+        return path == location.pathname ? "bg-amber-800" : "";
+    }
     const item: string = "p-4 pt-8 pb-2";
     const links: Link[] = [
         {url: "/", label: "Evident"},
