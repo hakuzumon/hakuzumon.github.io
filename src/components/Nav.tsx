@@ -22,7 +22,7 @@ export default function Nav() {
 
     return (
         <nav class="bg-gradient-to-tr from-stone-900 to-stone-800 sticky top-[-1.5rem] z-10">
-            <div class="container flex items-center text-white px-4 md:px-10 font-light overflow-x-scroll">
+            <div class="container flex items-center text-white px-4 md:px-10 font-light overflow-x-auto">
                 <For each={links}>{(link) =>
                     <a class={`${item} ${active(link.url)} whitespace-nowrap`} href={link.url}>{link.label}</a>
                 }</For>
