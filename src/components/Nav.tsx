@@ -9,7 +9,8 @@ interface Link {
 export default function Nav() {
     const location = useLocation();
     const active = (path: string) => {
-        return path == location.pathname ? "bg-amber-800" : "";
+        const pathname = normalizePath(location.pathname);
+        return path === pathname ? "bg-amber-800" : "";
     }
     const item: string = "p-4 pt-8 pb-2";
     const links: Link[] = [
@@ -29,4 +30,13 @@ export default function Nav() {
             </div>
         </nav>
     );
+}
+
+function normalizePath(path: string): string {
+    // just a quick hack as the prod. server wants to add a tailing '/' to directory urls
+    if (path.endsWith("/") && path.length > 1) {
+        return path.substring(0, path.length - 1);
+    } else {
+        return path;
+    }
 }
