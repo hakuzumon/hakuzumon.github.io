@@ -15,7 +15,7 @@ const projects: Project[] = [
         description: <>
             <p>Dalesbred yksinkertaistaa tietokantojen käyttöä Java-ohjelmissa. Dalesbredin takana on ajatus siitä,
                 että SQL itsessään on hyvä tapa käyttää tietokantoja, mutta JDBC-rajapinta tuottaa tarpeetonta tuskaa.
-                Dalesbred tarjoaakin korkeamman tason rajapinnan tietokantakerroksen toteutukseen.</p>
+                Dalesbred tarjoaa korkeamman tason rajapinnan tietokantakerroksen toteutukseen.</p>
             <p>Tutustu <a href="https://dalesbred.org">Dalesbrediin</a> tarkemmin.</p>
         </>,
         github: "https://github.com/EvidentSolutions/dalesbred",
@@ -24,7 +24,7 @@ const projects: Project[] = [
         name: "Apina",
         logo: <div><img width="128" height="128" src="img/products/lowpoly_apina2.jpg" alt="Apina" class={imgClass}/></div>,
         description: <>
-            <p>Apina on työkalu joka luo selainpään TypeScript-luokkia automaattisesti Springin MVC-kontrollereista ja Jackson-luokista.</p>
+            <p>Apina on työkalu helpottamaan tyyppiturvallisten API-kutsujen tekemistä selainpäästä serverille. Apina luo TypeScript-luokkia automaattisesti Springin MVC-kontrollereista ja Jackson-luokista, jotta sinun ei tarvitse.</p>
             <p>Tutustu <a href="https://apina.evident.fi/">Apinaan</a> tarkemmin.</p>
         </>,
         github: "https://github.com/EvidentSolutions/apina",
@@ -34,7 +34,13 @@ const projects: Project[] = [
         logo: <div><img width="128" height="128" src="img/products/lowpoly_raudikko.jpg" class={imgClass}
                         alt="Raudikko"/></div>,
         description: <>
-            <p><a href="http://voikko.puimula.org/">Voikkoon</a> perustuva suomen kielen analyysi.</p>
+            <p><a href="http://voikko.puimula.org/">Voikkoon</a> perustuva suomen kielen analyysi. Suomen kielen taivutusmuodot ovat tunnetusti hankalia ihmiselle, saati tietokoneelle. Raudikolla löydät sanojen perusmuodot, esim.</p>
+
+            <ul class="m-4 ml-7 list-disc">
+                <li>kissojen &#8594; kissa</li>
+                <li>koiruutta &#8594; koiruus</li>
+                <li>jonoksi &#8594; jono</li>
+            </ul>
 
             <p>Raudikolle löytyvät myös <a href="https://github.com/EvidentSolutions/elasticsearch-analysis-raudikko">Elasticsearch</a> ja <a href="https://github.com/EvidentSolutions/opensearch-analysis-raudikko">Opensearch</a> -pluginit.</p>
         </>,
