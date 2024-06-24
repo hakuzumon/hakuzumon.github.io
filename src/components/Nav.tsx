@@ -28,7 +28,7 @@ export default function Nav() {
             window.removeEventListener("scroll", handleScroll);
         });
     });
-    
+
     const active = (path: string) => {
         const pathname = normalizePath(location.pathname);
         return path === pathname ? "bg-amber-800" : "";
@@ -45,7 +45,7 @@ export default function Nav() {
     function toggleNavigation() {
         setShowSideNavi(!showSideNavi());
     }
-    
+
     return (
         <>
             <nav class="bg-gradient-to-tr from-stone-900 to-stone-800 sticky top-[-1.5rem] z-10 max-sm:hidden">
@@ -57,17 +57,26 @@ export default function Nav() {
             </nav>
 
             <div class={`sm:hidden bottom-16 right-4 fixed rounded-full z-30
-                bg-orange-400/50 text-5xl
                 flex h-20 w-20 justify-center items-center transition-opacity cursor-pointer 
                 ${showHamburger() ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-            onClick={() => toggleNavigation()}>
-                <span class="-translate-y-1">&#9776;</span>
+                 onClick={() => toggleNavigation()}>
+                <span class="fill-amber-500/70 scale-75">
+                    <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask1">
+                            <circle cx="50" cy="50" r="49" fill="white"/>
+                            <rect x="25" y="34" width="50" height="6" fill="black"/>
+                            <rect x="25" y="47" width="50" height="6" fill="black"/>
+                            <rect x="25" y="60" width="50" height="6" fill="black"/>
+                        </mask>
+                        <rect width="100" height="100" mask="url(#mask1)"/>
+                    </svg>
+                </span>
             </div>
-            
+
             <div class={`${showSideNavi() ? '' : 'translate-x-full'} right-0 transition-transform fixed bg-gradient-to-tr from-stone-900 to-stone-800 h-full text-white z-20 drop-shadow-2xl`}>
                 <div class="text-xl font-light">
                     <For each={links}>{(link) =>
-                        <a class={`${active(link.url)} whitespace-nowrap block p-8`} 
+                        <a class={`${active(link.url)} whitespace-nowrap block p-8`}
                            onClick={() => toggleNavigation()}
                            href={link.url}>{link.label}</a>
                     }</For>
