@@ -31,9 +31,9 @@ export default function Nav() {
 
     const active = (path: string) => {
         const pathname = normalizePath(location.pathname);
-        return path === pathname ? "bg-amber-800" : "";
+        return path === pathname ? "active bg-gradient-to-t from-amber-800 to-amber-900" : "";
     }
-    const item: string = "p-4 pt-8 pb-2";
+    const headerLinkStyle: string = "p-4 pt-8 pb-2 whitespace-nowrap shadow";
     const links: Link[] = [
         {url: "/", label: "Evident"},
         {url: "/references", label: "Töitämme"},
@@ -51,7 +51,7 @@ export default function Nav() {
             <nav class="bg-gradient-to-tr from-stone-900 to-stone-800 sticky top-[-1.5rem] z-10 max-sm:hidden">
                 <div class="container flex items-center text-white px-4 md:px-10 font-light">
                     <For each={links}>{(link) =>
-                        <a class={`${item} ${active(link.url)} whitespace-nowrap`} href={link.url}>{link.label}</a>
+                        <a class={`${headerLinkStyle} ${active(link.url)}`} href={link.url}>{link.label}</a>
                     }</For>
                 </div>
             </nav>
