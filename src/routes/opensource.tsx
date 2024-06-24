@@ -6,12 +6,12 @@ interface Project {
     description: JSXElement;
     github?: string;
 }
-const imgClass = "rounded-full saturate-50";
+const imgClass = "rounded-full";
 
 const projects: Project[] = [
     {
         name: "Dalesbred",
-        logo: <div><img width="128" height="128" src="img/dalesbred-logo.jpg" alt="Dalesbred" class={imgClass}/></div>,
+        logo: <div><img width="128" height="128" src="img/products/lowpoly_dalesbred.jpg" alt="Dalesbred" class={imgClass}/></div>,
         description: <>
             <p>Dalesbred yksinkertaistaa tietokantojen käyttöä Java-ohjelmissa. Dalesbredin takana on ajatus siitä,
                 että SQL itsessään on hyvä tapa käyttää tietokantoja, mutta JDBC-rajapinta tuottaa tarpeetonta tuskaa.
@@ -21,23 +21,24 @@ const projects: Project[] = [
         github: "https://github.com/EvidentSolutions/dalesbred",
     },
     {
-        name: "Lokki",
-        logo: <div><img width="128" height="128" src="img/lokki-logo.jpg" alt="Lokki" class={imgClass}/></div>,
+        name: "Apina",
+        logo: <div><img width="128" height="128" src="img/products/lowpoly_apina.jpg" alt="Apina" class={imgClass}/></div>,
         description: <>
-            <p>Lokki tekee lokalisoinnista yksinkertaista ja staattisesti tyypitettyä. Lokin inspiraationa
-                on GWT:n lokalisaatiomekanismi, mutta Lokilla ei ole ulkoisia riippuvuuksia joten sitä voi
-                hyödyntää missä tahansa Java-ohjelmassa.</p>
+            <p>Apina on työkalu joka luo selainpään TypeScript-luokkia automaattisesti Springin MVC-kontrollereista ja Jackson-luokista.</p>
+            <p>Tutustu <a href="https://apina.evident.fi/">Apinaan</a> tarkemmin.</p>
         </>,
-        github: "https://github.com/EvidentSolutions/lokki",
+        github: "https://github.com/EvidentSolutions/apina",
     },
     {
-        name: "Voikko Analysis for Elasticsearch",
-        logo: <div><img width="128" height="128" src="img/elasticsearch-analysis-voikko-logo.jpg" class={imgClass}
-                        alt="Voikko Analysis for Elasticsearch"/></div>,
+        name: "Raudikko",
+        logo: <div><img width="128" height="128" src="img/products/lowpoly_raudikko.jpg" class={imgClass}
+                        alt="Raudikko"/></div>,
         description: <>
-            <p><a href="http://voikko.puimula.org/">Voikkoon</a> perustuva suomen kielen analyysi <a href="https://www.elastic.co/">Elasticsearch</a>-hakupalvelimelle.</p>
+            <p><a href="http://voikko.puimula.org/">Voikkoon</a> perustuva suomen kielen analyysi.</p>
+
+            <p>Raudikolle löytyvät myös <a href="https://github.com/EvidentSolutions/elasticsearch-analysis-raudikko">Elasticsearch</a> ja <a href="https://github.com/EvidentSolutions/opensearch-analysis-raudikko">Opensearch</a> -pluginit.</p>
         </>,
-        github: "https://github.com/EvidentSolutions/elasticsearch-analysis-voikko",
+        github: "https://github.com/EvidentSolutions/raudikko",
     }
 ];
 
