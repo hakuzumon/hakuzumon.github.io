@@ -50,20 +50,22 @@ const projects: Project[] = [
 
 export default function OpenSource() {
     return (
-        <div class="flex flex-col pb-16 md:p-16 font-light max-w-screen-md mx-auto">
+        <div class="flex flex-col pb-16 md:p-16 gap-16 font-light max-w-screen-md mx-auto">
             <For each={projects}>{(project) =>
                 <div class="m-4 flex max-sm:flex-col gap-8">
                     <div class="shrink-0 flex md:w-[160px] md:justify-center pt-1.5">
                         {project.logo}
                     </div>
                     <div class="w-full">
-                        <div class="text-xl mb-4">{project.name}</div>
-                        <div>{project.description}</div>
-                        <div class="mt-2">
-                            <a href={project.github} target="_blank">
-                                <img src="/img/github-mark.svg" alt="github" width="24" class="inline"/>
-                            </a>    
+                        <div class="text-xl mb-4">
+                            <div class="flex justify-between">
+                                <span>{project.name}</span>
+                                <a href={project.github} target="_blank">
+                                    <img src="/img/github-mark.svg" alt="github" width="24" class="inline"/>
+                                </a>
+                            </div>
                         </div>
+                        <div>{project.description}</div>
                     </div>
                 </div>
             }</For>
