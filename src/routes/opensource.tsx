@@ -22,7 +22,7 @@ const projects: Project[] = [
     },
     {
         name: "Apina",
-        logo: <div><img width="128" height="128" src="img/products/lowpoly_apina.jpg" alt="Apina" class={imgClass}/></div>,
+        logo: <div><img width="128" height="128" src="img/products/lowpoly_apina2.jpg" alt="Apina" class={imgClass}/></div>,
         description: <>
             <p>Apina on työkalu joka luo selainpään TypeScript-luokkia automaattisesti Springin MVC-kontrollereista ja Jackson-luokista.</p>
             <p>Tutustu <a href="https://apina.evident.fi/">Apinaan</a> tarkemmin.</p>
