@@ -16,9 +16,16 @@ export default function Nav() {
     createEffect(() => {
         const handleScroll = () => {
             const previous = scrollPosition();
-            setScrollPosition(window.scrollY);
-            setScrollDirection(scrollPosition() - previous);
-            setShowHamburger(scrollDirection() < 0);
+            const currentPos = window.scrollY;
+            
+            // If user scrolls more than this amount of units in one direction, register it as scrolling movement.
+            // This makes it more resilient to tiny thumb movements.
+            const scrollThreshold = 50;
+            if (Math.abs(currentPos - previous) > scrollThreshold) {
+                setScrollPosition(currentPos);
+                setScrollDirection(scrollPosition() - previous);
+                setShowHamburger(scrollDirection() < 0);
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
