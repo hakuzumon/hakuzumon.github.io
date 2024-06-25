@@ -1,5 +1,6 @@
-import {For, JSXElement} from "solid-js";
+import {createResource, For, JSXElement} from "solid-js";
 import HoverableImage from "~/components/HoverableImage";
+import {shuffle} from "~/utils";
 
 interface Dude {
     name: string;
@@ -10,7 +11,7 @@ interface Dude {
     imgCss?: string;
 }
 
-const personnel: Dude[] = [
+const dudes: Dude[] = [
     {
         name: "Henrik Huttunen",
         title: "Ohjelmistokehittäjä",
@@ -79,10 +80,15 @@ const personnel: Dude[] = [
 ];
 
 export default function Personnel() {
-
+    const [personnel] = createResource(async () => {
+        // shuffles in place, but so what
+        shuffle(dudes);
+        return dudes;
+    });
+    
     return (
         <div class="flex flex-col gap-16 pb-16 md:p-16 font-light max-w-screen-md mx-auto">
-            <For each={personnel}>{(person) =>
+            <For each={personnel()}>{(person) =>
                 <div class="flex max-sm:flex-col m-4 gap-4 md:gap-8">
                     <div class="shrink-0">
                         <div class="space-y-1 pt-1.5">
