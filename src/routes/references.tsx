@@ -30,7 +30,7 @@ const references: FeaturedCustomer[] = [
                 ylläpidettävyyden parantamiseksi. Paransimme auditointimahdollisuuksia ja monitorointia, mm. Grafanalla.
             </p>
             <p>
-                Evident on hankkeen aikana ollut vastuussa kaikesta kooodaustyöstä, ja Gofore on osallistunut
+                Evident on ollut hankkeiden aikana ollut vastuussa kaikesta kooodaustyöstä, ja Gofore on osallistunut
                 käytettävyystutkimuksiin ja projektin hallintaan.
             </p>
             <p>Tutustu palveluun: <a href="https://digi.kansalliskirjasto.fi" target="_blank">digi.kansalliskirjasto.fi</a></p>
