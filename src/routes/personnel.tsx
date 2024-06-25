@@ -81,8 +81,11 @@ const dudes: Dude[] = [
 
 export default function Personnel() {
     const [personnel] = createResource(async () => {
-        // shuffles in place, but so what
+        // Due to Nitro's pre-rendering, the generated static html page always has the same order. So if the user
+        // goes to /personnel and refreshes the page several times, she always gets the same result However, if the 
+        // user navigates to the page manually by clicking navi links, the order is randomized.
         shuffle(dudes);
+        
         return dudes;
     });
     
