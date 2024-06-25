@@ -15,19 +15,19 @@ const references: FeaturedCustomer[] = [
         logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
                                                                               src="img/affiliates/kansalliskirjasto.svg"/></a>,
         brief: <p>
-            Päivitimme Kansalliskirjaston digitoitujen aineistojen palvelun yhteistyössä Goforen kanssa.
-            Digitoitujen aineistojen kirjastossa on julkisesti saatavilla sanomalehtiä,
-            aikakausilehtiä ja pienpainatteita vuosien takaa. Hankkeessa haluttiin parantaa palvelun jo hieman vanhaa
-            teknistä alustaa ja luoda mekanismi yksittäisten artikkeleiden merkkaamiseen aineistoon.
+            Olemme kehittäneet Kansalliskirjaston digitoitujen aineiston palvelua yhteistyössä Goforen kanssa vuosina 
+            2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa oli jo julkisesti saatavilla sanomalehtiä, 
+            aikakauslehtiä ja pienpainatteita ja palvelua haluttiin kehittää ja laajentaa.
         </p>,
         extended: <>
             <p>
-                Hankkeen edetessä olemme toetuttaneet artikkeleiden merkkauksen (kirjoitushetkellä vielä
-                alpha-testauksessa), linkkaukset yleisimpiin sosiaalisen median palveluihin, päivittäneet järjestelmän
-                komponentteja niin, että suorituskyky on merkittävästi parantunut ja lisäksi olemme päässeet eroon
-                joistakin hankaliksi osoittautuneista riippuvuuksista. Järjestelmän rankan refaktoroinnin tuloksena
-                koodin ylläpidettävyys on parantunut ja uusien ominaisuuksien lisääminen järjestelmään onnistuu nyt
-                uusimpia työkaluja ja tekniikoita käyttäen.
+                Toteutimme mm. käyttäjien luomat artikkelit, eli leikkeet, ja toimme kirjat mukaan valikoimaan. 
+                Vanhentunutta JSP-pohjaista toteutusta vietiin moderniin AngularJS ja myöhemmin Angular-pohjaiseen 
+                toteutukseen. Haku toteutettiin uudestaan Elasticsearchin päälle ja se opetettiin ymmärtämään suomen 
+                kielen taivutusmuotoja <a href="https://voikko.puimula.org" target="_blank">Voikon</a> avulla.
+                Suunnittelimme uuden käyttöoikeus- ja sopimusmallin, joka on mahdollistanut uusien osapuolien pääsyn 
+                aineistoon tarkasti hallittavalla tavalla. Koodia refaktoroitiin rankalla kädellä luotettavuuden ja 
+                ylläpidettävyyden parantamiseksi. Paransimme auditointimahdollisuuksia ja monitorointia, mm. Grafanalla.
             </p>
             <p>
                 Evident on hankkeen aikana ollut vastuussa kaikesta kooodaustyöstä, ja Gofore on osallistunut
