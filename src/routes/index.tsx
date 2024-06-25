@@ -1,31 +1,38 @@
 import TypeAnimation from "~/components/TypeAnimation";
-import {For, Show} from "solid-js";
+import {createSignal, For, Show} from "solid-js";
 import AnimatedBox from "~/components/AnimatedBox";
-import {DelayedVisibility} from "~/components/DelayedVisibility";
 
-// TODO chained rendering instead of fixed delays
 export default function Home() {
+    const [a1, setA1] = createSignal(false);
+    const [a2, setA2] = createSignal(false);
+    const [a3, setA3] = createSignal(false);
+    const [a4, setA4] = createSignal(false);
+    
+    setTimeout(() => {
+        setA1(true);
+    }, 400);
+    
     return (
         <div>
             <div class="p-4 md:p-8 md:pt-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
                 <div class="text-7xl h-100">
-                    <TypeAnimation text={"evident."} initialDelayMs={400}></TypeAnimation>
+                    <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."} 
+                                   completedDelayMs={50} 
+                                   showPromptInitially={true}></TypeAnimation>
                 </div>
                 <div class="text-2xl mt-4 md:mt-16">
                     <TypeAnimation text={"Olemme softatalo."}
-                                   initialDelayMs={1500}
-                                   showPromptInitially={false}
+                                   start={a2} completed={() => setA3(true)} completedDelayMs={50}
                                    typingDelayMs={25}></TypeAnimation>
                     <TypeAnimation text={" Teemme web-, työpöytä- ja mobiilisovelluksia."}
-                                   initialDelayMs={2600}
-                                   showPromptInitially={false}
+                                   start={a3} completed={() => setA4(true)}
                                    typingDelayMs={25}></TypeAnimation>
                 </div>
                 
                 <div class="mt-8 md:mt-32 mx-auto">
-                    <DelayedVisibility delayMs={4500}>
+                    <Show when={a4()}>
                         <AnimatedBox></AnimatedBox>
-                    </DelayedVisibility>
+                    </Show>
                 </div>
             </div>
             

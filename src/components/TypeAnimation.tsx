@@ -1,15 +1,23 @@
-import {createSignal} from "solid-js";
+import {Accessor, createEffect, createSignal} from "solid-js";
 
 interface TypeSimulationProps {
     text: string;
-    initialDelayMs?: number;
     typingDelayMs?: number;
+    completedDelayMs?: number;
     showPromptInitially?: boolean;
+    start: Accessor<boolean>;
+    completed?: () => void;
 }
 
 export default function TypeAnimation(props: TypeSimulationProps) {
     const [text, setText] = createSignal("");
     const [prompt, setPrompt] = createSignal(false);
+    
+    createEffect(() => {
+        if (props.start()) {
+            updateText();
+        }
+    });
     
     const promptDelay = 250;
     const typeDelay = props.typingDelayMs ?? 75;
@@ -17,6 +25,7 @@ export default function TypeAnimation(props: TypeSimulationProps) {
     let index = -1;
 
     function updateText() {
+        setPrompt(true);
         setText(target.substring(0, ++index));
         if (index < target.length) {
             setTimeout(() => {
@@ -24,19 +33,17 @@ export default function TypeAnimation(props: TypeSimulationProps) {
             }, typeDelay);
         } else {
             setTimeout(() => {
-                setPrompt(false);    
+                setPrompt(false);
+                if (props.completed) {
+                    setTimeout(() => {
+                        props.completed && props.completed();
+                    }, props.completedDelayMs ?? 0);
+                }
             }, promptDelay);
         }
     }
 
-    setTimeout(() => {
-        setPrompt(true);
-        setTimeout(() => {
-            updateText();
-        }, promptDelay);
-    }, props.initialDelayMs ?? promptDelay);
-    
-    setPrompt(props.showPromptInitially ?? true);
+    setPrompt(props.showPromptInitially ?? false);
     
     return (
         <span>{text()}<span class="text-amber-500">{prompt() ? '_' : ''}</span></span>
