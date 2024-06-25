@@ -16,7 +16,7 @@ const references: FeaturedCustomer[] = [
                                                                               src="img/affiliates/kansalliskirjasto.svg"/></a>,
         brief: <p>
             Olemme kehittäneet Kansalliskirjaston digitoitujen aineiston palvelua yhteistyössä Goforen kanssa vuosina 
-            2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa oli jo julkisesti saatavilla sanomalehtiä, 
+            2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa on julkisesti saatavilla sanomalehtiä, 
             aikakauslehtiä ja pienpainatteita ja palvelua haluttiin kehittää ja laajentaa.
         </p>,
         extended: <>
