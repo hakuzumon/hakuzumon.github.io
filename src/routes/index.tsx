@@ -52,6 +52,7 @@ interface OtherCustomer {
 
 const otherCustomers: OtherCustomer[] = [
     {name: "Elisa", url: "https://www.elisa.fi", image: "/img/affiliates/elisa.svg"},
+    {name: "Finnpilot", url: "https://www.finnpilot.fi", image: "/img/affiliates/finnpilot.png"},
     {name: "Mylab", url: "https://www.mylab.fi/fi/", image: "/img/affiliates/mylab.svg"},
     {name: "Kansalliskirjasto", url: "https://www.kansalliskirjasto.fi/fi", image: "/img/affiliates/kansalliskirjasto.svg"},
     {name: "Modulight", url: "https://modulight.com/", image: "/img/affiliates/modulight.png"},
