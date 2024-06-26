@@ -80,68 +80,6 @@ const references: FeaturedCustomer[] = [
         techs: ["Android", "Java", "Octave", "GWT", "PostgreSQL", "HTML5"]
     },
     {
-        name: "Varo",
-        logo: <a href="http://tukes.fi" target="_blank"><img width="112" height="40" src="img/logo_tukes.png"/></a>,
-        brief: <p>Tukesin VARO-rekisteriin kerätään tietoa vaarallisiin kemikaaleihin, painelaitteisiin, kaivoksiin,
-            sähkölaitteistoihin ja -laitteisiin sekä hisseihin liittyvistä onnettomuuksista ja vaaratilanteista. Tukesin
-            edeltäjä Teknillinen tarkastuskeskus kehitti VARO-rekisterin viranomaiskäyttöön. VAROsta löytyy mm. tietoja
-            kaivosonnettomuuksista vuodesta 1972 lähtien ja kuolemaan johtaneista sähkötapaturmista vuodesta 1980
-            alkaen.</p>,
-        extended: <>
-            <p>Saimme projektin aluksi käyttöömme alustavan määrittelyn, johon oli koottu tapauksiin liittyviä tietoja
-                sekä korkealla tasolla hahmoteltuna muutamia näyttöjä. Asiakkaan saatesanat - "älkää nyt ainakaan
-                tällaista siitä tehkö" - mielessämme lähdimme aktiivisesti selvittämään, minkälainen tietomalli
-                VARO-tapausten taustalle kannattaisi rakentaa ja kuinka niiden kirjaamisesta sekä selaamisesta
-                tehtäisiin nopeaa ja käyttäjälle selkeää. Lyhyet sprintit yhdessä säännöllisten määrittelytyöpajojen
-                tuottivat pian käyttöliittymästä minimaalisen, toiminnallisen version. Sen avulla yksityiskohtia,
-                tietosisällön sisällä piileviä oletuksia ja käyttäjien luontaisia työtapoja oli helppo selvittää.
-                Kehittyvän järjestelmän kautta pystyimme myös haastamaan asiakasta sellaisten toimintojen osalta, joihin
-                uskoimme olevan totuttuihin työskentelymalleihin verrattuna tehokkaampia vaihtoehtoja. Loppuvaiheessa
-                viimeiset yksityiskohdat selvitettiin järjestelmätestauksen yhteydessä on site customer -periaatteella.
-                Tämä osoittautui tehokkaaksi tavaksi, jota suosittelemme käytettäväksi toistekin.</p>
-            <p>
-                Vanhan aineiston muuntaminen uuden tietomallin mukaiseen muotoon oli merkittävä osa työstä. Rekisterin
-                pitkä historia ja lukuisat aiemmin tehdyt muutokset lisäsivät tähän oman mausteensa. Tapauksia
-                yksityiskohtineen oli niin paljon, ettei muunnoksen osittainenkaan tekeminen käsityönä ollut mielekäs
-                vaihtoehto. Siksi loimme erillisen työkalun, joka luki vanhan tietokannan sisällön ja sovittujen
-                sääntöjen mukaisesti kirjoitti sen uuteen kantaan.
-            </p>
-            <p>
-                Projekti sisälsi myös yksinkertaisia perusraportteja tapauksista sekä rajattua tietosisältöä näyttävän
-                julkisen palvelun.
-            </p>
-        </>,
-        platforms: ["Web"],
-        techs: ["Asp.NET MVC3", "SQL Server", "Javascript"],
-    },
-    {
-        name: "Innolink",
-        logo: <a href="http://innolinkresearch.fi" target="_blank"><img width="180" height="44"
-                                                                        src="img/innolink_logo.jpg"/></a>,
-        brief: <p>Evident toteutti Innolinkille tuotannon automatisoinnin, jonka tarkoituksena on nopeuttaa
-            läpimenoaikoja, vähentää prosessin virhemahdollisuuksia ja alentaa tuotannon kustannuksia. Automatisointi
-            sisältää sekä vaativia asiantuntijatyön tukitoimintoja että alihankkijoiden ja myyntikanavien saumatonta
-            kytkemistä tuotantoprosessiin.
-        </p>,
-        extended: <>
-            <p>Innolink Research Oy:n kehitysjohtaja Markus Vattulainen:</p>
-            <blockquote>Evident luo meille täysin räätälöidyn ratkaisun, joka on edellyttänyt syvällistä perehtymistä
-                liiketoimintatavoitteisiimme ja tuotantoprosessiimme yksityiskohtia myöten. Olemme olleet erittäin
-                tyytyväisiä Evidentin toimintaan yhteistyön eri vaiheissa: asiakastarpeen määrittelyyn,
-                järjestelmäkytkentöjen selvittämiseen, muutostarpeiden huomioimiseen, ratkaisujen ehdottamiseen ja
-                ohjelmointityön laatuun. Evident on osallistanut meiltä loppukäyttäjiä mukaan kehitystyöhön parhaan
-                lopputuotoksen varmistamiseksi. Voin lämpimästi suositella Evidenttiä pk-yrityksen ohjelmistokumppaniksi
-                vaativiinkin toteutuksiin.
-            </blockquote>
-
-            <p>Innolink Research Oy on Suomen 3. suurin ja ylivoimaisesti nopeimmin kasvava tutkimusyritys, jonka
-                600:sta asiakkaista 40 kuuluu Suomen 100 suurimman yrityksen joukkoon.
-            </p>
-        </>,
-        platforms: ["Web"],
-        techs: ["Java", "Seam 3", "JBoss 7", "MySQL"]
-    },
-    {
         name: "Virmed",
         logo: <a href="http://www.virmed.fi/" target="_blank"><img style="width: 200px" src="img/virmed.jpg"/></a>,
         brief: <><p>
