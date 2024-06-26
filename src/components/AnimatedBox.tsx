@@ -1,7 +1,9 @@
 import styles from './AnimatedBox.module.css';
 
-export default function AnimatedBox() {
+export default function AnimatedBox(props: any) {
     return (
-        <div class={styles.box}></div>
+        <div class={styles.box}>
+            {props.children}
+        </div>
     )
 }
