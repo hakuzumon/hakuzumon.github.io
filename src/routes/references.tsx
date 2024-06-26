@@ -39,6 +39,17 @@ const references: FeaturedCustomer[] = [
         techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch"]
     },
     {
+        name: "Finnpilot",
+        logo: <a href="https://finnpilot.fi/"><img style="width: 200px" src="img/affiliates/finnpilot.png"/></a>,
+        brief: <p>Finnpilot Pilotage Oy on Suomen valtion kokonaan omistama erityistehtäväyhtiö. Sillä on lakisääteinen yksinoikeus luotsaustoiminnan harjoittamiseen.</p>,
+        extended: <>
+            <p>Olemme tehneet Finnpilotin kanssa ohjelmistokehitystä jo vuodesta 2016. Kehityksen kohteena on luotsinvälityksen toiminnanohjausjärjestelmä, johon kuuluu mm. mobiili työaikakirjausten teko, iOS-laitteilla toimiva luotsien sovellus, julkisesti tarjottava liikenneluettelo sekä luotsintilausten tekeminen verkossa tarjottavan palvelun kautta.</p>
+            <p>Pitkän projektin aikana järjestelmä on muuttanut muotoaan Windows Server -pohjaisesta ratkaisusta aidoksi pilvipalveluksi Azuressa. Toteutusteknologia on käyttöliittymää myöten uudistettu, kehittyvän liiketoiminnan tuottamia muutoksia tuotu uusina toiminnallisuuksina käyttöön ja vanhaa koodia poistettu tai yksinkertaistettu tarpeen mukaan. Järjestelmä on ollut koko kehityksen ajan tuotantokäytössä, mikä on asettanut kovat vaatimukset tekemisen tasolle ja tavoille.</p>
+        </>,
+        platforms: ["Web + Mobile"],
+        techs: ["Kotlin", "Azure", "Angular"],
+    },
+    {
         name: "Runteq",
         logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/runteq_logo.png"/></a>,
         brief: <p>
