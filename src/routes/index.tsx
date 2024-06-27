@@ -1,6 +1,7 @@
 import TypeAnimation from "~/components/TypeAnimation";
 import {createSignal, For, Show} from "solid-js";
 import AnimatedBox from "~/components/AnimatedBox";
+import Tetris from "~/components/Tetris";
 
 export default function Home() {
     const [a1, setA1] = createSignal(false);
@@ -9,16 +10,19 @@ export default function Home() {
     const [a4, setA4] = createSignal(false);
     
     setTimeout(() => {
-        setA1(true);
+        // setA1(true);
     }, 400);
     
     return (
         <div>
             <div class="p-4 md:p-8 md:pt-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
+
+                <Tetris></Tetris>
+                
                 <div class="text-7xl h-100">
                     <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."} 
                                    completedDelayMs={50} 
-                                   showPromptInitially={true}></TypeAnimation>
+                                   showPromptInitially={false}></TypeAnimation>
                 </div>
                 <div class="text-2xl mt-4 md:mt-16">
                     <TypeAnimation text={"Olemme softatalo."}
