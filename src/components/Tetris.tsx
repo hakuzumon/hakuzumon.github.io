@@ -243,11 +243,34 @@ export default function() {
             gameArea.set(point.x, point.y, gameObject.getColor());
         }
     }
+    
+    function removeFullRows() {
+        // removable rows can only happen on rows where landed shape has blocks
+        let [minY, maxY] = [h, 0];
+        for (let v of gameObject.getPoints()) {
+            if (v.y < minY) minY = v.y;
+            if (v.y > maxY) maxY = v.y;
+        }
+        
+        // object has already been frozen, so gameArea contains its points
+        for (let y = maxY; y >= minY; y--) {
+            let blocks = 0;
+            gameArea.forRow(y, (color, x) => {
+                if (color != Color.NOTHING && color != undefined)
+                    blocks++;
+            });
+            if (blocks == w) {
+                gameArea.collapseRow(y);
+                y++; // process same row twice
+            }
+        }
+    }
 
     createEffect(() => {
         const intervalId = setInterval(() => {
             if (isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
                 freezeObject();
+                removeFullRows();
                 newGameObject();
             } else {
                 moveY += 1;

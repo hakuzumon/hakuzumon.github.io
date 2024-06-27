@@ -1,10 +1,12 @@
 
 export class Array2d<T> {
     private readonly data: T[];
+    private readonly defaultValue: T;
     private readonly rows: number;
     private readonly cols: number;
 
     constructor(rows: number, cols: number, defaultValue: T) {
+        this.defaultValue = defaultValue;
         if (rows < 1 || cols < 1) {
             throw Error("Rows and cols must be positive");
         }
@@ -36,5 +38,19 @@ export class Array2d<T> {
                 cb(this.get(i, j), i, j);
             }
         }
+    }
+    
+    forRow(y: number, cb: (value: T | undefined, x: number) => void) {
+        for (let i = 0; i < this.cols; i++) {
+            cb(this.get(i, y), i);
+        }
+    }
+
+    collapseRow(y: number) {
+        const startIndex = y * this.cols;
+        this.data.splice(startIndex, this.cols);
+        const array = new Array<T>(this.cols);
+        array.fill(this.defaultValue);
+        this.data.unshift(...array);
     }
 }
