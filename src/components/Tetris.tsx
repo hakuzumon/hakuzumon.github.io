@@ -4,8 +4,8 @@ import {randomItem} from "~/utils";
 import {Array2d} from "~/components/tetris/tetris-utils";
 
 const blockSize = 40;
-const w = 19;
-const h = 10;
+const w = 10;
+const h = 20;
 
 class Matrix2x2 {
     values: number[];
