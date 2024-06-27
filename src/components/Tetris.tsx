@@ -1,47 +1,11 @@
 import {createEffect, onCleanup, onMount} from "solid-js";
 import styles from "./Tetris.module.css";
 import {randomItem} from "~/utils";
+import {Array2d} from "~/components/tetris/tetris-utils";
 
 const blockSize = 40;
-const w = 21;
-const h = 21;
-
-class Array2d<T> {
-    private readonly data: T[];
-    private readonly rows: number;
-    private readonly cols: number;
-    
-    constructor(rows: number, cols: number, defaultValue: T) {
-        if (rows < 1 || cols < 1) {
-            throw Error("Rows and cols must be positive");
-        }
-        this.rows = rows;
-        this.cols = cols;
-        this.data = [];
-        for (let i = 0; i < rows * cols; i++) {
-            this.data[i] = defaultValue;
-        }
-    }
-    
-    get(x: number, y: number): T | undefined {
-        if (x < 0 || x >= this.cols || y < 0 || y >= this.rows)
-            return undefined;
-        
-        return this.data[y * this.rows + x];
-    }
-
-    set(x: number, y: number, value: T) {
-        this.data[y * this.rows + x] = value;
-    }
-
-    forEach(cb: (value: T | undefined, x: number, y: number) => void) {
-        for (let j = 0; j < this.rows; j++) {
-            for (let i = 0; i < this.cols; i++) {
-                cb(this.get(i, j), i, j);
-            }
-        }
-    }
-}
+const w = 19;
+const h = 10;
 
 class Matrix2x2 {
     values: number[];
@@ -260,7 +224,7 @@ export default function() {
         canvas = document.getElementsByClassName(styles.tetris)[0]! as HTMLCanvasElement;
         ctx = canvas.getContext('2d')!;
 
-        gameArea = new Array2d(w, h, Color.NOTHING);
+        gameArea = new Array2d(h, w, Color.NOTHING);
         render();
     });
 
