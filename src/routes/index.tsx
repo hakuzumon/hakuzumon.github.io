@@ -10,15 +10,13 @@ export default function Home() {
     const [a4, setA4] = createSignal(false);
     
     setTimeout(() => {
-        // setA1(true);
+        setA1(true);
     }, 400);
     
     return (
         <div>
             <div class="p-4 md:p-8 md:pt-16 font-light text-black/85 max-w-screen-md mx-auto min-h-screen">
 
-                <Tetris></Tetris>
-                
                 <div class="text-7xl h-100">
                     <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."} 
                                    completedDelayMs={50} 
@@ -35,7 +33,9 @@ export default function Home() {
                 
                 <div class="mt-8 md:mt-32 mx-auto">
                     <Show when={a4()}>
-                        <AnimatedBox></AnimatedBox>
+                        <AnimatedBox>
+                            <Tetris initialDelayMs={2000}></Tetris>
+                        </AnimatedBox>
                     </Show>
                 </div>
             </div>

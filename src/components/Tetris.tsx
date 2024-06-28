@@ -220,7 +220,11 @@ enum GameState {
     STOPPED, PLAY, STOP_REQUESTED
 }
 
-export default function() {
+export interface TetrisProps {
+    initialDelayMs?: number;
+}
+
+export default function(props: TetrisProps) {
     let gameObject = Shape.newInstance(randomItem(Object.keys(shapes)), Color.RED);
     let gameArea: Array2d<Color>;
     let canvas: HTMLCanvasElement;
@@ -246,7 +250,9 @@ export default function() {
 
         gameArea = new Array2d(h, w, Color.NOTHING);
         
-        play();
+        setTimeout(() => {
+            play();    
+        }, props.initialDelayMs ?? 0);
     });
 
     function play() {
