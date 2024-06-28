@@ -231,6 +231,10 @@ export default function() {
     let moveY = initialLoc.y;
     let moveX = initialLoc.x;
     
+    // input
+    let keyDown = false;
+    let keyLock = false;
+    
     // scheduling
     let state = GameState.STOPPED;
     let processedUptoMs: number | undefined = undefined;
@@ -293,6 +297,8 @@ export default function() {
         const targetColor = randomItem(visibleColors, gameObject.getColor());
         const targetShape = randomItem(Object.keys(shapes), gameObject.getKey());
         gameObject = Shape.newInstance(targetShape, targetColor);
+        if (keyDown)
+            keyLock = true;
     }
     
     function freezeObject() {
@@ -325,11 +331,12 @@ export default function() {
 
     createEffect(() => {
         const handleKeyDown = (event: any) => {
+            keyDown = true;
             if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
                 event.preventDefault(); // prevent scrolling
             }
             
-            if (state !== GameState.PLAY) {
+            if (state !== GameState.PLAY || keyLock) {
                 return;
             }
             
@@ -359,9 +366,16 @@ export default function() {
             render();
         }
         
+        const handleKeyUp = () => {
+            keyDown = false;
+            keyLock = false;
+        }
+        
         window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("keyup", handleKeyUp);
         onCleanup(() => {
             window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("keyup", handleKeyUp);
         });
     });
     
