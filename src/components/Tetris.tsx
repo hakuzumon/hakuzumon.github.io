@@ -209,6 +209,10 @@ function isRotationBlocked(area: Array2d<Color>, object: Shape, rotation: number
     });
 }
 
+enum GameState {
+    STOPPED, PLAY, STOP_REQUESTED
+}
+
 export default function() {
     let gameObject = Shape.newInstance(randomItem(Object.keys(shapes)), Color.RED);
     let gameArea: Array2d<Color>;
@@ -220,14 +224,60 @@ export default function() {
     let moveY = initialLoc.y;
     let moveX = initialLoc.x;
     
+    // scheduling
+    let state = GameState.STOPPED;
+    let processedUptoMs: number | undefined = undefined;
+    let actionIntervalMs = 500;
+    
     onMount(() => {
         canvas = document.getElementsByClassName(styles.tetris)[0]! as HTMLCanvasElement;
         ctx = canvas.getContext('2d')!;
 
         gameArea = new Array2d(h, w, Color.NOTHING);
-        render();
+        
+        play();
     });
 
+    function play() {
+        state = GameState.PLAY;
+        render();
+        requestAnimationFrame(frame);
+    }
+    
+    function frame(timestampMs: number) {
+        if (processedUptoMs === undefined) {
+            processedUptoMs = timestampMs;
+        }
+        
+        const elapsedInterval = timestampMs - processedUptoMs;
+        if (elapsedInterval >= actionIntervalMs) {
+            intervalAction();
+            processedUptoMs = timestampMs;
+        }
+        
+        if (state === GameState.PLAY) {
+            requestAnimationFrame(play);
+        } else if (state === GameState.STOP_REQUESTED) {
+            state = GameState.STOPPED;
+            processedUptoMs = undefined;
+        }
+    }
+    
+    function stop() {
+        state = GameState.STOP_REQUESTED;
+    }
+    
+    function intervalAction() {
+        if (isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
+            freezeObject();
+            removeFullRows();
+            newGameObject();
+        } else {
+            moveY += 1;
+        }
+        render();
+    }
+    
     function newGameObject() {
         rotation = initialRot;
         moveX = initialLoc.x;
@@ -266,23 +316,6 @@ export default function() {
         }
     }
 
-    createEffect(() => {
-        const intervalId = setInterval(() => {
-            if (isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
-                freezeObject();
-                removeFullRows();
-                newGameObject();
-            } else {
-                moveY += 1;
-            }
-            render();
-        }, 500);
-
-        onCleanup(() => {
-            clearInterval(intervalId);
-        });
-    });
-    
     createEffect(() => {
         const handleKeyDown = (event: any) => {
             switch (event.key) {
