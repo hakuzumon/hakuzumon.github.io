@@ -230,7 +230,7 @@ export default function(props: TetrisProps) {
     let canvas: HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D;
     const initialRot = 0;
-    const initialLoc = new Vector2d(Math.floor(w / 2), 2);
+    const initialLoc = new Vector2d(Math.floor(w / 2), Number.MIN_VALUE);
     let rotation = initialRot;
     let moveY = initialLoc.y;
     let moveX = initialLoc.x;
@@ -249,14 +249,16 @@ export default function(props: TetrisProps) {
         ctx = canvas.getContext('2d')!;
 
         gameArea = new Array2d(h, w, Color.NOTHING);
+        moveGameObjectInsideBounds();
         
         setTimeout(() => {
             play();    
-        }, props.initialDelayMs ?? 0);
+        }, props.initialDelayMs ?? 1);
     });
 
     function play() {
         state = GameState.PLAY;
+        processMovement();
         render();
         requestAnimationFrame(frame);
     }
@@ -284,15 +286,26 @@ export default function(props: TetrisProps) {
         state = GameState.STOP_REQUESTED;
     }
     
+    function moveGameObjectInsideBounds() {
+        let minY = Number.MAX_VALUE;
+
+        for (const p of gameObject.getPoints()) {
+            if (p.y < minY) minY = p.y;
+        }
+        
+        moveY = -minY;
+    }
+    
     function intervalAction() {
         if (isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
             freezeObject();
             removeFullRows();
             newGameObject();
+            moveGameObjectInsideBounds();
         } else {
             moveY += 1;
+            processMovement();
         }
-        render();
     }
     
     function newGameObject() {
@@ -369,7 +382,7 @@ export default function(props: TetrisProps) {
                     break;
                 default:
             }
-            render();
+            processMovement();
         }
         
         const handleKeyUp = () => {
@@ -385,6 +398,16 @@ export default function(props: TetrisProps) {
         });
     });
     
+    function processMovement() {
+        gameObject.rotate(rotation * Math.PI / 2);
+        gameObject.translate(new Vector2d(moveX, moveY));
+        gameObject.applyTransformations();
+        
+        if (isOverlapping(gameArea, gameObject)) {
+            stop();
+        }
+    }
+    
     function render() {
         clear(ctx, canvas);
         
@@ -393,17 +416,8 @@ export default function(props: TetrisProps) {
                 renderBlock(x, y, cell, ctx);
             }
         })
-        
-        const obj = gameObject;
-        if (obj != null) {
-            obj.rotate(rotation * Math.PI / 2);
-            obj.translate(new Vector2d(moveX, moveY));
-            obj.applyTransformations();
-            obj.render(ctx, canvas);
-            if (isOverlapping(gameArea, gameObject)) {
-                stop();
-            }
-        }
+
+        gameObject.render(ctx, canvas);
     }
 
     function clear(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
