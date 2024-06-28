@@ -220,6 +220,10 @@ enum GameState {
     STOPPED, PLAY, STOP_REQUESTED
 }
 
+enum PlayerAction {
+    MOVE_LEFT, MOVE_RIGHT, MOVE_DOWN, ROTATE
+}
+
 export interface TetrisProps {
     initialDelayMs?: number;
 }
@@ -347,49 +351,34 @@ export default function(props: TetrisProps) {
             }
         }
     }
+    
+    const handleKeyDown = (event: any) => {
+        keyDown = true;
+        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+            event.preventDefault(); // prevent scrolling
+        }
+        
+        const action = parseActionFromKey(event.key);
+        if (action !== undefined)
+            handlePlayerAction(action);
+    }
+    
+    function parseActionFromKey(key: string): PlayerAction | undefined {
+        switch (key) {
+            case 'ArrowUp': return PlayerAction.ROTATE;
+            case 'ArrowLeft': return PlayerAction.MOVE_LEFT;
+            case 'ArrowRight': return PlayerAction.MOVE_RIGHT;
+            case 'ArrowDown': return PlayerAction.MOVE_DOWN;
+            default: return undefined;
+        }
+    }
 
+    const handleKeyUp = () => {
+        keyDown = false;
+        keyLock = false;
+    }
+    
     createEffect(() => {
-        const handleKeyDown = (event: any) => {
-            keyDown = true;
-            if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-                event.preventDefault(); // prevent scrolling
-            }
-            
-            if (state !== GameState.PLAY || keyLock) {
-                return;
-            }
-            
-            switch (event.key) {
-                case 'ArrowUp':
-                    if (!isRotationBlocked(gameArea, gameObject, (rotation + 1) * Math.PI / 2)) {
-                        rotation += 1;
-                    }
-                    break;
-                case 'ArrowDown':
-                    if (!isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
-                        moveY += 1;
-                    }
-                    break;
-                case 'ArrowLeft':
-                    if (!isBlockedFromDirection(gameArea, gameObject, Direction.LEFT)) {
-                        moveX -= 1;
-                    }
-                    break;
-                case 'ArrowRight':
-                    if (!isBlockedFromDirection(gameArea, gameObject, Direction.RIGHT)) {
-                        moveX += 1;
-                    }
-                    break;
-                default:
-            }
-            processMovement();
-        }
-        
-        const handleKeyUp = () => {
-            keyDown = false;
-            keyLock = false;
-        }
-        
         window.addEventListener("keydown", handleKeyDown);
         window.addEventListener("keyup", handleKeyUp);
         onCleanup(() => {
@@ -397,6 +386,37 @@ export default function(props: TetrisProps) {
             window.removeEventListener("keyup", handleKeyUp);
         });
     });
+    
+    function handlePlayerAction(action: PlayerAction) {
+        if (state !== GameState.PLAY || keyLock) {
+            return;
+        }
+
+        switch (action) {
+            case PlayerAction.ROTATE:
+                if (!isRotationBlocked(gameArea, gameObject, (rotation + 1) * Math.PI / 2)) {
+                    rotation += 1;
+                }
+                break;
+            case PlayerAction.MOVE_DOWN:
+                if (!isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
+                    moveY += 1;
+                }
+                break;
+            case PlayerAction.MOVE_LEFT:
+                if (!isBlockedFromDirection(gameArea, gameObject, Direction.LEFT)) {
+                    moveX -= 1;
+                }
+                break;
+            case PlayerAction.MOVE_RIGHT:
+                if (!isBlockedFromDirection(gameArea, gameObject, Direction.RIGHT)) {
+                    moveX += 1;
+                }
+                break;
+            default:
+        }
+        processMovement();
+    }
     
     function processMovement() {
         gameObject.rotate(rotation * Math.PI / 2);
@@ -424,7 +444,19 @@ export default function(props: TetrisProps) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
+    const btnStyle = "border border-amber-800 p-4 rounded active:bg-amber-200 transition-all";
+    
     return (
-        <canvas class={styles.tetris} width={blockSize * w} height={blockSize * h}></canvas>
+        <div class="flex items-center bg-amber-500 h-full animate-fadeIn">
+            <canvas class={styles.tetris} width={blockSize * w} height={blockSize * h}></canvas>
+            <div class="tetris-controls text-2xl text-center mx-4">
+                <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.ROTATE)}>Käännä</button>
+                <div class="flex gap-4 mt-4 mb-4">
+                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</button>
+                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_RIGHT)}>&#8594;</button>
+                </div>
+                <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_DOWN)}>&#8595;</button>
+            </div>
+        </div>
     )
 }
