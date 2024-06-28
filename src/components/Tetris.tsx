@@ -178,6 +178,13 @@ enum Direction {
     LEFT, RIGHT, UP, DOWN
 }
 
+function isOverlapping(area: Array2d<Color>, object: Shape) {
+    return object.getPoints().some((p) => {
+        const c = area.get(p.x, p.y);
+        return c !== Color.NOTHING;
+    });
+}
+
 function isBlockedFromDirection(area: Array2d<Color>, object: Shape, direction: Direction) {
     let offsetX = 0;
     let offsetY = 0;
@@ -318,18 +325,24 @@ export default function() {
 
     createEffect(() => {
         const handleKeyDown = (event: any) => {
+            if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+                event.preventDefault(); // prevent scrolling
+            }
+            
+            if (state !== GameState.PLAY) {
+                return;
+            }
+            
             switch (event.key) {
                 case 'ArrowUp':
                     if (!isRotationBlocked(gameArea, gameObject, (rotation + 1) * Math.PI / 2)) {
                         rotation += 1;
                     }
-                    event.preventDefault(); // prevent scrolling
                     break;
                 case 'ArrowDown':
                     if (!isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
                         moveY += 1;
                     }
-                    event.preventDefault(); // prevent scrolling
                     break;
                 case 'ArrowLeft':
                     if (!isBlockedFromDirection(gameArea, gameObject, Direction.LEFT)) {
@@ -367,6 +380,9 @@ export default function() {
             obj.translate(new Vector2d(moveX, moveY));
             obj.applyTransformations();
             obj.render(ctx, canvas);
+            if (isOverlapping(gameArea, gameObject)) {
+                stop();
+            }
         }
     }
 
