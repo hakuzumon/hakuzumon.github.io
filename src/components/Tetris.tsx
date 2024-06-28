@@ -1,4 +1,4 @@
-import {createEffect, onCleanup, onMount} from "solid-js";
+import {createEffect, createSignal, onCleanup, onMount} from "solid-js";
 import styles from "./Tetris.module.css";
 import {randomItem} from "~/utils";
 import {Array2d} from "~/components/tetris/tetris-utils";
@@ -229,6 +229,8 @@ export interface TetrisProps {
 }
 
 export default function(props: TetrisProps) {
+    const [score, setScore] = createSignal(0);
+    
     let gameObject = Shape.newInstance(randomItem(Object.keys(shapes)), Color.RED);
     let gameArea: Array2d<Color>;
     let canvas: HTMLCanvasElement;
@@ -328,6 +330,7 @@ export default function(props: TetrisProps) {
         for (const point of gameObject.getPoints()) {
             gameArea.set(point.x, point.y, gameObject.getColor());
         }
+        setScore(score() + 10);
     }
     
     function removeFullRows() {
@@ -347,6 +350,7 @@ export default function(props: TetrisProps) {
             });
             if (blocks == w) {
                 gameArea.collapseRow(y);
+                setScore(score() + 100);
                 y++; // process same row twice
             }
         }
@@ -450,12 +454,15 @@ export default function(props: TetrisProps) {
         <div class="flex items-center bg-amber-500 h-full animate-fadeIn">
             <canvas class={styles.tetris} width={blockSize * w} height={blockSize * h}></canvas>
             <div class="tetris-controls text-2xl text-center mx-4">
-                <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.ROTATE)}>Käännä</button>
-                <div class="flex gap-4 mt-4 mb-4">
-                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</button>
-                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_RIGHT)}>&#8594;</button>
+                <div class=" text-xl mb-16">Pisteet:<br/>{score()}</div>
+                <div>
+                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.ROTATE)}>Käännä</button>
+                    <div class="flex gap-4 mt-4 mb-4">
+                        <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</button>
+                        <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_RIGHT)}>&#8594;</button>
+                    </div>
+                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_DOWN)}>&#8595;</button>
                 </div>
-                <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_DOWN)}>&#8595;</button>
             </div>
         </div>
     )
