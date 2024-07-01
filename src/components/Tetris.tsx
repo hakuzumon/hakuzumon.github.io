@@ -511,7 +511,7 @@ export default function(props: TetrisProps) {
                 <div class=" text-xl mb-16">Pisteet:<br/>{score()}</div>
                 <div>
                     <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.ROTATE)} onDeactivation={() => deregisterPlayerAction(PlayerAction.ROTATE)}>Käännä</TetrisControlButton>
-                    <div class="flex gap-4 mt-4 mb-4">
+                    <div class="flex gap-2 mt-2 mb-2">
                         <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_LEFT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</TetrisControlButton>
                         <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_RIGHT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8594;</TetrisControlButton>
                     </div>
@@ -541,7 +541,7 @@ function TetrisControlButton(props: TetrisButtonProps) {
     }
     
     return (
-        <button class="border border-amber-800 p-4 rounded active:bg-amber-200 transition-all select-none" 
+        <button class="border border-amber-800 min-w-16 p-4 rounded active:bg-amber-200 transition-all select-none" 
                 onContextMenu={(e) => e.preventDefault()} 
                 onPointerDown={(e) => pointerDown(e)}
                 onPointerUp={(e) => pointerUp(e)}>
