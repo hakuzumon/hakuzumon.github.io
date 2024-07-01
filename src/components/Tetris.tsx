@@ -1,4 +1,4 @@
-import {createEffect, createSignal, onCleanup, onMount} from "solid-js";
+import {createEffect, createSignal, JSXElement, onCleanup, onMount} from "solid-js";
 import styles from "./Tetris.module.css";
 import {randomItem} from "~/utils";
 import {Array2d} from "~/components/tetris/tetris-utils";
@@ -228,6 +228,7 @@ export interface TetrisProps {
     initialDelayMs?: number;
 }
 
+
 export default function(props: TetrisProps) {
     const [score, setScore] = createSignal(0);
     
@@ -242,13 +243,24 @@ export default function(props: TetrisProps) {
     let moveX = initialLoc.x;
     
     // input
-    let keyDown = false;
-    let keyLock = false;
+    let activeAction: PlayerAction | undefined = undefined;
     
     // scheduling
     let state = GameState.STOPPED;
-    let processedUptoMs: number | undefined = undefined;
-    let actionIntervalMs = 500;
+    let processedIntervalUptoMs: number | undefined = undefined;
+    let lastPlayerActionMs: number = 0;
+    
+    let newAction = true;
+    let repeating = false;
+    
+    const keyRepeatInitialDelayMs = 150;
+    const automaticGameIntervalMs = 500;
+    const actionThrottles = new Map<PlayerAction, number>();
+    // TODO since we probably get 60 fps, which is ~16ms, timings close to that are probably not very accurate?
+    actionThrottles.set(PlayerAction.MOVE_LEFT, 25);
+    actionThrottles.set(PlayerAction.MOVE_RIGHT, 25);
+    actionThrottles.set(PlayerAction.MOVE_DOWN, 25);
+    actionThrottles.set(PlayerAction.ROTATE, 150);
     
     onMount(() => {
         canvas = document.getElementsByClassName(styles.tetris)[0]! as HTMLCanvasElement;
@@ -270,21 +282,52 @@ export default function(props: TetrisProps) {
     }
     
     function frame(timestampMs: number) {
-        if (processedUptoMs === undefined) {
-            processedUptoMs = timestampMs;
+        if (processedIntervalUptoMs === undefined) {
+            processedIntervalUptoMs = timestampMs;
         }
         
-        const elapsedInterval = timestampMs - processedUptoMs;
-        if (elapsedInterval >= actionIntervalMs) {
+        const elapsedInterval = timestampMs - processedIntervalUptoMs;
+        if (elapsedInterval >= automaticGameIntervalMs) {
             intervalAction();
-            processedUptoMs = timestampMs;
+            processedIntervalUptoMs = timestampMs;
+        }
+
+        let executed = false;
+        if (activeAction !== undefined) {
+            if (newAction) {
+                handlePlayerAction(activeAction);
+                executed = true;
+                newAction = false;
+            } else {
+                // we have already executed the action at least once
+                const sinceLastPlayerAction = timestampMs - lastPlayerActionMs;
+                
+                if (!repeating) {
+                    if (sinceLastPlayerAction >= keyRepeatInitialDelayMs) {
+                        handlePlayerAction(activeAction);
+                        executed = true;
+                        repeating = true;
+                    }
+                } else {
+                    const throttleMs = actionThrottles.get(activeAction) || 0;
+
+                    if (sinceLastPlayerAction >= throttleMs) {
+                        handlePlayerAction(activeAction);
+                        executed = true;
+                    }    
+                }
+            }
         }
         
+        if (executed) {
+            lastPlayerActionMs = timestampMs;
+        }
+    
         if (state === GameState.PLAY) {
             requestAnimationFrame(play);
         } else if (state === GameState.STOP_REQUESTED) {
             state = GameState.STOPPED;
-            processedUptoMs = undefined;
+            processedIntervalUptoMs = undefined;
         }
     }
     
@@ -322,8 +365,7 @@ export default function(props: TetrisProps) {
         const targetColor = randomItem(visibleColors, gameObject.getColor());
         const targetShape = randomItem(Object.keys(shapes), gameObject.getKey());
         gameObject = Shape.newInstance(targetShape, targetColor);
-        if (keyDown)
-            keyLock = true;
+        activeAction = undefined;
     }
     
     function freezeObject() {
@@ -357,16 +399,21 @@ export default function(props: TetrisProps) {
     }
     
     const handleKeyDown = (event: any) => {
-        keyDown = true;
         if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
             event.preventDefault(); // prevent scrolling
         }
         
         const action = parseActionFromKey(event.key);
         if (action !== undefined)
-            handlePlayerAction(action);
+            registerPlayerAction(action);
     }
-    
+
+    const handleKeyUp = (event: KeyboardEvent) => {
+        const action = parseActionFromKey(event.key);
+        if (action !== undefined)
+            deregisterPlayerAction(action);
+    }
+
     function parseActionFromKey(key: string): PlayerAction | undefined {
         switch (key) {
             case 'ArrowUp': return PlayerAction.ROTATE;
@@ -375,11 +422,6 @@ export default function(props: TetrisProps) {
             case 'ArrowDown': return PlayerAction.MOVE_DOWN;
             default: return undefined;
         }
-    }
-
-    const handleKeyUp = () => {
-        keyDown = false;
-        keyLock = false;
     }
     
     createEffect(() => {
@@ -391,8 +433,22 @@ export default function(props: TetrisProps) {
         });
     });
     
+    function registerPlayerAction(action: PlayerAction) {
+        if (action !== activeAction) {
+            activeAction = action;
+            newAction = true;
+            repeating = false;    
+        }
+    }
+    
+    function deregisterPlayerAction(action: PlayerAction) {
+        activeAction = undefined;
+        repeating = false;
+        lastPlayerActionMs = 0;
+    }
+    
     function handlePlayerAction(action: PlayerAction) {
-        if (state !== GameState.PLAY || keyLock) {
+        if (state !== GameState.PLAY) {
             return;
         }
 
@@ -448,22 +504,48 @@ export default function(props: TetrisProps) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    const btnStyle = "border border-amber-800 p-4 rounded active:bg-amber-200 transition-all";
-    
     return (
         <div class="flex items-center bg-amber-500 h-full animate-fadeIn">
             <canvas class={styles.tetris} width={blockSize * w} height={blockSize * h}></canvas>
             <div class="tetris-controls text-2xl text-center mx-4">
                 <div class=" text-xl mb-16">Pisteet:<br/>{score()}</div>
                 <div>
-                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.ROTATE)}>Käännä</button>
+                    <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.ROTATE)} onDeactivation={() => deregisterPlayerAction(PlayerAction.ROTATE)}>Käännä</TetrisControlButton>
                     <div class="flex gap-4 mt-4 mb-4">
-                        <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</button>
-                        <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_RIGHT)}>&#8594;</button>
+                        <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_LEFT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</TetrisControlButton>
+                        <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_RIGHT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8594;</TetrisControlButton>
                     </div>
-                    <button class={btnStyle} onClick={() => handlePlayerAction(PlayerAction.MOVE_DOWN)}>&#8595;</button>
+                    <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_DOWN)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8595;</TetrisControlButton>
                 </div>
             </div>
         </div>
+    )
+}
+
+interface TetrisButtonProps {
+    children: JSXElement;
+    onActivation: (event: any) => void;
+    onDeactivation: (event: any) => void;
+}
+
+function TetrisControlButton(props: TetrisButtonProps) {
+    
+    function pointerDown(e: Event) {
+        e.preventDefault();
+        props.onActivation(e);
+    }
+
+    function pointerUp(e: Event) {
+        e.preventDefault();
+        props.onDeactivation(e);
+    }
+    
+    return (
+        <button class="border border-amber-800 p-4 rounded active:bg-amber-200 transition-all select-none" 
+                onContextMenu={(e) => e.preventDefault()} 
+                onPointerDown={(e) => pointerDown(e)}
+                onPointerUp={(e) => pointerUp(e)}>
+            {props.children}
+        </button>
     )
 }
