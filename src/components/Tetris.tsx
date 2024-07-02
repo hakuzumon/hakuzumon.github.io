@@ -49,6 +49,16 @@ class Vector2d {
         this.x = Math.round(this.x);
         this.y = Math.round(this.y);
     }
+    
+    static average(points: Vector2d[]): Vector2d {
+        let sumX = 0;
+        let sumY = 0;
+        for (const point of points) {
+            sumX += point.x;
+            sumY += point.y;
+        }
+        return new Vector2d(sumX / points.length, sumY / points.length);
+    }
 }
 
 class Shape {
@@ -141,10 +151,10 @@ const shapes: {[key: string]: number[][]} = {
 }
 
 enum Color {
-    NOTHING, RED, GREEN, BLUE, YELLOW, PURPLE, ORANGE
+    NOTHING, RED, GREEN, BLUE, YELLOW, PURPLE, ORANGE, BLACK
 }
 
-const visibleColors = [Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.PURPLE];
+const blockColors = [Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.PURPLE];
 
 function getColor(c: Color): string | null {
     switch (c) {
@@ -160,6 +170,8 @@ function getColor(c: Color): string | null {
             return "#17cd01";
         case Color.BLUE:
             return "#072bcf";
+        case Color.BLACK:
+            return "#000";
         case Color.NOTHING:
         default:
             return null;
@@ -171,10 +183,7 @@ function renderBlock(x: number, y: number, color: Color, ctx: CanvasRenderingCon
         return;
     } else {
         ctx.fillStyle = getColor(color)!;
-        const offsetX = 0;
-        const offsetY = 0;
-
-        ctx.fillRect(x * blockSize + offsetX, y * blockSize + offsetY, blockSize, blockSize);   
+        ctx.fillRect(x * blockSize, y * blockSize, blockSize, blockSize);   
     }
 }
 
@@ -255,6 +264,9 @@ export default function(props: TetrisProps) {
     let moveY = initialLoc.y;
     let moveX = initialLoc.x;
     
+    let preview: HTMLCanvasElement;
+    let previewCtx: CanvasRenderingContext2D;
+    
     // input
     
     // As a stack, only the last on has effect. But it "remembers" keys hold down.
@@ -288,12 +300,14 @@ export default function(props: TetrisProps) {
     
     onMount(() => {
         canvas = document.getElementsByClassName(styles.tetris)[0]! as HTMLCanvasElement;
+        preview = document.getElementsByClassName(styles.preview)[0]! as HTMLCanvasElement;
         ctx = canvas.getContext('2d')!;
+        previewCtx = preview.getContext('2d')!;
 
         gameArea = new Array2d(h, w, Color.NOTHING);
         
         setTimeout(() => {
-            play();    
+            play();
         }, props.initialDelayMs ?? 1);
     });
 
@@ -412,9 +426,10 @@ export default function(props: TetrisProps) {
 
         gameObject = next.clone();
 
-        const nextColor = randomItem(visibleColors, next.getColor());
+        const nextColor = randomItem(blockColors, next.getColor());
         const nextShape = randomItem(Object.keys(shapes), next.getKey());
         next = Shape.newInstance(nextShape, nextColor);
+        renderPreview();
         
         moveGameObjectInsideBounds(gameObject.getPoints());
         actionStack = [];
@@ -574,13 +589,25 @@ export default function(props: TetrisProps) {
     function clear(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
+    
+    function renderPreview() {
+        clear(previewCtx, preview);
+        
+        const avg = Vector2d.average(next.getPoints());
+        for (const p of next.getPoints()) {
+            renderBlock(p.x + 2 - avg.x, p.y + 2 - avg.y, Color.BLACK, previewCtx);
+        }
+    }
 
     return (
         <div class="flex items-center bg-amber-500 h-full animate-fadeIn">
             <canvas class={styles.tetris} width={blockSize * w} height={blockSize * h}></canvas>
-            <div class="tetris-controls text-2xl text-center mx-4">
-                <div class=" text-xl mb-16">Pisteet:<br/>{score()}</div>
-                <div>
+            <div class="flex flex-col h-full justify-between gap-4 p-4 items-center border text-2xl mx-auto">
+                <div class="w-16 h-16 md:w-24 md:h-24">
+                    <canvas class={styles.preview} width={blockSize * 5} height={blockSize * 5}></canvas>
+                </div>
+                <div class="text-center text-xl">Pisteet:<br/>{score()}</div>
+                <div class="flex flex-col items-center">
                     <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.ROTATE)} onDeactivation={() => deregisterPlayerAction(PlayerAction.ROTATE)}>Käännä</TetrisControlButton>
                     <div class="flex gap-2 mt-2 mb-2">
                         <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_LEFT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</TetrisControlButton>
@@ -612,7 +639,7 @@ function TetrisControlButton(props: TetrisButtonProps) {
     }
     
     return (
-        <button class="border border-amber-800 min-w-16 p-4 rounded active:bg-amber-200 transition-all select-none" 
+        <button class="border border-amber-800 p-2 sm:p-4 md:p-6 rounded active:bg-amber-200 transition-all select-none" 
                 onContextMenu={(e) => e.preventDefault()} 
                 onPointerDown={(e) => pointerDown(e)}
                 onPointerUp={(e) => pointerUp(e)}>
