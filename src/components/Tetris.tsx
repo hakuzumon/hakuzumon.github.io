@@ -251,7 +251,14 @@ export default function(props: TetrisProps) {
     let moveX = initialLoc.x;
     
     // input
-    let activeAction: PlayerAction | undefined = undefined;
+    // let activeAction: PlayerAction | undefined = undefined;
+    
+    // As a stack, only the last on has effect. But it "remembers" keys hold down.
+    let actionStack: PlayerAction[] = [];
+    const activeAction = function() {
+        if (actionStack.length === 0) return undefined;
+        else return actionStack[actionStack.length - 1];
+    }
     
     // scheduling
     let state = GameState.STOPPED;
@@ -328,9 +335,10 @@ export default function(props: TetrisProps) {
         
         // player actions
         let executed = false;
-        if (activeAction !== undefined && gameObject != null) {
+        const action = activeAction();
+        if (action !== undefined && gameObject != null) {
             if (newAction) {
-                handlePlayerAction(activeAction);
+                handlePlayerAction(action);
                 executed = true;
                 newAction = false;
             } else {
@@ -339,15 +347,15 @@ export default function(props: TetrisProps) {
                 
                 if (!repeating) {
                     if (sinceLastPlayerAction >= keyRepeatInitialDelayMs) {
-                        handlePlayerAction(activeAction);
+                        handlePlayerAction(action);
                         executed = true;
                         repeating = true;
                     }
                 } else {
-                    const throttleMs = actionThrottles.get(activeAction) || 0;
+                    const throttleMs = actionThrottles.get(action) || 0;
 
                     if (sinceLastPlayerAction >= throttleMs) {
-                        handlePlayerAction(activeAction);
+                        handlePlayerAction(action);
                         executed = true;
                     }    
                 }
@@ -402,7 +410,7 @@ export default function(props: TetrisProps) {
         const targetShape = randomItem(Object.keys(shapes), gameObject?.getKey());
         gameObject = Shape.newInstance(targetShape, targetColor);
         moveGameObjectInsideBounds(gameObject.getPoints());
-        activeAction = undefined;
+        actionStack = [];
     }
     
     function freezeObject(obj: Shape) {
@@ -433,11 +441,14 @@ export default function(props: TetrisProps) {
         }
     }
     
-    const handleKeyDown = (event: any) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
             event.preventDefault(); // prevent scrolling
         }
-        
+
+        if (event.repeat)
+            return;
+
         const action = parseActionFromKey(event.key);
         if (action !== undefined)
             registerPlayerAction(action);
@@ -469,17 +480,27 @@ export default function(props: TetrisProps) {
     });
     
     function registerPlayerAction(action: PlayerAction) {
-        if (action !== activeAction) {
-            activeAction = action;
+        const current = activeAction();
+        if (current !== action) {
+            actionStack.push(action);
             newAction = true;
-            repeating = false;    
+            repeating = false;
         }
     }
     
     function deregisterPlayerAction(action: PlayerAction) {
-        activeAction = undefined;
-        repeating = false;
-        lastPlayerActionMs = 0;
+        const index = actionStack.indexOf(action);
+        if (index != -1) {
+            actionStack.splice(index, 1);
+        }
+        const current = activeAction();
+        if (current) {
+            // re-register previous action, if it is still pressed
+            registerPlayerAction(current);
+        } else {
+            repeating = false;
+            lastPlayerActionMs = 0;
+        }
     }
     
     function handlePlayerAction(action: PlayerAction) {
