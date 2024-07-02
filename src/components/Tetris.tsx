@@ -256,7 +256,6 @@ export default function(props: TetrisProps) {
     let moveX = initialLoc.x;
     
     // input
-    // let activeAction: PlayerAction | undefined = undefined;
     
     // As a stack, only the last on has effect. But it "remembers" keys hold down.
     let actionStack: PlayerAction[] = [];
