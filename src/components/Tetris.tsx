@@ -240,7 +240,7 @@ export interface TetrisProps {
 export default function(props: TetrisProps) {
     const [score, setScore] = createSignal(0);
     
-    let gameObject = Shape.newInstance(randomItem(Object.keys(shapes)), Color.RED);
+    let gameObject: Shape | null = null;
     let gameArea: Array2d<Color>;
     let canvas: HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D;
@@ -280,7 +280,6 @@ export default function(props: TetrisProps) {
         ctx = canvas.getContext('2d')!;
 
         gameArea = new Array2d(h, w, Color.NOTHING);
-        moveGameObjectInsideBounds();
         
         setTimeout(() => {
             play();    
@@ -296,13 +295,14 @@ export default function(props: TetrisProps) {
     
     function frame(timestampMs: number) {
         // animations
+        const hasBlockingAnimations = rowDestruction.size > 0;
         const toCollapse: number[] = [];
         for (const [y, alpha] of rowDestruction) {
             if (alpha >= 1) {
                 rowDestruction.delete(y);
                 toCollapse.push(y);
             } else {
-                rowDestruction.set(y, alpha + 0.10); // TODO assumes framerate
+                rowDestruction.set(y, alpha + 0.16); // TODO assumes framerate
             }
         }
         const collapsedRows = toCollapse.length;
@@ -310,7 +310,11 @@ export default function(props: TetrisProps) {
             gameArea.collapseRows(toCollapse);
             setScore(score() + 100 * collapsedRows * collapsedRows);
         }
-        
+
+        if (!hasBlockingAnimations && gameObject == null) {
+            newGameObject();
+        }
+
         // game actions
         if (processedIntervalUptoMs === undefined) {
             processedIntervalUptoMs = timestampMs;
@@ -321,10 +325,10 @@ export default function(props: TetrisProps) {
             intervalAction();
             processedIntervalUptoMs = timestampMs;
         }
-
+        
         // player actions
         let executed = false;
-        if (activeAction !== undefined) {
+        if (activeAction !== undefined && gameObject != null) {
             if (newAction) {
                 handlePlayerAction(activeAction);
                 executed = true;
@@ -366,10 +370,10 @@ export default function(props: TetrisProps) {
         state = GameState.STOP_REQUESTED;
     }
     
-    function moveGameObjectInsideBounds() {
+    function moveGameObjectInsideBounds(points: Vector2d[]) {
         let minY = Number.MAX_VALUE;
 
-        for (const p of gameObject.getPoints()) {
+        for (const p of points) {
             if (p.y < minY) minY = p.y;
         }
         
@@ -377,14 +381,15 @@ export default function(props: TetrisProps) {
     }
     
     function intervalAction() {
-        if (isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
-            freezeObject();
-            removeFullRows();
-            newGameObject();
-            moveGameObjectInsideBounds();
-        } else {
-            moveY += 1;
-            processMovement();
+        if (gameObject != null) {
+            if (isBlockedFromDirection(gameArea, gameObject, Direction.DOWN)) {
+                freezeObject(gameObject);
+                removeFullRows(gameObject);
+                gameObject = null;
+            } else {
+                moveY += 1;
+                processMovement();
+            }
         }
     }
     
@@ -393,23 +398,24 @@ export default function(props: TetrisProps) {
         moveX = initialLoc.x;
         moveY = initialLoc.y;
 
-        const targetColor = randomItem(visibleColors, gameObject.getColor());
-        const targetShape = randomItem(Object.keys(shapes), gameObject.getKey());
+        const targetColor = randomItem(visibleColors, gameObject?.getColor());
+        const targetShape = randomItem(Object.keys(shapes), gameObject?.getKey());
         gameObject = Shape.newInstance(targetShape, targetColor);
+        moveGameObjectInsideBounds(gameObject.getPoints());
         activeAction = undefined;
     }
     
-    function freezeObject() {
-        for (const point of gameObject.getPoints()) {
-            gameArea.set(point.x, point.y, gameObject.getColor());
+    function freezeObject(obj: Shape) {
+        for (const point of obj.getPoints()) {
+            gameArea.set(point.x, point.y, obj.getColor());
         }
         setScore(score() + 10);
     }
     
-    function removeFullRows() {
+    function removeFullRows(obj: Shape) {
         // removable rows can only happen on rows where landed shape has blocks
         let [minY, maxY] = [h, 0];
-        for (let v of gameObject.getPoints()) {
+        for (let v of obj.getPoints()) {
             if (v.y < minY) minY = v.y;
             if (v.y > maxY) maxY = v.y;
         }
@@ -477,7 +483,7 @@ export default function(props: TetrisProps) {
     }
     
     function handlePlayerAction(action: PlayerAction) {
-        if (state !== GameState.PLAY) {
+        if (state !== GameState.PLAY || gameObject == null) {
             return;
         }
 
@@ -508,12 +514,14 @@ export default function(props: TetrisProps) {
     }
     
     function processMovement() {
-        gameObject.rotate(rotation * Math.PI / 2);
-        gameObject.translate(new Vector2d(moveX, moveY));
-        gameObject.applyTransformations();
-        
-        if (isOverlapping(gameArea, gameObject)) {
-            stop();
+        if (gameObject != null) {
+            gameObject.rotate(rotation * Math.PI / 2);
+            gameObject.translate(new Vector2d(moveX, moveY));
+            gameObject.applyTransformations();
+
+            if (isOverlapping(gameArea, gameObject)) {
+                stop();
+            }
         }
     }
     
@@ -526,7 +534,9 @@ export default function(props: TetrisProps) {
             }
         })
 
-        gameObject.render(ctx, canvas);
+        if (gameObject != null) {
+            gameObject.render(ctx, canvas);
+        }
 
         for (const [y, value] of rowDestruction) {
             renderRow(y, `rgba(255, 255, 255, ${value})`, "screen", ctx);
