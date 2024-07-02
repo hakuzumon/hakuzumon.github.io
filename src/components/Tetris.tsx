@@ -602,7 +602,7 @@ export default function(props: TetrisProps) {
     return (
         <div class="flex items-center bg-amber-500 h-full animate-fadeIn">
             <canvas class={styles.tetris} width={blockSize * w} height={blockSize * h}></canvas>
-            <div class="flex flex-col h-full justify-between gap-4 p-4 items-center border text-2xl mx-auto">
+            <div class="flex flex-col h-full justify-between gap-4 p-4 items-center text-2xl mx-auto">
                 <div class="w-16 h-16 md:w-24 md:h-24">
                     <canvas class={styles.preview} width={blockSize * 5} height={blockSize * 5}></canvas>
                 </div>
