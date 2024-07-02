@@ -174,6 +174,14 @@ function renderBlock(x: number, y: number, color: Color, ctx: CanvasRenderingCon
     }
 }
 
+function renderRow(y: number, fillStyle: string, mode: GlobalCompositeOperation, ctx: CanvasRenderingContext2D) {
+    ctx.fillStyle = fillStyle;
+    const originalMode = ctx.globalCompositeOperation;
+    ctx.globalCompositeOperation = mode;
+    ctx.fillRect(0, y * blockSize, w * blockSize, blockSize);
+    ctx.globalCompositeOperation = originalMode;
+}
+
 enum Direction {
     LEFT, RIGHT, UP, DOWN
 }
@@ -253,6 +261,11 @@ export default function(props: TetrisProps) {
     let newAction = true;
     let repeating = false;
     
+    // animations
+    
+    // row index (y) mapped to a value between 0..1, where the value is alpha 
+    let rowDestruction = new Map<number, number>();
+    
     const keyRepeatInitialDelayMs = 250;
     const automaticGameIntervalMs = 500;
     const actionThrottles = new Map<PlayerAction, number>();
@@ -282,16 +295,34 @@ export default function(props: TetrisProps) {
     }
     
     function frame(timestampMs: number) {
+        // animations
+        const toCollapse: number[] = [];
+        for (const [y, alpha] of rowDestruction) {
+            if (alpha >= 1) {
+                rowDestruction.delete(y);
+                toCollapse.push(y);
+            } else {
+                rowDestruction.set(y, alpha + 0.10); // TODO assumes framerate
+            }
+        }
+        const collapsedRows = toCollapse.length;
+        if (collapsedRows > 0) {
+            gameArea.collapseRows(toCollapse);
+            setScore(score() + 100 * collapsedRows * collapsedRows);
+        }
+        
+        // game actions
         if (processedIntervalUptoMs === undefined) {
             processedIntervalUptoMs = timestampMs;
         }
-        
+
         const elapsedInterval = timestampMs - processedIntervalUptoMs;
         if (elapsedInterval >= automaticGameIntervalMs) {
             intervalAction();
             processedIntervalUptoMs = timestampMs;
         }
 
+        // player actions
         let executed = false;
         if (activeAction !== undefined) {
             if (newAction) {
@@ -322,7 +353,7 @@ export default function(props: TetrisProps) {
         if (executed) {
             lastPlayerActionMs = timestampMs;
         }
-    
+
         if (state === GameState.PLAY) {
             requestAnimationFrame(play);
         } else if (state === GameState.STOP_REQUESTED) {
@@ -391,9 +422,7 @@ export default function(props: TetrisProps) {
                     blocks++;
             });
             if (blocks == w) {
-                gameArea.collapseRow(y);
-                setScore(score() + 100);
-                y++; // process same row twice
+                rowDestruction.set(y, 0);
             }
         }
     }
@@ -498,6 +527,10 @@ export default function(props: TetrisProps) {
         })
 
         gameObject.render(ctx, canvas);
+
+        for (const [y, value] of rowDestruction) {
+            renderRow(y, `rgba(255, 255, 255, ${value})`, "screen", ctx);
+        }
     }
 
     function clear(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {

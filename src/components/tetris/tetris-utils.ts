@@ -53,4 +53,10 @@ export class Array2d<T> {
         array.fill(this.defaultValue);
         this.data.unshift(...array);
     }
+    
+    collapseRows(ys: number[]) {
+        ys.sort((a, b) => a - b);
+        for (const y of ys) 
+            this.collapseRow(y);
+    }
 }
