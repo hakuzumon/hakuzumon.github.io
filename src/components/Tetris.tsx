@@ -124,6 +124,10 @@ class Shape {
     getKey() {
         return this.key;
     }
+
+    clone() {
+        return Shape.newInstance(this.key, this.color);
+    }
 }
 
 const shapes: {[key: string]: number[][]} = {
@@ -240,6 +244,7 @@ export interface TetrisProps {
 export default function(props: TetrisProps) {
     const [score, setScore] = createSignal(0);
     
+    let next = Shape.newInstance(randomItem(Object.keys(shapes), 'O'), Color.RED);
     let gameObject: Shape | null = null;
     let gameArea: Array2d<Color>;
     let canvas: HTMLCanvasElement;
@@ -406,9 +411,12 @@ export default function(props: TetrisProps) {
         moveX = initialLoc.x;
         moveY = initialLoc.y;
 
-        const targetColor = randomItem(visibleColors, gameObject?.getColor());
-        const targetShape = randomItem(Object.keys(shapes), gameObject?.getKey());
-        gameObject = Shape.newInstance(targetShape, targetColor);
+        gameObject = next.clone();
+
+        const nextColor = randomItem(visibleColors, next.getColor());
+        const nextShape = randomItem(Object.keys(shapes), next.getKey());
+        next = Shape.newInstance(nextShape, nextColor);
+        
         moveGameObjectInsideBounds(gameObject.getPoints());
         actionStack = [];
     }
