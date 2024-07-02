@@ -577,9 +577,9 @@ export default function(props: TetrisProps) {
                     <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.ROTATE)} onDeactivation={() => deregisterPlayerAction(PlayerAction.ROTATE)}>Käännä</TetrisControlButton>
                     <div class="flex gap-2 mt-2 mb-2">
                         <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_LEFT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8592;</TetrisControlButton>
-                        <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_RIGHT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8594;</TetrisControlButton>
+                        <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_RIGHT)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_RIGHT)}>&#8594;</TetrisControlButton>
                     </div>
-                    <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_DOWN)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_LEFT)}>&#8595;</TetrisControlButton>
+                    <TetrisControlButton onActivation={() => registerPlayerAction(PlayerAction.MOVE_DOWN)} onDeactivation={() => deregisterPlayerAction(PlayerAction.MOVE_DOWN)}>&#8595;</TetrisControlButton>
                 </div>
             </div>
         </div>
