@@ -253,14 +253,14 @@ export default function(props: TetrisProps) {
     let newAction = true;
     let repeating = false;
     
-    const keyRepeatInitialDelayMs = 150;
+    const keyRepeatInitialDelayMs = 250;
     const automaticGameIntervalMs = 500;
     const actionThrottles = new Map<PlayerAction, number>();
     // TODO since we probably get 60 fps, which is ~16ms, timings close to that are probably not very accurate?
-    actionThrottles.set(PlayerAction.MOVE_LEFT, 25);
-    actionThrottles.set(PlayerAction.MOVE_RIGHT, 25);
-    actionThrottles.set(PlayerAction.MOVE_DOWN, 25);
-    actionThrottles.set(PlayerAction.ROTATE, 150);
+    actionThrottles.set(PlayerAction.MOVE_LEFT, 30);
+    actionThrottles.set(PlayerAction.MOVE_RIGHT, 30);
+    actionThrottles.set(PlayerAction.MOVE_DOWN, 30);
+    actionThrottles.set(PlayerAction.ROTATE, 250);
     
     onMount(() => {
         canvas = document.getElementsByClassName(styles.tetris)[0]! as HTMLCanvasElement;
