@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.blinker {
+    font-family: "Blinker", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.blinker-adjust-text {
+    display: inline-block;
+    transform: translateY(-0.05rem);
+}
 
 p + p {
     margin-top: 16px;
@@ -19,5 +29,5 @@ blockquote {
 }
 
 a.active {
-    text-shadow: 0 0 2px black, 0 -1px 8px rgba(0,0,0,0.5);
+    text-shadow: 0 0 2px black;
 }

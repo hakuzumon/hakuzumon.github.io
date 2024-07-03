@@ -2,8 +2,9 @@ import {useLocation} from "@solidjs/router";
 import {createEffect, createSignal, For, onCleanup, Show} from "solid-js";
 
 interface Link {
-    url: string,
-    label: string,
+    url: string;
+    label: string;
+    cssClass?: string;
 }
 
 export default function Nav() {
@@ -40,9 +41,9 @@ export default function Nav() {
         const pathname = normalizePath(location.pathname);
         return path === pathname ? "active bg-gradient-to-t from-amber-800 to-amber-900" : "";
     }
-    const headerLinkStyle: string = "p-4 pt-8 pb-2 whitespace-nowrap shadow";
+    const headerLinkStyle: string = "p-4 pt-8 pb-2 whitespace-nowrap leading-6";
     const links: Link[] = [
-        {url: "/", label: "Evident"},
+        {url: "/", label: "evident", cssClass: "blinker text-2xl blinker-adjust-text"},
         {url: "/references", label: "Töitämme"},
         {url: "/personnel", label: "Henkilöstö"},
         {url: "/opensource", label: "Open Source"},
@@ -58,7 +59,9 @@ export default function Nav() {
             <nav class="bg-gradient-to-tr from-stone-900 to-stone-800 sticky top-[-1.5rem] z-10 max-sm:hidden">
                 <div class="container flex items-center text-white px-4 md:px-10 font-light">
                     <For each={links}>{(link) =>
-                        <a class={`${headerLinkStyle} ${active(link.url)}`} href={link.url}>{link.label}</a>
+                        <a class={`${headerLinkStyle} ${active(link.url)}`} href={link.url}>
+                            <span class={`leading-7 ${link.cssClass || ''}`}>{link.label}</span>
+                        </a>
                     }</For>
                 </div>
             </nav>
@@ -83,7 +86,7 @@ export default function Nav() {
             <div class={`${showSideNavi() ? '' : 'translate-x-full'} right-0 transition-transform fixed bg-gradient-to-tr from-stone-900 to-stone-800 h-full text-white z-20 drop-shadow-2xl`}>
                 <div class="text-xl font-light">
                     <For each={links}>{(link) =>
-                        <a class={`${active(link.url)} whitespace-nowrap block p-8`}
+                        <a class={`${active(link.url)} whitespace-nowrap block p-8 ${link.cssClass}`}
                            onClick={() => toggleNavigation()}
                            href={link.url}>{link.label}</a>
                     }</For>

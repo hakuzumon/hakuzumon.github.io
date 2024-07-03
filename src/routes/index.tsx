@@ -19,7 +19,7 @@ export default function Home() {
 
                 <div class="text-7xl h-100">
                     <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."} 
-                                   completedDelayMs={50} 
+                                   completedDelayMs={50} cssClass="blinker"
                                    showPromptInitially={false}></TypeAnimation>
                 </div>
                 <div class="text-2xl mt-4 md:mt-16">

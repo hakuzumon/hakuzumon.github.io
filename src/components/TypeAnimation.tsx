@@ -7,6 +7,7 @@ interface TypeSimulationProps {
     showPromptInitially?: boolean;
     start: Accessor<boolean>;
     completed?: () => void;
+    cssClass?: string;
 }
 
 export default function TypeAnimation(props: TypeSimulationProps) {
@@ -46,6 +47,6 @@ export default function TypeAnimation(props: TypeSimulationProps) {
     setPrompt(props.showPromptInitially ?? false);
     
     return (
-        <span>{text()}<span class="text-amber-500">{prompt() ? '_' : ''}</span></span>
+        <span class={props.cssClass}>{text()}<span class="text-amber-500">{prompt() ? '_' : ''}</span></span>
     )
 }
