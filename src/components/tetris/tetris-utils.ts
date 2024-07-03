@@ -2,8 +2,8 @@
 export class Array2d<T> {
     private readonly data: T[];
     private readonly defaultValue: T;
-    private readonly rows: number;
-    private readonly cols: number;
+    readonly rows: number;
+    readonly cols: number;
 
     constructor(rows: number, cols: number, defaultValue: T) {
         this.defaultValue = defaultValue;

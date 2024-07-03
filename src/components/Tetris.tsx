@@ -200,10 +200,7 @@ enum Direction {
 }
 
 function isOverlapping(area: Array2d<Color>, object: Shape) {
-    return object.getPoints().some((p) => {
-        const c = area.get(p.x, p.y);
-        return c !== Color.NOTHING;
-    });
+    return !isInBounds(object.getPoints(), area);
 }
 
 function isBlockedFromDirection(area: Array2d<Color>, object: Shape, direction: Direction) {
@@ -232,8 +229,21 @@ function isBlockedFromDirection(area: Array2d<Color>, object: Shape, direction: 
 }
 
 function isRotationBlocked(area: Array2d<Color>, object: Shape, rotation: number) {
-    return object.previewRotatedPoints(rotation).some((p) => {
-        return area.get(p.x, p.y) != Color.NOTHING;
+    return !isInBounds(object.previewRotatedPoints(rotation), area);
+}
+
+function isInBounds(points: Vector2d[], area: Array2d<Color>) {
+    return !points.some((p) => {
+        const slot = area.get(p.x, p.y);
+
+        if (slot === Color.NOTHING) {
+            return false;
+        } else if (slot !== undefined) {
+            return true;
+        } else {
+            // out-of-bounds, but the top is open
+            return !(p.y < 0 && p.x >= 0 && p.x < area.cols);
+        }
     });
 }
 
