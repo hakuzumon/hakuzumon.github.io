@@ -638,7 +638,8 @@ function TetrisControlButton(props: TetrisButtonProps) {
     }
     
     return (
-        <button class="border border-amber-800 p-2 sm:p-4 md:p-6 rounded active:bg-amber-200 transition-all select-none" 
+        <button class="border border-amber-800 px-3 py-2 sm:px-6 sm:py-4 md:p-6 
+        rounded active:bg-amber-200 transition-all select-none" 
                 onContextMenu={(e) => e.preventDefault()} 
                 onPointerDown={(e) => pointerDown(e)}
                 onPointerUp={(e) => pointerUp(e)}
