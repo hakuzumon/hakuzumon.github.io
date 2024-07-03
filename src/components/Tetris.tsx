@@ -502,8 +502,7 @@ export default function(props: TetrisProps) {
     });
     
     function registerPlayerAction(action: PlayerAction) {
-        const current = activeAction();
-        if (current !== action) {
+        if (!actionStack.includes(action)) {
             actionStack.push(action);
             newAction = true;
             repeating = false;
@@ -642,7 +641,8 @@ function TetrisControlButton(props: TetrisButtonProps) {
         <button class="border border-amber-800 p-2 sm:p-4 md:p-6 rounded active:bg-amber-200 transition-all select-none" 
                 onContextMenu={(e) => e.preventDefault()} 
                 onPointerDown={(e) => pointerDown(e)}
-                onPointerUp={(e) => pointerUp(e)}>
+                onPointerUp={(e) => pointerUp(e)}
+                onPointerCancel={(e) => pointerUp(e)}>
             {props.children}
         </button>
     )
