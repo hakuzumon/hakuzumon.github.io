@@ -27,6 +27,7 @@ export default function Nav() {
             if (Math.abs(currentPos - previous) > scrollThreshold) {
                 setScrollPosition(currentPos);
                 setScrollDirection(scrollPosition() - previous);
+                setShowSideNavi(false);
             }
 
             setShowTopNaviLinks(currentPos < showTopNaviLinksScrollAmount || scrollDirection() < 0);
