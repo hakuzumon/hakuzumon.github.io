@@ -29,3 +29,11 @@ export function randomItem<T>(array: T[], exclude?: T): T {
     }
     return result!;
 }
+
+export function convertRemToPixels(rem: number) {
+    try {
+        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    } catch (e: any) {
+        return rem * 16;
+    }
+}
