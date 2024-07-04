@@ -76,8 +76,12 @@ export default function Nav() {
                         </a>
                     }</For>
 
-                    <div class={`sm:hidden text-4xl ml-auto cursor-pointer select-none p-4 pt-6 pb-2 leading-6`} onClick={() => toggleNavigation()}>
-                        <span>&equiv;</span>
+                    <div class={`sm:hidden ml-auto cursor-pointer select-none p-4 pt-6 pb-0 leading-6`} onClick={() => toggleNavigation()}>
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="2" width="20" height="2" fill="white"/>
+                            <rect x="0" y="9" width="20" height="2" fill="white"/>
+                            <rect x="0" y="16" width="20" height="2" fill="white"/>
+                        </svg>
                     </div>
                 </div>
             </nav>
