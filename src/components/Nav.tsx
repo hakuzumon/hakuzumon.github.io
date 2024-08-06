@@ -11,7 +11,6 @@ export default function Nav() {
     const [scrollPosition, setScrollPosition] = createSignal(0);
     const [scrollDirection, setScrollDirection] = createSignal(0);
     const [showSideNavi, setShowSideNavi] = createSignal(false);
-    const [topH, setTopH] = createSignal("h-[5rem]");
     const location = useLocation();
 
     const showTopNaviLinksScrollAmount = convertRemToPixels(1.5);
@@ -32,12 +31,6 @@ export default function Nav() {
             }
 
             setShowTopNaviLinks(currentPos < showTopNaviLinksScrollAmount || scrollDirection() < 0);
-            
-            if (currentPos > 50) {
-                setTopH("h-[3.5rem]");
-            } else {
-                setTopH("h-[5rem]");
-            }
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -72,8 +65,8 @@ export default function Nav() {
 
     return (
         <div>
-            <div class="h-[6rem]"></div>
-            <div class={`fixed top-0 left-0 right-0 z-10 ${topH()} transition-all`}>
+            <div class="h-[3.5rem]"></div>
+            <div class={`fixed top-0 left-0 right-0 z-10 h-[3.5rem]`}>
                 <nav class={`bg-gradient-to-tr w-full from-stone-900 to-stone-800 h-full`}>
                     <div class="flex items-center text-white font-light h-full">
                         <a class={`${headerLinkStyle} ${active('/')}`} href={'/'}>
@@ -86,12 +79,14 @@ export default function Nav() {
                             </a>
                         }</For>
     
-                        <div class={`sm:hidden ml-auto cursor-pointer select-none p-4 mr-4 rounded-full bg-stone-800`} onClick={() => toggleNavigation()}>
-                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0" y="2" width="20" height="2" fill="white"/>
-                                <rect x="0" y="9" width="20" height="2" fill="white"/>
-                                <rect x="0" y="16" width="20" height="2" fill="white"/>
-                            </svg>
+                        <div onClick={() => toggleNavigation()} class="sm:hidden ml-auto mr-4 cursor-pointer select-none h-full flex items-center">
+                            <div class={`p-4 rounded-full bg-stone-800`}>
+                                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0" y="2" width="20" height="2" fill="white"/>
+                                    <rect x="0" y="9" width="20" height="2" fill="white"/>
+                                    <rect x="0" y="16" width="20" height="2" fill="white"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </nav>

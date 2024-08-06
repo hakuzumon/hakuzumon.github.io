@@ -10,7 +10,7 @@
 
 .blinker-adjust-text {
     display: inline-block;
-    transform: translateY(-0.05rem);
+    transform: translateY(-0.1rem);
 }
 
 p + p {
