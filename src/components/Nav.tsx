@@ -49,9 +49,9 @@ export default function Nav() {
         if (!showTopNaviLinks()) {
             return "";
         }
-        return isActive(path) ? "active bg-amber-800" : "";
+        return isActive(path) ? "active bg-amber-800/50 !border-amber-800" : "";
     }
-    const headerLinkStyle: string = `whitespace-nowrap transition-all h-full flex items-center`;
+    const headerLinkStyle: string = `whitespace-nowrap transition-all h-full flex items-center border-l border-r border-transparent`;
     const links: Link[] = [
         {url: "/references", label: "Töitämme"},
         {url: "/personnel", label: "Henkilöstö"},
