@@ -51,7 +51,7 @@ export default function Nav() {
         }
         return isActive(path) ? "active bg-amber-800/50 !border-amber-800" : "";
     }
-    const headerLinkStyle: string = `whitespace-nowrap transition-all h-full flex items-center border-l border-r border-transparent`;
+    const headerLinkStyle: string = `whitespace-nowrap transition-all h-full flex items-center border-l border-r border-b border-transparent`;
     const links: Link[] = [
         {url: "/references", label: "Töitämme"},
         {url: "/personnel", label: "Henkilöstö"},
@@ -65,9 +65,8 @@ export default function Nav() {
 
     return (
         <div>
-            <div class="h-[3.5rem]"></div>
             <div class={`fixed top-0 left-0 right-0 z-10 h-[3.5rem]`}>
-                <nav class={`bg-gradient-to-tr w-full from-stone-900 to-stone-800 h-full`}>
+                <nav class={`${showTopNaviLinks() ? 'bg-stone-900' : 'bg-stone-900/0'} w-full h-full transition-all`}>
                     <div class="flex items-center text-white font-light h-full">
                         <a class={`${headerLinkStyle} ${active('/')}`} href={'/'}>
                             <span class={`blinker text-2xl blinker-adjust-text px-4`}>evident</span>

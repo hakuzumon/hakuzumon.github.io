@@ -50,25 +50,29 @@ const projects: Project[] = [
 
 export default function OpenSource() {
     return (
-        <div class="flex flex-col pb-16 md:p-16 gap-16 font-light max-w-screen-md mx-auto">
-            <For each={projects}>{(project) =>
-                <div class="m-4 flex max-sm:flex-col gap-8">
-                    <div class="shrink-0 flex md:w-[160px] md:justify-center pt-1.5">
-                        {project.logo}
-                    </div>
-                    <div class="w-full">
-                        <div class="text-xl mb-4">
-                            <div class="flex justify-between">
-                                <span>{project.name}</span>
-                                <a href={project.github} target="_blank">
-                                    <img src="/img/github-mark.svg" alt="github" width="24" class="inline"/>
-                                </a>
+        <div class="bg1">
+            <div class="pb-16 md:p-16 font-light max-w-screen-md mx-auto">
+                <div class="flex flex-col gap-16 bg-stone-800/90 p-8 rounded">
+                    <For each={projects}>{(project) =>
+                        <div class="m-4 flex max-sm:flex-col gap-8">
+                            <div class="shrink-0 flex md:w-[160px] md:justify-center pt-1.5">
+                                {project.logo}
+                            </div>
+                            <div class="w-full">
+                                <div class="text-xl mb-4">
+                                    <div class="flex justify-between">
+                                        <span class="text-amber-500">{project.name}</span>
+                                        <a href={project.github} target="_blank">
+                                            <img src="/img/github-mark-white.svg" alt="github" width="24" class="inline"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>{project.description}</div>
                             </div>
                         </div>
-                        <div>{project.description}</div>
-                    </div>
+                    }</For>
                 </div>
-            }</For>
+            </div>
         </div>
     )
 }

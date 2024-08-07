@@ -3,7 +3,7 @@ canvas.tetris {
     width: auto;
     height: 100%;
     margin: 0 auto;
-    background-color: white;
+    background-color: rgb(28 25 23);
 }
 
 canvas.preview {

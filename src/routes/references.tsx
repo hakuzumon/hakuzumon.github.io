@@ -159,10 +159,10 @@ function TechsPanel(props: TechsProps) {
         <div class="text-xs">
             <div class="flex gap-2 flex-wrap justify-end">
                 <For each={props.platforms}>{tech =>
-                    <span class="rounded-2xl bg-amber-500 px-2 py-1 text-white">{tech}</span>
+                    <span class="rounded-2xl bg-amber-700 px-2 py-1 text-white">{tech}</span>
                 }</For>
                 <For each={props.techs}>{tech =>
-                    <div class="rounded-2xl bg-slate-200 px-2 py-1 text-black">{tech}</div>
+                    <div class="rounded-2xl bg-slate-700 px-2 py-1 text-white">{tech}</div>
                 }</For></div>
         </div>
     )
@@ -186,24 +186,26 @@ function DetailsPanel(props: DetailsProps) {
 
 export default function References() {
     return (
-        <div>
-            <div class="flex flex-col gap-16 p-4 pb-16 md:p-16 font-light max-w-screen-md mx-auto">
-                <For each={references}>{(customer) =>
-                    <div class="flex max-sm:flex-col md:gap-8">
-                        <div class="shrink-0 w-[200px] flex flex-col pt-2">
-                            <div class="md:self-center pb-8">{customer.logo}</div>
-                        </div>
-                        <div class="flex flex-col gap-4">
-                            <div class="text-lg">{customer.name}</div>
-                            <div>
-                                <div>{customer.brief}</div>
-                                <div class="mt-4">{customer.extended}</div>
+        <div class="bg1">
+            <div class="p-4 pb-16 md:p-16 font-light max-w-screen-md mx-auto">
+                <div class="flex flex-col gap-16 bg-stone-800/90 p-8 rounded">
+                    <For each={references}>{(customer) =>
+                        <div class="flex max-sm:flex-col md:gap-8">
+                            <div class="shrink-0 w-[200px] flex flex-col pt-2">
+                                <div class="md:self-center pb-8 grayscale invert">{customer.logo}</div>
                             </div>
-
-                            <TechsPanel platforms={customer.platforms} techs={customer.techs}></TechsPanel>
+                            <div class="flex flex-col gap-4">
+                                <div class="text-lg text-amber-500">{customer.name}</div>
+                                <div>
+                                    <div>{customer.brief}</div>
+                                    <div class="mt-4">{customer.extended}</div>
+                                </div>
+    
+                                <TechsPanel platforms={customer.platforms} techs={customer.techs}></TechsPanel>
+                            </div>
                         </div>
-                    </div>
-                }</For>
+                    }</For>
+                </div>
             </div>
         </div>
     )

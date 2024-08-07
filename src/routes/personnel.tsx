@@ -90,25 +90,29 @@ export default function Personnel() {
     });
     
     return (
-        <div class="flex flex-col gap-16 pb-16 md:p-16 font-light max-w-screen-md mx-auto">
-            <For each={personnel()}>{(person) =>
-                <div class="flex max-sm:flex-col m-4 gap-4 md:gap-8">
-                    <div class="shrink-0">
-                        <div class="space-y-1 pt-1.5">
-                            <HoverableImage
-                                main={person.picture}
-                                hover={person.hoverPicture}
-                                alt={person.name}
-                                width={200}
-                                cssClass={"rounded grayscale " + person.imgCss}
-                            ></HoverableImage>
-                            <div class="md:text-end text-xl pt-4">{person.name}</div>
-                            <div class="md:text-end">{person.title}</div>
+        <div class="bg1">
+            <div class="pb-16 md:p-16 font-light max-w-screen-md mx-auto">
+                <div class="flex flex-col gap-16 bg-stone-800/90 p-8 rounded">
+                    <For each={personnel()}>{(person) =>
+                        <div class="flex max-sm:flex-col m-4 gap-4 md:gap-8">
+                            <div class="shrink-0">
+                                <div class="space-y-1 pt-1.5">
+                                    <HoverableImage
+                                        main={person.picture}
+                                        hover={person.hoverPicture}
+                                        alt={person.name}
+                                        width={200}
+                                        cssClass={"rounded sepia " + person.imgCss}
+                                    ></HoverableImage>
+                                    <div class="md:text-end text-xl pt-4 text-amber-500">{person.name}</div>
+                                    <div class="md:text-end">{person.title}</div>
+                                </div>
+                            </div>
+                            <div>{person.description}</div>
                         </div>
-                    </div>
-                    <div>{person.description}</div>
+                    }</For>
                 </div>
-            }</For>
+            </div>
         </div>
     )
 }
