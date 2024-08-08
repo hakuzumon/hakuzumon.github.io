@@ -187,10 +187,10 @@ function DetailsPanel(props: DetailsProps) {
 export default function References() {
     return (
         <div class="bg1">
-            <div class="p-4 pb-16 md:p-16 font-light max-w-screen-md mx-auto">
-                <div class="flex flex-col gap-16 bg-stone-800/90 p-8 rounded">
+            <div class="p-4 pb-16 md:p-16 font-light max-w-screen-lg mx-auto">
+                <div class="flex flex-col gap-8">
                     <For each={references}>{(customer) =>
-                        <div class="flex max-sm:flex-col md:gap-8">
+                        <div class="bg-stone-800/90 p-8 rounded flex max-sm:flex-col md:gap-8">
                             <div class="shrink-0 w-[200px] flex flex-col pt-2">
                                 <div class="md:self-center pb-8 grayscale invert">{customer.logo}</div>
                             </div>

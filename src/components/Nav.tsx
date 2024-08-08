@@ -66,7 +66,7 @@ export default function Nav() {
     return (
         <div>
             <div class={`fixed top-0 left-0 right-0 z-10 h-[3.5rem]`}>
-                <nav class={`${showTopNaviLinks() ? 'bg-stone-900' : 'bg-stone-900/0'} w-full h-full transition-all`}>
+                <nav class={`${showTopNaviLinks() ? '' : 'sm:bg-stone-900/0'} bg-stone-900 w-full h-full transition-all`}>
                     <div class="flex items-center text-white font-light h-full">
                         <a class={`${headerLinkStyle} ${active('/')}`} href={'/'}>
                             <span class={`blinker text-2xl blinker-adjust-text px-4`}>evident</span>
