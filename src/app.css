@@ -36,7 +36,7 @@ a.active {
     padding-top: 3.5rem;
     background: url("/img/stock/bg_code.jpg") fixed;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 100dvmax;
 }
 
 body {
