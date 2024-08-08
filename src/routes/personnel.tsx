@@ -102,7 +102,7 @@ export default function Personnel() {
                                         hover={person.hoverPicture}
                                         alt={person.name}
                                         width={200}
-                                        cssClass={"rounded sepia " + person.imgCss}
+                                        cssClass={"rounded " + person.imgCss}
                                     ></HoverableImage>
                                 </div>
                             </div>
