@@ -32,10 +32,20 @@ a.active {
     text-shadow: 0 0 2px black;
 }
 
+.bg1::before {
+    content: "";
+    background-image: url("/img/stock/bg_code.jpg");
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100lvw;
+    height: 100lvh;
+}
+
 .bg1 {
     padding-top: 3.5rem;
-    background: url("/img/stock/bg_code.jpg") fixed;
-    background-size: cover;
     min-height: 100lvh;
 }
 
