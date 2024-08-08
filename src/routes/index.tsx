@@ -63,7 +63,6 @@ const otherCustomers: OtherCustomer[] = [
     {name: "Emtele", url: "https://www.emtele.com/", image: "/img/affiliates/emtele-automation.png"},
     {name: "Oikeusministeriö", url: "https://oikeusministerio.fi/fi/", image: "/img/affiliates/oikeusministerio.svg"},
     {name: "Citrus", url: "https://www.citrus.fi", image: "/img/affiliates/citrus.svg"},
-    {name: "Mattersoft", url: "http://www.mattersoft.fi", image: "/img/affiliates/mattersoft.png"},
     {name: "Cinia", url: "https://www.cinia.fi", image: "/img/affiliates/cinia.svg"},
     {name: "SilverBucket", url: "https://www.silverbucket.com", image: "/img/affiliates/Silverbucket.svg"},
     {name: "Thth Ry", url: "http://www.ththry.org", image: "/img/affiliates/thth_ry.svg"},
