@@ -18,23 +18,23 @@ export default function Home() {
             <div class="p-4 md:p-8 md:pt-16 font-light text-white/85 max-w-screen-md mx-auto min-h-screen">
 
                 <div class="text-7xl h-100">
-                    <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."} 
-                                   completedDelayMs={50} cssClass="blinker"
+                    <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."}
+                                   typingDelayMs={50} completedDelayMs={50} cssClass="blinker"
                                    showPromptInitially={false}></TypeAnimation>
                 </div>
                 <div class="text-2xl mt-4 md:mt-16">
                     <TypeAnimation text={"Olemme softatalo."}
                                    start={a2} completed={() => setA3(true)} completedDelayMs={50}
-                                   typingDelayMs={25}></TypeAnimation>
+                                   typingDelayMs={17}></TypeAnimation>
                     <TypeAnimation text={" Teemme web-, työpöytä- ja mobiilisovelluksia."}
                                    start={a3} completed={() => setA4(true)}
-                                   typingDelayMs={25}></TypeAnimation>
+                                   typingDelayMs={17}></TypeAnimation>
                 </div>
                 
                 <div class="mt-8 md:mt-32 mx-auto">
                     <Show when={a4()}>
                         <AnimatedBox>
-                            <Tetris initialDelayMs={2000}></Tetris>
+                            <Story></Story>
                         </AnimatedBox>
                     </Show>
                 </div>
@@ -71,6 +71,18 @@ const otherCustomers: OtherCustomer[] = [
     {name: "Gofore", url: "https://www.gofore.fi", image: "/img/affiliates/gofore.svg"},
     {name: "Atostek", url: "https://www.atostek.fi", image: "/img/affiliates/atostek.png"},
 ];
+
+function Story() {
+    return (
+        <div class="text-2xl p-12 bg-black/50 animate-fadeIn text-white/70">
+            <p>Perustimme Evidentin vuonna 2010, koska halusimme tehdä hyvää softaa, huolella ja hartaudella.</p>
+            <p>Evident ei ole niinkään työpaikka, kuin pieni käsityöläisten kilta. Olemme kaikki koodareita ja yksilöitä. Meillä kaikki ovat myös osakkaita.</p>
+            <p>Jokaisella meistä on 10-20 vuoden kokemus niin pienistä kuin isoistakin projekteista, 
+                niin yksityiseltä sektorilta kuin julkiseltakin.</p>
+            <p>Tavoitteemme on tehdä yhteistä hyvää edistäviä projekteja, joissa on järkeä.</p>
+        </div>
+    )
+}
 
 function Affiliates() {
     return (

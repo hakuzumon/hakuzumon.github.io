@@ -2,7 +2,6 @@
 .box {
     animation: exposeFrame 1s linear;
     background: transparent;
-    height: 50vh;
     width: fit-content;
     margin: auto;
     border: 3px solid orange;
