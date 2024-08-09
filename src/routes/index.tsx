@@ -88,7 +88,7 @@ function Affiliates() {
     return (
         <div class="text-white/70 font-light">
             <div class="pt-64 pb-64 flex flex-col gap-16 max-w-screen-md mx-auto">
-                <h2 class="text-2xl text-center">Asiakkaita ja yhteistyökumppaneita</h2>
+                <h2 class="text-2xl text-center text-amber-500">Asiakkaita ja yhteistyökumppaneita</h2>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16 items-center">
                     <For each={otherCustomers}>{(other) =>
