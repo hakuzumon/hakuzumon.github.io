@@ -13,7 +13,7 @@ const references: FeaturedCustomer[] = [
     {
         name: "Kansalliskirjasto",
         logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
-                                                                              src="img/affiliates/kansalliskirjasto.svg"/></a>,
+                                                                              src="img/references/kansalliskirjasto.svg"/></a>,
         brief: <p>
             Olemme kehittäneet Kansalliskirjaston digitoitujen aineiston palvelua yhteistyössä Goforen kanssa vuosina 
             2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa on julkisesti saatavilla sanomalehtiä, 
@@ -40,7 +40,7 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Finnpilot",
-        logo: <a href="https://finnpilot.fi/"><img style="width: 200px" src="img/affiliates/finnpilot.png"/></a>,
+        logo: <a href="https://finnpilot.fi/"><img style="width: 200px" src="img/references/finnpilot.png"/></a>,
         brief: <p>Finnpilot Pilotage Oy on Suomen valtion kokonaan omistama erityistehtäväyhtiö. Sillä on lakisääteinen yksinoikeus luotsaustoiminnan harjoittamiseen.</p>,
         extended: <>
             <p>Olemme tehneet Finnpilotin kanssa ohjelmistokehitystä jo vuodesta 2016. Kehityksen kohteena on luotsinvälityksen toiminnanohjausjärjestelmä, johon kuuluu mm. mobiili työaikakirjausten teko, iOS-laitteilla toimiva luotsien sovellus, julkisesti tarjottava liikenneluettelo sekä luotsintilausten tekeminen verkossa tarjottavan palvelun kautta.</p>
@@ -51,7 +51,7 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Runteq",
-        logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/runteq_logo.png"/></a>,
+        logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/references/runteq.png"/></a>,
         brief: <p>
             Runteq halusi rakentaa palvelun juoksuharrastajien tekniikan kehittämiseksi: Juoksijan kehoon
             kiinnitettävien anturien avulla kerätään
@@ -81,7 +81,7 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Virmed",
-        logo: <a href="http://www.virmed.fi/" target="_blank"><img style="width: 200px" src="img/virmed.jpg"/></a>,
+        logo: <a href="http://www.virmed.fi/" target="_blank"><img style="width: 200px" src="img/references/virmed.jpg"/></a>,
         brief: <><p>
             Virmed kehittää terveydenhuoltoa varten mm. kuvantamispalveluja. Eräs heidän tuotteensa on
             Medistreamer-työpöytäsovellus. Medistreamerin avulla lääkäri voi ottaa ja tallentaa potilaasta
@@ -119,7 +119,7 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Keeploop 3D",
-        logo: <a href="http://www.keeploop.com/" target="_blank"><img style="width: 200px" src="img/keeploop.jpg"/></a>,
+        logo: <a href="http://www.keeploop.com/" target="_blank"><img style="width: 200px" src="img/references/keeploop.jpg"/></a>,
         brief: <p>Keeploop Oy kehitti tablettiin kiinnitettävän mikroskoopin, jonka avulla kohdetta eri suunnista
             valaisemalla
             pystytään laskemaan kohteen pinnan normaalit ja näiden perusteella arvioimaan pinnan mikrotopografia. Tähän
@@ -190,9 +190,9 @@ export default function References() {
             <div class="p-4 pb-16 md:p-16 font-light max-w-screen-lg mx-auto">
                 <div class="flex flex-col gap-8">
                     <For each={references}>{(customer) =>
-                        <div class="bg-stone-800/90 p-8 rounded flex max-sm:flex-col md:gap-8">
-                            <div class="shrink-0 w-[200px] flex flex-col pt-2">
-                                <div class="md:self-center pb-8 grayscale invert">{customer.logo}</div>
+                        <div class="bg-stone-800/90 p-8 rounded flex flex-col md:flex-row md:gap-8">
+                            <div class="shrink-0 pt-2 pb-4 md:w-[200px]">
+                                <div class="bg-white p-4 rounded w-fit md:m-auto">{customer.logo}</div>
                             </div>
                             <div class="flex flex-col gap-4">
                                 <div class="text-lg text-amber-500">{customer.name}</div>
