@@ -12,7 +12,7 @@ export default createHandler(() => (
                 <link rel="icon" href="/favicon.ico"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-                <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@400&display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@400&display=swap&text=evident." rel="stylesheet"/>
                 {assets}
             </head>
             <body>
