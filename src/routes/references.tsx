@@ -13,7 +13,7 @@ const references: FeaturedCustomer[] = [
     {
         name: "Kansalliskirjasto",
         logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
-                                                                              src="img/references/kansalliskirjasto.svg"/></a>,
+                                                                              src="img/references/kansalliskirjasto.svg" alt="Kansalliskirjasto" /></a>,
         brief: <p>
             Olemme kehittäneet Kansalliskirjaston digitoitujen aineiston palvelua yhteistyössä Goforen kanssa vuosina 
             2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa on julkisesti saatavilla sanomalehtiä, 
@@ -40,7 +40,7 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Finnpilot",
-        logo: <a href="https://finnpilot.fi/"><img style="width: 200px" src="img/references/finnpilot.png"/></a>,
+        logo: <a href="https://finnpilot.fi/"><img style="width: 200px" src="img/references/finnpilot.png" alt="Finnpilot"/></a>,
         brief: <p>Finnpilot Pilotage Oy on Suomen valtion kokonaan omistama erityistehtäväyhtiö. Sillä on lakisääteinen yksinoikeus luotsaustoiminnan harjoittamiseen.</p>,
         extended: <>
             <p>Olemme tehneet Finnpilotin kanssa ohjelmistokehitystä jo vuodesta 2016. Kehityksen kohteena on luotsinvälityksen toiminnanohjausjärjestelmä, johon kuuluu mm. mobiili työaikakirjausten teko, iOS-laitteilla toimiva luotsien sovellus, julkisesti tarjottava liikenneluettelo sekä luotsintilausten tekeminen verkossa tarjottavan palvelun kautta.</p>
@@ -51,7 +51,7 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Runteq",
-        logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/references/runteq.png"/></a>,
+        logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/references/runteq.png" alt="Runteq" /></a>,
         brief: <p>
             Runteq halusi rakentaa palvelun juoksuharrastajien tekniikan kehittämiseksi: Juoksijan kehoon
             kiinnitettävien anturien avulla kerätään
@@ -81,7 +81,9 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Virmed",
-        logo: <a href="http://www.virmed.fi/" target="_blank"><img style="width: 200px" src="img/references/virmed.jpg"/></a>,
+        logo: <a href="http://www.virmed.fi/" target="_blank">
+            <img style="width: 200px" class="translate-x-1 -translate-y-1" src="img/references/virmed.jpg" alt="Virmed" />
+        </a>,
         brief: <><p>
             Virmed kehittää terveydenhuoltoa varten mm. kuvantamispalveluja. Eräs heidän tuotteensa on
             Medistreamer-työpöytäsovellus. Medistreamerin avulla lääkäri voi ottaa ja tallentaa potilaasta
@@ -119,7 +121,7 @@ const references: FeaturedCustomer[] = [
     },
     {
         name: "Keeploop 3D",
-        logo: <a href="http://www.keeploop.com/" target="_blank"><img style="width: 200px" src="img/references/keeploop.jpg"/></a>,
+        logo: <a href="http://www.keeploop.com/" target="_blank"><img style="width: 200px" src="img/references/keeploop.jpg" alt="Keeploop"/></a>,
         brief: <p>Keeploop Oy kehitti tablettiin kiinnitettävän mikroskoopin, jonka avulla kohdetta eri suunnista
             valaisemalla
             pystytään laskemaan kohteen pinnan normaalit ja näiden perusteella arvioimaan pinnan mikrotopografia. Tähän
