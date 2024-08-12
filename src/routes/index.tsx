@@ -1,7 +1,5 @@
 import TypeAnimation from "~/components/TypeAnimation";
 import {createSignal, For, Show} from "solid-js";
-import AnimatedBox from "~/components/AnimatedBox";
-import Tetris from "~/components/Tetris";
 
 export default function Home() {
     const [a1, setA1] = createSignal(false);
@@ -15,33 +13,44 @@ export default function Home() {
     
     return (
         <div class="bg1">
-            <div class="p-4 md:p-8 md:pt-16 font-light text-white/85 max-w-screen-md mx-auto min-h-screen">
+            <div class="p-4 md:p-8 md:pt-16 font-light text-white/85 max-w-screen-md mx-auto">
 
-                <div class="text-7xl h-100">
+                <div class="text-7xl h-[4rem]">
                     <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."}
-                                   typingDelayMs={50} completedDelayMs={50} cssClass="blinker"
-                                   showPromptInitially={false}></TypeAnimation>
-                </div>
-                <div class="text-2xl mt-4 md:mt-16">
-                    <TypeAnimation text={"Olemme softatalo."}
-                                   start={a2} completed={() => setA3(true)} completedDelayMs={50}
-                                   typingDelayMs={17}></TypeAnimation>
-                    <TypeAnimation text={" Teemme web-, työpöytä- ja mobiilisovelluksia."}
-                                   start={a3} completed={() => setA4(true)}
-                                   typingDelayMs={17}></TypeAnimation>
+                                   typingDelayMs={75} cssClass="blinker"
+                                   showPromptInitially={true}></TypeAnimation>
                 </div>
                 
-                <div class="mt-8 md:mt-32 mx-auto">
-                    <Show when={a4()}>
-                        <AnimatedBox>
-                            <div>TODO</div>
-                        </AnimatedBox>
-                    </Show>
+                <div class="mt-8 md:mt-32 w-full">
+                    <div class="p-8 bg-white/70 text-black/90 rounded text-xl">
+                        <p>Evident tekee räätälöityjä ohjelmistoratkaisuja julkisen ja yksityisen sektorin asiakkaille.</p>
+                        
+                        <p>Palveluihimme kuuluu mm.</p>
+                        <ul class="list-disc pl-6 pt-3">
+                            <li>Ohjelmistoarkkitehtuurin suunnittelu</li>
+                            <li>Katselmointi ja konsultointi</li>
+                            <li>Vanhojen ohjelmistojen refaktorointi ja modernisointi</li>
+                            <li>Full-stack sovelluskehitys</li>
+                            <li>Integraatiot</li>
+                            <li>Kääntäjätoteutukset</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 p-8 bg-stone-800/90 text-white/90 rounded text-lg">
+                        Suosimme seuraavia toteutusteknologioita:
+
+                        <ul class="list-disc pl-6 pt-3">
+                            <li>Frontend: Angular / React / Typescript</li>
+                            <li>Backend: Kotlin / Java / C#</li>
+                            <li>Database: PostgreSQL / ElasticSearch</li>
+                            <li>Cloud: Azure / Kubernetes</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
+
             <Affiliates></Affiliates>
-            
+
             <Footer></Footer>
         </div>
     );
@@ -75,7 +84,7 @@ const otherCustomers: OtherCustomer[] = [
 function Affiliates() {
     return (
         <div class="text-white/70 font-light">
-            <div class="pt-64 pb-64 flex flex-col gap-16 max-w-screen-md mx-auto">
+            <div class="pt-32 pb-64 flex flex-col gap-16 max-w-screen-md mx-auto">
                 <h2 class="text-2xl text-center text-amber-500">Asiakkaita ja yhteistyökumppaneita</h2>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16 items-center">
