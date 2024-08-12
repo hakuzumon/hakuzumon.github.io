@@ -81,11 +81,10 @@ const dudes: Dude[] = [
 function Story() {
     return (
         <div class="text-xl p-12 bg-white/70 text-black/90 rounded">
-            <p>Perustimme Evidentin vuonna 2010, koska halusimme tehdä hyvää softaa, huolella ja hartaudella.</p>
-            <p>Evident ei ole niinkään työpaikka, kuin pieni käsityöläisten kilta. Olemme kaikki koodareita ja yksilöitä. Meillä kaikki ovat myös osakkaita.</p>
-            <p>Jokaisella meistä on 10-20 vuoden kokemus niin pienistä kuin isoistakin projekteista,
-                niin yksityiseltä sektorilta kuin julkiseltakin.</p>
-            <p>Tavoitteemme on tehdä yhteistä hyvää edistäviä projekteja.</p>
+            <p>Perustimme Evidentin vuonna 2010, koska halusimme tehdä hyvää softaa, huolella ja hartaudella. Olemme 
+                toteuttaneet yhdessä asiakkaidemme kanssa lukuisia ohjelmistoja, toiminnanohjausjärjestelmiä ja 
+                verkkopalveluja. Usein yhteistyö asiakkaan kanssa jatkuu useita vuosia.</p>
+            <p>Kaikilla asiantuntijoillamme on 10&mdash;25 vuoden kokemus.</p>
         </div>
     )
 }

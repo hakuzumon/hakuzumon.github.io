@@ -23,27 +23,18 @@ export default function Home() {
                 
                 <div class="mt-8 md:mt-32 w-full">
                     <div class="p-8 bg-white/70 text-black/90 rounded text-xl">
-                        <p>Evident tekee räätälöityjä ohjelmistoratkaisuja julkisen ja yksityisen sektorin asiakkaille.</p>
-                        
-                        <p>Palveluihimme kuuluu mm.</p>
-                        <ul class="list-disc pl-6 pt-3">
-                            <li>Ohjelmistoarkkitehtuurin suunnittelu</li>
-                            <li>Katselmointi ja konsultointi</li>
-                            <li>Vanhojen ohjelmistojen refaktorointi ja modernisointi</li>
-                            <li>Full-stack sovelluskehitys</li>
-                            <li>Integraatiot</li>
-                            <li>Kääntäjätoteutukset</li>
-                        </ul>
+                        <p>Olemme softatalo. Teemme web-, työpöytä- ja mobiilisovelluksia.</p>
                     </div>
 
                     <div class="mt-8 p-8 bg-stone-800/90 text-white/90 rounded text-lg">
-                        Suosimme seuraavia toteutusteknologioita:
-
+                        <p>Palveluihimme kuuluu mm.</p>
                         <ul class="list-disc pl-6 pt-3">
-                            <li>Frontend: Angular / React / Typescript</li>
-                            <li>Backend: Kotlin / Java / C#</li>
-                            <li>Database: PostgreSQL / ElasticSearch</li>
-                            <li>Cloud: Azure / Kubernetes</li>
+                            <li>Full-stack sovelluskehitys</li>
+                            <li>Ohjelmistoarkkitehtuurin suunnittelu</li>
+                            <li>Integraatiot</li>
+                            <li>Katselmointi ja konsultointi</li>
+                            <li>Vanhojen ohjelmistojen refaktorointi ja modernisointi</li>
+                            <li>Kääntäjätoteutukset</li>
                         </ul>
                     </div>
                 </div>
