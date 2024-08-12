@@ -53,7 +53,7 @@ export default function Nav() {
     }
     const headerLinkStyle: string = `whitespace-nowrap transition-all h-full flex items-center border-l border-r border-b border-transparent`;
     const links: Link[] = [
-        {url: "/references", label: "Töitämme"},
+        {url: "/references", label: "Referenssit"},
         {url: "/personnel", label: "Meistä"},
         {url: "/opensource", label: "Open Source"},
         {url: "/contact", label: "Yhteystiedot"},
