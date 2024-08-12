@@ -78,6 +78,19 @@ const dudes: Dude[] = [
     },
 ];
 
+function Story() {
+    return (
+        <div class="text-xl p-12 bg-white/70 text-black/90 rounded">
+            <p>Perustimme Evidentin vuonna 2010, koska halusimme tehdä hyvää softaa, huolella ja hartaudella.</p>
+            <p>Evident ei ole niinkään työpaikka, kuin pieni käsityöläisten kilta. Olemme kaikki koodareita ja yksilöitä. Meillä kaikki ovat myös osakkaita.</p>
+            <p>Jokaisella meistä on 10-20 vuoden kokemus niin pienistä kuin isoistakin projekteista,
+                niin yksityiseltä sektorilta kuin julkiseltakin.</p>
+            <p>Tavoitteemme on tehdä yhteistä hyvää edistäviä projekteja.</p>
+        </div>
+    )
+}
+
+
 export default function Personnel() {
     const [personnel] = createResource(async () => {
         // Due to Nitro's pre-rendering, the generated static html page always has the same order. So if the user
@@ -93,6 +106,9 @@ export default function Personnel() {
         <div class="bg1">
             <div class="p-4 pb-16 md:p-16 font-light max-w-screen-lg mx-auto">
                 <div class="flex flex-col gap-8">
+                    
+                    <Story></Story>
+                    
                     <For each={personnel()}>{(person) =>
                         <div class="bg-stone-800/90 p-8 rounded flex max-sm:flex-col gap-4 md:gap-8">
                             <div class="shrink-0">

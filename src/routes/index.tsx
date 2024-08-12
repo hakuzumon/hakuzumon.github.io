@@ -34,7 +34,7 @@ export default function Home() {
                 <div class="mt-8 md:mt-32 mx-auto">
                     <Show when={a4()}>
                         <AnimatedBox>
-                            <Story></Story>
+                            <div>TODO</div>
                         </AnimatedBox>
                     </Show>
                 </div>
@@ -71,18 +71,6 @@ const otherCustomers: OtherCustomer[] = [
     {name: "Gofore", url: "https://www.gofore.fi", image: "/img/affiliates/gofore.svg"},
     {name: "Atostek", url: "https://www.atostek.fi", image: "/img/affiliates/atostek.png"},
 ];
-
-function Story() {
-    return (
-        <div class="text-2xl p-12 bg-black/50 animate-fadeIn text-white/70">
-            <p>Perustimme Evidentin vuonna 2010, koska halusimme tehdä hyvää softaa, huolella ja hartaudella.</p>
-            <p>Evident ei ole niinkään työpaikka, kuin pieni käsityöläisten kilta. Olemme kaikki koodareita ja yksilöitä. Meillä kaikki ovat myös osakkaita.</p>
-            <p>Jokaisella meistä on 10-20 vuoden kokemus niin pienistä kuin isoistakin projekteista, 
-                niin yksityiseltä sektorilta kuin julkiseltakin.</p>
-            <p>Tavoitteemme on tehdä yhteistä hyvää edistäviä projekteja, joissa on järkeä.</p>
-        </div>
-    )
-}
 
 function Affiliates() {
     return (
