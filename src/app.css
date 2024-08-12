@@ -34,7 +34,7 @@ a.active {
 
 .bg1::before {
     content: "";
-    background-image: url("/img/stock/bg_code.jpg");
+    background-image: url("/img/stock/bg_code_dalesbred.jpg");
     background-size: cover;
     position: fixed;
     top: 0;
