@@ -25,7 +25,9 @@ export default function Contact() {
                             <div>Y-tunnus: 2374203-1</div>
                             <div>Hatanpään valtatie 2a B</div>
                             <div>33100 Tampere</div>
-                            <div>+358 44 28 44 44 2</div>
+                            {
+                                // +358 44 28 44 44 2
+                            }
                         </div>
                     </div>
                 </div>
