@@ -33,22 +33,33 @@ const references: FeaturedCustomer[] = [
         techs: []
     },
     {
+        name: "Finnpilot",
+        logo: <a href="https://finnpilot.fi/"><img style="width: 200px" src="img/references/finnpilot.png" alt="Finnpilot"/></a>,
+        brief: <p>Finnpilot Pilotage Oy on Suomen valtion kokonaan omistama erityistehtäväyhtiö. Sillä on lakisääteinen yksinoikeus luotsaustoiminnan harjoittamiseen.</p>,
+        extended: <>
+            <p>Olemme tehneet Finnpilotin kanssa ohjelmistokehitystä jo vuodesta 2016. Kehityksen kohteena on luotsinvälityksen toiminnanohjausjärjestelmä, johon kuuluu mm. mobiili työaikakirjausten teko, iOS-laitteilla toimiva luotsien sovellus, julkisesti tarjottava liikenneluettelo sekä luotsintilausten tekeminen verkossa tarjottavan palvelun kautta.</p>
+            <p>Pitkän projektin aikana järjestelmä on muuttanut muotoaan Windows Server -pohjaisesta ratkaisusta aidoksi pilvipalveluksi Azuressa. Toteutusteknologia on käyttöliittymää myöten uudistettu, kehittyvän liiketoiminnan tuottamia muutoksia tuotu uusina toiminnallisuuksina käyttöön ja vanhaa koodia poistettu tai yksinkertaistettu tarpeen mukaan. Järjestelmä on ollut koko kehityksen ajan tuotantokäytössä, mikä on asettanut kovat vaatimukset tekemisen tasolle ja tavoille.</p>
+        </>,
+        platforms: ["Web + Mobile"],
+        techs: ["Kotlin", "Azure", "Angular"],
+    },
+    {
         name: "Kansalliskirjasto",
         logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
                                                                               src="img/references/kansalliskirjasto.svg" alt="Kansalliskirjasto" /></a>,
         brief: <p>
-            Olemme kehittäneet Kansalliskirjaston digitoitujen aineiston palvelua yhteistyössä Goforen kanssa vuosina 
-            2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa on julkisesti saatavilla sanomalehtiä, 
+            Olemme kehittäneet Kansalliskirjaston digitoitujen aineiston palvelua yhteistyössä Goforen kanssa vuosina
+            2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa on julkisesti saatavilla sanomalehtiä,
             aikakauslehtiä ja pienpainatteita ja palvelua haluttiin kehittää ja laajentaa.
         </p>,
         extended: <>
             <p>
-                Toteutimme mm. käyttäjien luomat artikkelit, eli leikkeet, ja toimme kirjat mukaan valikoimaan. 
-                Vanhentunutta JSP-pohjaista toteutusta vietiin moderniin AngularJS ja myöhemmin Angular-pohjaiseen 
-                toteutukseen. Haku toteutettiin uudestaan Elasticsearchin päälle ja se opetettiin ymmärtämään suomen 
+                Toteutimme mm. käyttäjien luomat artikkelit, eli leikkeet, ja toimme kirjat mukaan valikoimaan.
+                Vanhentunutta JSP-pohjaista toteutusta vietiin moderniin AngularJS ja myöhemmin Angular-pohjaiseen
+                toteutukseen. Haku toteutettiin uudestaan Elasticsearchin päälle ja se opetettiin ymmärtämään suomen
                 kielen taivutusmuotoja <a href="https://voikko.puimula.org" target="_blank">Voikon</a> avulla.
-                Suunnittelimme uuden käyttöoikeus- ja sopimusmallin, joka on mahdollistanut uusien osapuolien pääsyn 
-                aineistoon tarkasti hallittavalla tavalla. Koodia refaktoroitiin rankalla kädellä luotettavuuden ja 
+                Suunnittelimme uuden käyttöoikeus- ja sopimusmallin, joka on mahdollistanut uusien osapuolien pääsyn
+                aineistoon tarkasti hallittavalla tavalla. Koodia refaktoroitiin rankalla kädellä luotettavuuden ja
                 ylläpidettävyyden parantamiseksi. Paransimme auditointimahdollisuuksia ja monitorointia, mm. Grafanalla.
             </p>
             <p>
@@ -59,17 +70,6 @@ const references: FeaturedCustomer[] = [
         </>,
         platforms: ["Web"],
         techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch"]
-    },
-    {
-        name: "Finnpilot",
-        logo: <a href="https://finnpilot.fi/"><img style="width: 200px" src="img/references/finnpilot.png" alt="Finnpilot"/></a>,
-        brief: <p>Finnpilot Pilotage Oy on Suomen valtion kokonaan omistama erityistehtäväyhtiö. Sillä on lakisääteinen yksinoikeus luotsaustoiminnan harjoittamiseen.</p>,
-        extended: <>
-            <p>Olemme tehneet Finnpilotin kanssa ohjelmistokehitystä jo vuodesta 2016. Kehityksen kohteena on luotsinvälityksen toiminnanohjausjärjestelmä, johon kuuluu mm. mobiili työaikakirjausten teko, iOS-laitteilla toimiva luotsien sovellus, julkisesti tarjottava liikenneluettelo sekä luotsintilausten tekeminen verkossa tarjottavan palvelun kautta.</p>
-            <p>Pitkän projektin aikana järjestelmä on muuttanut muotoaan Windows Server -pohjaisesta ratkaisusta aidoksi pilvipalveluksi Azuressa. Toteutusteknologia on käyttöliittymää myöten uudistettu, kehittyvän liiketoiminnan tuottamia muutoksia tuotu uusina toiminnallisuuksina käyttöön ja vanhaa koodia poistettu tai yksinkertaistettu tarpeen mukaan. Järjestelmä on ollut koko kehityksen ajan tuotantokäytössä, mikä on asettanut kovat vaatimukset tekemisen tasolle ja tavoille.</p>
-        </>,
-        platforms: ["Web + Mobile"],
-        techs: ["Kotlin", "Azure", "Angular"],
     },
     {
         name: "Runteq",
