@@ -11,6 +11,28 @@ interface FeaturedCustomer {
 
 const references: FeaturedCustomer[] = [
     {
+        name: "Suomi.fi",
+        logo: <a href="http://www.suomi.fi/" target="_blank"><img width="115" height="100"
+                                                                              src="img/references/suomifi.svg" alt="Suomi.fi" /></a>,
+        brief: <p>
+            Suomi.fi-palvelut ovat osa Suomen kansallista palveluarkkitehtuuria. Suomi.fi-palvelut tarjoavat ratkaisuja
+            sähköiseen tunnistamiseen, toisen puolesta asiointiin sekä digitaaliseen viestintään niin julkiselle kuin
+            yksityisellekin sektorille. Kansalaisille kokonaisuus näkyy Suomi.fi-verkkopalveluna, joka kokoaa yhteen
+            osoitteeseen valtuuttamisen ja viranomaisviestimisen palvelut sekä kansalaiselle ja yritykselle suunnatut
+            oppaat ja palvelutiedot.
+        </p>,
+        extended: <>
+            <p>
+                Evident on ollut vuodesta 2018 mukana eri Suomi.fi-palvelujen kehityksessä ja ylläpidossa osana
+                monitoimittajatiimiä (Suomi.fi-verkkopalvelu ja ylläpidon työkalut, Suomi.fi-valtuuksien
+                virkailijavaltuuttamispalvelu sekä Suomi.fi-palvelutietovarannon ja Omat tiedot-osion
+                rekisteri-integraatiot).
+            </p>
+        </>,
+        platforms: [],
+        techs: []
+    },
+    {
         name: "Kansalliskirjasto",
         logo: <a href="http://www.kansalliskirjasto.fi/" target="_blank"><img width="115" height="100"
                                                                               src="img/references/kansalliskirjasto.svg" alt="Kansalliskirjasto" /></a>,
