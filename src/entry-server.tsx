@@ -8,6 +8,9 @@ export default createHandler(() => (
             <head>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta name="description" content="Olemme softatalo. Teemme web-, työpöytä- ja mobiilisovelluksia."/>
+                <meta property="og:description" content="Olemme softatalo. Teemme web-, työpöytä- ja mobiilisovelluksia."/>
+                <meta property="og:image" content="img/fb-preview.png"/>
                 <title>evident.</title>
                 <link rel="icon" href="/favicon.ico"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -20,6 +23,6 @@ export default createHandler(() => (
             {scripts}
             </body>
             </html>
-        )}
-    />
-));
+            )}
+        />
+        ));
