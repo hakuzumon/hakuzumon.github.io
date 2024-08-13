@@ -62,14 +62,13 @@ const otherCustomers: OtherCustomer[] = [
     {name: "Oikeusministeriö", url: "https://oikeusministerio.fi/fi/", image: "/img/affiliates/oikeusministerio.svg"},
     {name: "Modulight", url: "https://modulight.com/", image: "/img/affiliates/modulight.png"},
     {name: "Emtele", url: "https://www.emtele.com/", image: "/img/affiliates/emtele-automation.png"},
-    {name: "Citrus", url: "https://www.citrus.fi", image: "/img/affiliates/citrus.svg"},
     {name: "Cinia", url: "https://www.cinia.fi", image: "/img/affiliates/cinia.svg"},
     {name: "SilverBucket", url: "https://www.silverbucket.com", image: "/img/affiliates/Silverbucket.svg"},
     {name: "Thth Ry", url: "http://www.ththry.org", image: "/img/affiliates/thth_ry.svg"},
+    {name: "Atostek", url: "https://www.atostek.fi", image: "/img/affiliates/atostek.png"},
     {name: "Solita", url: "https://www.solita.fi/", image: "/img/affiliates/solita.svg"},
     {name: "Finitec", url: "http://www.finitec.fi", image: "/img/affiliates/finitec.svg"},
     {name: "Gofore", url: "https://www.gofore.fi", image: "/img/affiliates/gofore.svg"},
-    {name: "Atostek", url: "https://www.atostek.fi", image: "/img/affiliates/atostek.png"},
 ];
 
 function Affiliates() {
