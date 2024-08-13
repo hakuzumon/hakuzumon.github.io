@@ -47,6 +47,6 @@ export default function TypeAnimation(props: TypeSimulationProps) {
     setPrompt(props.showPromptInitially ?? false);
     
     return (
-        <span class={props.cssClass}>{text()}<span class="text-amber-500">{prompt() ? '_' : ''}</span></span>
+        <span class={props.cssClass}>{text()}&nbsp;<span class="text-amber-500">{prompt() ? '_' : ''}</span></span>
     )
 }

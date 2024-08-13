@@ -13,21 +13,20 @@ export default function Home() {
     
     return (
         <div class="bg1">
-            <div class="p-4 md:p-8 md:pt-16 font-light text-white/85 max-w-screen-md mx-auto">
-
-                <div class="text-7xl h-[4rem]">
+            <div class="p-4 pt-8 md:p-8 md:pt-16 font-light text-white/85 max-w-screen-md mx-auto">
+                <div class="text-7xl">
                     <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."}
                                    typingDelayMs={75} cssClass="blinker"
-                                   showPromptInitially={true}></TypeAnimation>
+                                   showPromptInitially={false}></TypeAnimation>
                 </div>
                 
-                <div class="mt-8 md:mt-32 w-full">
+                <div class="mt-16 md:mt-24 w-full">
                     <div class="p-8 bg-white/70 text-black/90 rounded text-xl">
                         <p>Olemme softatalo. Teemme web-, työpöytä- ja mobiilisovelluksia.</p>
                     </div>
 
                     <div class="mt-8 p-8 bg-stone-800/90 text-white/90 rounded text-lg">
-                        <p>Palveluihimme kuuluu mm.</p>
+                        <p>Palveluihimme kuuluvat mm.</p>
                         <ul class="list-disc pl-6 pt-3">
                             <li>Full-stack sovelluskehitys</li>
                             <li>Ohjelmistoarkkitehtuurin suunnittelu</li>
