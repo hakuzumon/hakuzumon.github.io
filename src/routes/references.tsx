@@ -29,8 +29,8 @@ const references: FeaturedCustomer[] = [
                 rekisteri-integraatiot).
             </p>
         </>,
-        platforms: [],
-        techs: []
+        platforms: ["Web"],
+        techs: ["Kotlin", "Java", "React", "ElasticSearch", "Amazon AWS", "Kubernetes", "Terraform"]
     },
     {
         name: "Finnpilot",
