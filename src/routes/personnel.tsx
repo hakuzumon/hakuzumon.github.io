@@ -84,7 +84,7 @@ function Story() {
             <p>Perustimme Evidentin vuonna 2010, koska halusimme tehdä hyvää softaa, huolella ja hartaudella. Olemme 
                 toteuttaneet yhdessä asiakkaidemme kanssa lukuisia ohjelmistoja, toiminnanohjausjärjestelmiä ja 
                 verkkopalveluja. Usein yhteistyö asiakkaan kanssa jatkuu useita vuosia.</p>
-            <p>Kaikilla asiantuntijoillamme on 10&mdash;25 vuoden kokemus.</p>
+            <p>Kaikilla asiantuntijoillamme on 15&mdash;25 vuoden kokemus.</p>
         </div>
     )
 }
