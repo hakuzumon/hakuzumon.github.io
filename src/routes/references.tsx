@@ -49,27 +49,26 @@ const references: FeaturedCustomer[] = [
                                                                               src="img/references/kansalliskirjasto.svg" alt="Kansalliskirjasto" /></a>,
         brief: <p>
             Olemme kehittäneet Kansalliskirjaston digitoitujen aineiston palvelua yhteistyössä Goforen kanssa vuosina
-            2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa on julkisesti saatavilla sanomalehtiä,
-            aikakauslehtiä ja pienpainatteita ja palvelua haluttiin kehittää ja laajentaa.
+            2014-2023 useissa hankkeissa. Kansalliskirjaston palvelussa on julkisesti saatavilla tekijänoikeudesta vapautuneita sanomalehtiä,
+            aikakauslehtiä, pienpainatteita ja kirjoja. Myös tekijänoikeuden alaista aineistoa on saatavilla palvelussa esim. yliopistoista käsin.
         </p>,
         extended: <>
             <p>
-                Toteutimme mm. käyttäjien luomat artikkelit, eli leikkeet, ja toimme kirjat mukaan valikoimaan.
-                Vanhentunutta JSP-pohjaista toteutusta vietiin moderniin AngularJS ja myöhemmin Angular-pohjaiseen
-                toteutukseen. Haku toteutettiin uudestaan Elasticsearchin päälle ja se opetettiin ymmärtämään suomen
-                kielen taivutusmuotoja <a href="https://voikko.puimula.org" target="_blank">Voikon</a> avulla.
-                Suunnittelimme uuden käyttöoikeus- ja sopimusmallin, joka on mahdollistanut uusien osapuolien pääsyn
-                aineistoon tarkasti hallittavalla tavalla. Koodia refaktoroitiin rankalla kädellä luotettavuuden ja
-                ylläpidettävyyden parantamiseksi. Paransimme auditointimahdollisuuksia ja monitorointia, mm. Grafanalla.
+                Toteutimme tuen kirjoille ja käyttäjien tekemille virtuaalisille lehtileikkeille.
+                Alkuperäinen JSP-pohjainen toteutus muunnettiin Angular-pohjaiseksi ja koodipohja kirjoitettiin 
+                pitkälti uusiksi. Hakutoimintoja parannettiin siirtämällä ne Elasticsearchin päälle. Suomen kielen 
+                taivutusmuodoille tehtiin kunnollinen tuki <a href="https://voikko.puimula.org" target="_blank">Voikon</a> avulla.
+                Suunnittelimme uuden käyttöoikeus- ja sopimusmallin, joka mahdollisti uusien osapuolien pääsyn
+                aineistoon tarkasti hallittavalla tavalla. Näiden lisäksi teimme kaikenlaista muuta, kuten integraatioita, paransimme monitorointi- ja auditointimahdollisuuksia, jne.
             </p>
             <p>
-                Evident on ollut hankkeiden aikana ollut vastuussa kaikesta kooodaustyöstä, ja Gofore on osallistunut
+                Evident on ollut hankkeiden aikana vastuussa kaikesta suunnittelu- ja kooodaustyöstä, ja Gofore on osallistunut
                 käytettävyystutkimuksiin ja projektin hallintaan.
             </p>
             <p>Tutustu palveluun: <a href="https://digi.kansalliskirjasto.fi" target="_blank">digi.kansalliskirjasto.fi</a></p>
         </>,
         platforms: ["Web"],
-        techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch"]
+        techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch", "Oracle"]
     },
     {
         name: "Runteq",
