@@ -40,8 +40,6 @@ export default function Home() {
             </div>
 
             <Affiliates></Affiliates>
-
-            <Footer></Footer>
         </div>
     );
 }
@@ -96,16 +94,3 @@ function Affiliates() {
         </div>
     )
 }
-
-function Footer() {
-    const year = new Date().getFullYear();
-    
-    return (
-        <div class="text-white/70 pt-8 pb-8 bg-stone-800/80">
-            <div class="space-y-16 m-16 font-light max-w-screen-md mx-auto text-center">
-                &copy; Evident Solutions Oy {year}
-            </div>
-        </div>
-    )
-}
-
