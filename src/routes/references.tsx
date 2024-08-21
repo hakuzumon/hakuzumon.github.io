@@ -34,7 +34,7 @@ const references: FeaturedCustomer[] = [
             <p>Tutustu palveluun: <a href="https://suomi.fi" target="_blank">suomi.fi</a></p>
         </>,
         platforms: ["Web"],
-        techs: ["Kotlin", "Java", "React", "ElasticSearch", "Amazon AWS", "Kubernetes", "Terraform"]
+        techs: ["Kotlin", "Java", "React", "ElasticSearch", "Kubernetes", "Terraform"]
     },
     {
         name: "Finnpilot",
