@@ -26,11 +26,10 @@ const references: FeaturedCustomer[] = [
             <p>
                 Evident on ollut vuodesta 2018 asti merkittävässä roolissa kehittämässä ja ylläpitämässä eri
                 Suomi.fi-palveluja osana monitoimittajatiimiä. Olemme kehittäneet mm. Suomi.fi -verkkopalvelua ja
-                -valtuuksia, ylläpidon työkaluja sekä integraatioita muihin järjestelmiin. Suomi.fi-verkkopalvelua ja
-                sen taustajärjestelmiä on uudistettu läpikotaisin ja ajoympäristö on siirretty konesalista AWS-pilveen.
-                Uudistusten ansiosta järjestelmän ylläpidettävyys on helpottunut, jatkokehitys nopeutunut ja
-                bugiherkkyys vähentynyt. Lisäksi olemme tuoneet uusia toiminnallisuuksia käyttäjille ja parantaneet
-                suorityskykyä sekä hakukonelöydettävyyttä.
+                -valtuuksia, ylläpidon työkaluja sekä integraatioita muihin järjestelmiin. Osana palvelujen pilveistystä
+                olemme onnistuneet parantamaan palvelun ylläpidettävyyttä, vähentäneet bugiherkkyyttä sekä
+                mahdollistaneet uusien toiminnallisuuksien entistä nopeamman kehityksen. Lisäksi olemme tuoneet uusia
+                toiminnallisuuksia käyttäjille ja parantaneet suorityskykyä sekä hakukonelöydettävyyttä.
             </p>
             <p>Tutustu palveluun: <a href="https://suomi.fi" target="_blank">suomi.fi</a></p>
         </>,
