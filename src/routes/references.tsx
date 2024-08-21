@@ -76,36 +76,6 @@ const references: FeaturedCustomer[] = [
         techs: ["Java", "Spring", "Hibernate", "Angular", "Elasticsearch", "Oracle"]
     },
     {
-        name: "Runteq",
-        logo: <a href="http://www.runteq.com" target="_blank"><img style="width: 200px" src="img/references/runteq.png" alt="Runteq" /></a>,
-        brief: <p>
-            Runteq halusi rakentaa palvelun juoksuharrastajien tekniikan kehittämiseksi: Juoksijan kehoon
-            kiinnitettävien anturien avulla kerätään
-            tarkkaa tietoa juoksusta, jotka välitetään älypuhelimen kautta RunLab-nettipalveluun automaattista
-            analysointia varten.
-            RunLabissa juoksija ja hänen valmentajansa voivat tarkastella juoksun onnistumista monipuolisesti,
-            muunmuassa vammojen
-            vähentämiseksi ja juoksun taloudellisuuden parantamiseksi.
-        </p>,
-        extended: <>
-            <p>
-                Ryhdyimme kehittämään palvelua yhdessä Runteqin kanssa.
-                Idean jalostaminen houkuttelevaksi tuotteeksi vaati monimuotoista yhteistyötä. Kokeilimme mitkä
-                komponentit ja alustat soveltuisivat
-                juoksuaskelten havainnointiin ja analysointiin; teimme muunmuassa sulautettua koodia anturiin.
-                Komponenttien välinen yhteistoiminta,
-                etenkin langaton viestintä, oli saatava sujuvaksi. Ohjaamisen ja päätöksenteon lisäksi Runteq osallistui
-                osin
-                toteutukseen &mdash; erityisesti analyysialgoritmit ovat heidän kädenjälkeään. Yhteistyössämme
-                hyödynsimme kummankin yrityksen vahvuuksia
-                ja lopputuloksena saimme aikaiseksi toimivan, helppokäyttöisen palvelun.</p>
-
-            <p>Lue lisää tuotteesta: <a href="http://runteq.com/" target="_blank">Runteq.com</a></p>
-        </>,
-        platforms: ["Web + Mobile"],
-        techs: ["Android", "Java", "Octave", "GWT", "PostgreSQL", "HTML5"]
-    },
-    {
         name: "Virmed",
         logo: <a href="http://www.virmed.fi/" target="_blank">
             <img style="width: 200px" class="translate-x-1 -translate-y-1" src="img/references/virmed.jpg" alt="Virmed" />
