@@ -15,18 +15,14 @@ const references: FeaturedCustomer[] = [
         logo: <a href="http://www.suomi.fi/" target="_blank"><img width="115" height="100"
                                                                               src="img/references/suomifi.svg" alt="Suomi.fi" /></a>,
         brief: <p>
-            Suomi.fi-palvelut ovat osa Suomen kansallista palveluarkkitehtuuria. Suomi.fi-palvelut tarjoavat ratkaisuja
-            sähköiseen tunnistamiseen, toisen puolesta asiointiin sekä digitaaliseen viestintään niin julkiselle kuin
-            yksityisellekin sektorille. Kansalaisille kokonaisuus näkyy Suomi.fi-verkkopalveluna, joka kokoaa yhteen
-            osoitteeseen valtuuttamisen ja viranomaisviestimisen palvelut sekä kansalaiselle ja yritykselle suunnatut
-            oppaat ja palvelutiedot.
+            Suomi.fi-palvelut ovat osa Suomen kansallista palveluarkkitehtuuria. Suomi.fi-palvelut tarjoavat ratkaisuja sähköiseen tunnistamiseen, toisen puolesta asiointiin sekä digitaaliseen viestintään niin julkiselle kuin yksityisellekin sektorille. Kansalaisille kokonaisuus näkyy Suomi.fi-verkkopalveluna, joka kokoaa yhteen osoitteeseen valtuuttamisen ja viranomaisviestimisen palvelut sekä kansalaiselle ja yritykselle suunnatut oppaat ja palvelutiedot.
         </p>,
         extended: <>
             <p>
-                Evident on ollut vuodesta 2018 mukana eri Suomi.fi-palvelujen kehityksessä ja ylläpidossa osana
-                monitoimittajatiimiä (Suomi.fi-verkkopalvelu ja ylläpidon työkalut, Suomi.fi-valtuuksien
-                virkailijavaltuuttamispalvelu sekä Suomi.fi-palvelutietovarannon ja Omat tiedot-osion
-                rekisteri-integraatiot).
+                Suomi.fi-verkkopalvelulla on tarkat saavutettavuus- ja saatavuusvaatimukset, sillä sen on palveltava kaikkia suomalaisia ympäri vuorokauden. Tämä tarkoittaa mm. näkörajoitteisten huomioon ottamista toimivalla ruudunlukijatuella. Palvelun päivittämisen puolestaan on tapahduttava ilman käyttökatkoa.
+            </p>
+            <p>
+                Evident on ollut vuodesta 2018 asti merkittävässä roolissa kehittämässä ja ylläpitämässä eri Suomi.fi-palveluja osana monitoimittajatiimiä. Olemme kehittäneet mm. Suomi.fi -verkkopalvelua ja -valtuuksia, ylläpidon työkaluja sekä integraatioita muihin järjestelmiin. Suomi.fi-verkkopalvelua ja sen taustajärjestelmiä on uudistettu läpikotaisin ja ajoympäristö on siirretty konesalista AWS-pilveen. Uudistusten ansiosta järjestelmän ylläpidettävyys on helpottunut, jatkokehitys nopeutunut ja bugiherkkyys vähentynyt. Lisäksi olemme tuoneet uusia toiminnallisuuksia käyttäjille ja parantaneet suorityskykyä sekä hakukonelöydettävyyttä.
             </p>
         </>,
         platforms: ["Web"],
