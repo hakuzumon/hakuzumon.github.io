@@ -48,25 +48,26 @@ export default function Home() {
 interface OtherCustomer {
     name: string;
     url: string;
-    image?: string;
+    image: string;
+    cssClass?: string;
 }
 
 const otherCustomers: OtherCustomer[] = [
-    {name: "Elisa", url: "https://www.elisa.fi", image: "/img/affiliates/elisa.svg"},
-    {name: "Finnpilot", url: "https://www.finnpilot.fi", image: "/img/affiliates/finnpilot.png"},
-    {name: "Mylab", url: "https://www.mylab.fi/fi/", image: "/img/affiliates/mylab.svg"},
-    {name: "Digi- ja väestötietovirasto", url: "https://dvv.fi/", image: "/img/affiliates/dvv.png"},
-    {name: "Kansalliskirjasto", url: "https://www.kansalliskirjasto.fi/fi", image: "/img/affiliates/kansalliskirjasto.svg"},
-    {name: "Oikeusministeriö", url: "https://oikeusministerio.fi/fi/", image: "/img/affiliates/oikeusministerio.svg"},
-    {name: "Modulight", url: "https://modulight.com/", image: "/img/affiliates/modulight.png"},
-    {name: "Emtele", url: "https://www.emtele.com/", image: "/img/affiliates/emtele-automation.png"},
-    {name: "Cinia", url: "https://www.cinia.fi", image: "/img/affiliates/cinia.svg"},
-    {name: "SilverBucket", url: "https://www.silverbucket.com", image: "/img/affiliates/Silverbucket.svg"},
-    {name: "Thth Ry", url: "http://www.ththry.org", image: "/img/affiliates/thth_ry.svg"},
-    {name: "Atostek", url: "https://www.atostek.fi", image: "/img/affiliates/atostek.png"},
-    {name: "Solita", url: "https://www.solita.fi/", image: "/img/affiliates/solita.svg"},
-    {name: "Finitec", url: "http://www.finitec.fi", image: "/img/affiliates/finitec.svg"},
-    {name: "Gofore", url: "https://www.gofore.fi", image: "/img/affiliates/gofore.svg"},
+    {cssClass: "invert", name: "Elisa", url: "https://www.elisa.fi", image: "/img/affiliates/elisa.svg"},
+    {cssClass: "invert", name: "Finnpilot", url: "https://www.finnpilot.fi", image: "/img/affiliates/finnpilot.png"},
+    {cssClass: "invert", name: "Mylab", url: "https://www.mylab.fi/fi/", image: "/img/affiliates/mylab.svg"},
+    {cssClass: "invert", name: "Digi- ja väestötietovirasto", url: "https://dvv.fi/", image: "/img/affiliates/dvv.png"},
+    {cssClass: "invert", name: "Kansalliskirjasto", url: "https://www.kansalliskirjasto.fi/fi", image: "/img/affiliates/kansalliskirjasto.svg"},
+    {cssClass: "invert", name: "Oikeusministeriö", url: "https://oikeusministerio.fi/fi/", image: "/img/affiliates/oikeusministerio.svg"},
+    {cssClass: "brightness-200", name: "Modulight", url: "https://modulight.com/", image: "/img/affiliates/modulight.png"},
+    {cssClass: "invert", name: "Emtele", url: "https://www.emtele.com/", image: "/img/affiliates/emtele-automation.png"},
+    {cssClass: "invert", name: "Cinia", url: "https://www.cinia.fi", image: "/img/affiliates/cinia.svg"},
+    {cssClass: "invert", name: "SilverBucket", url: "https://www.silverbucket.com", image: "/img/affiliates/Silverbucket.svg"},
+    {cssClass: "", name: "Thth Ry", url: "http://www.ththry.org", image: "/img/affiliates/thth_ry.svg"},
+    {cssClass: "invert opacity-100", name: "Atostek", url: "https://www.atostek.fi", image: "/img/affiliates/atostek.png"},
+    {cssClass: "invert", name: "Solita", url: "https://www.solita.fi/", image: "/img/affiliates/solita.svg"},
+    {cssClass: "invert", name: "Finitec", url: "http://www.finitec.fi", image: "/img/affiliates/finitec.svg"},
+    {cssClass: "invert", name: "Gofore", url: "https://www.gofore.fi", image: "/img/affiliates/gofore.svg"},
 ];
 
 function Affiliates() {
@@ -81,7 +82,7 @@ function Affiliates() {
                             <a href={other.url} target="_blank">
                                 <Show when={!!other.image}>
                                     <img src={other.image} alt={other.name} 
-                                         class="grayscale invert opacity-75 min-w-32 w-52 max-w-full max-h-24"/>    
+                                         class={`min-w-32 w-52 max-w-full max-h-24 grayscale opacity-75 ${other.cssClass}`}/>    
                                 </Show>
                                 <Show when={!other.image}>
                                     {other.name}
