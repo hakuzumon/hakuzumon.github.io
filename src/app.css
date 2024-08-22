@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    color-scheme: only dark;
+}
+
 .blinker {
     font-family: "Blinker", sans-serif;
     font-weight: 400;
