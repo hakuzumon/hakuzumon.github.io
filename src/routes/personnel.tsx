@@ -54,7 +54,7 @@ const dudes: Dude[] = [
     {
         name: "Tero Poikonen",
         title: "Ohjelmistokehittäjä",
-        picture: "img/faces/2024/tero2.jpg",
+        picture: "img/faces/2024/tero1.jpg",
         description: "Olen tehnyt arkkitehtuurikonsultointia ja määrittelytyötä. Olen työskennellyt ohjelmistosuunnittelijana, projektipäällikkönä ja loppukäyttäjien koulutuksessa. Olen kirjoittanut käyttöohjeita ja teknistä dokumentaatiota."
     },
     {
