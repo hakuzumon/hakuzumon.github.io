@@ -1,6 +1,7 @@
 import {createResource, For, JSXElement} from "solid-js";
 import HoverableImage from "~/components/HoverableImage";
 import {shuffle} from "~/utils";
+import PageMetadata from "~/components/PageMetadata";
 
 interface Dude {
     name: string;
@@ -102,6 +103,7 @@ export default function Personnel() {
     
     return (
         <div class="bg1">
+            <PageMetadata />
             <div class="p-4 pb-16 md:p-16 font-light max-w-screen-lg mx-auto">
                 <div class="flex flex-col gap-8">
                     

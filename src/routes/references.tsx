@@ -1,4 +1,5 @@
 import {createSignal, For, JSXElement, Show} from "solid-js";
+import PageMetadata from "~/components/PageMetadata";
 
 interface FeaturedCustomer {
     name: string;
@@ -184,6 +185,7 @@ function DetailsPanel(props: DetailsProps) {
 export default function References() {
     return (
         <div class="bg1">
+            <PageMetadata />
             <div class="p-4 pb-16 md:p-16 font-light max-w-screen-lg mx-auto">
                 <div class="flex flex-col gap-8">
                     <For each={references}>{(customer) =>

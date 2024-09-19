@@ -1,6 +1,9 @@
+import PageMetadata from "~/components/PageMetadata";
+
 export default function Contact() {
     return (
         <div class="bg1">
+            <PageMetadata />
             <div class="p-4 pb-16 md:p-16">
                 <div class="grid md:grid-cols-2 gap-16 pb-16 font-light max-w-screen-md mx-auto">
                     <div>

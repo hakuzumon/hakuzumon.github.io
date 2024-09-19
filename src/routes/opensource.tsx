@@ -1,4 +1,5 @@
 import {For, JSXElement} from "solid-js";
+import PageMetadata from "~/components/PageMetadata";
 
 interface Project {
     name: string;
@@ -51,6 +52,7 @@ const projects: Project[] = [
 export default function OpenSource() {
     return (
         <div class="bg1">
+            <PageMetadata />
             <div class="p-4 pb-16 md:p-16 font-light max-w-screen-lg mx-auto">
                 <div class="flex flex-col gap-8">
                     <For each={projects}>{(project) =>

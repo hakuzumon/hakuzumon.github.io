@@ -1,5 +1,6 @@
 import TypeAnimation from "~/components/TypeAnimation";
 import {createSignal, For, Show} from "solid-js";
+import PageMetadata from "~/components/PageMetadata";
 
 export default function Home() {
     const [a1, setA1] = createSignal(false);
@@ -10,9 +11,10 @@ export default function Home() {
     setTimeout(() => {
         setA1(true);
     }, 400);
-    
+
     return (
         <div class="bg1">
+            <PageMetadata />
             <div class="p-4 pt-8 md:p-8 md:pt-16 font-light text-white/85 max-w-screen-md mx-auto">
                 <div class="text-7xl">
                     <TypeAnimation start={a1} completed={() => setA2(true)} text={"evident."}
