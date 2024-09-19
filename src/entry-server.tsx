@@ -10,7 +10,7 @@ export default createHandler(() => (
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <meta name="description" content="Olemme softatalo. Teemme web-, työpöytä- ja mobiilisovelluksia."/>
                 <meta property="og:description" content="Olemme softatalo. Teemme web-, työpöytä- ja mobiilisovelluksia."/>
-                <meta property="og:image" content="/img/fb-preview.png"/>
+                <meta property="og:image" content="https://evident.fi/img/fb-preview.png"/>
                 <title>evident.</title>
                 <link rel="icon" href="/favicon.ico"/>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
